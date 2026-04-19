@@ -109,7 +109,7 @@ function wireTabs() {
       document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       state.sort = tab.dataset.sort;
-      const hint = { stars: '★ 스타순', new: '⏱ 최근 업데이트순', date: '📅 날짜순', name: 'A-Z' };
+      const hint = { stars: '★ 스타순', new: '⏱ 최근 업데이트순', name: 'A-Z' };
       document.getElementById('sortHint').textContent = hint[state.sort] || '';
       renderAll();
     });
@@ -132,7 +132,6 @@ function filtered() {
   const sorter = {
     stars: (a,b) => (b.stars||0) - (a.stars||0),
     new:   (a,b) => new Date(b.added_at||0) - new Date(a.added_at||0),
-    date:  (a,b) => new Date(b.added_at||0) - new Date(a.added_at||0),
     name:  (a,b) => a.name.localeCompare(b.name, 'ko')
   }[state.sort] || ((a,b) => (b.stars||0) - (a.stars||0));
   items.sort(sorter);
@@ -174,7 +173,6 @@ function renderFeatured(s) {
         <div class="author">
           <span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}
           ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
-          ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
         <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,5).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
@@ -202,11 +200,9 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge}</h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-inline"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
         <div class="meta-row">
-          <span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}
-          ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
-          ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
+          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
         <p class="desc">${escapeHtml(s.desc || '')}</p>
         <div class="tags">${tags}</div>

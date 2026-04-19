@@ -16,10 +16,10 @@
     },
     {
       "id": "automation",
-      "name": "외부 연동 · 자동화",
+      "name": "외부 연동 · MCP",
       "emoji": "🤖",
-      "en": "External Integration",
-      "desc": "브라우저, 메신저, 이슈 트래커처럼 외부 시스템과 Claude를 이어서 업무를 자동으로 돌리는 스킬이에요."
+      "en": "External Integration & MCP",
+      "desc": "브라우저·메신저·이슈 트래커 같은 외부 시스템 자동화부터 MCP 서버·컨텍스트 연결까지, Claude가 바깥 세계와 닿게 해주는 스킬이에요."
     },
     {
       "id": "design",
@@ -30,10 +30,17 @@
     },
     {
       "id": "business",
-      "name": "비즈니스 · 리더십",
+      "name": "비즈니스 · 마케팅",
       "emoji": "💼",
-      "en": "Business · Leadership",
-      "desc": "마케팅, 세일즈, 경영, 법무까지 실무에서 바로 써먹는 비즈니스 의사결정을 돕는 스킬들이에요."
+      "en": "Business · Marketing",
+      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
+    },
+    {
+      "id": "geo",
+      "name": "GEO · AEO",
+      "emoji": "🔎",
+      "en": "GEO · AEO (AI Search)",
+      "desc": "ChatGPT·Perplexity·Claude 같은 생성형 AI 검색에서 내 브랜드·콘텐츠가 인용되도록 최적화하는 GEO(Generative Engine Optimization)·AEO(Answer Engine Optimization) 스킬이에요."
     },
     {
       "id": "finance",
@@ -48,13 +55,6 @@
       "emoji": "📊",
       "en": "Research · Insights",
       "desc": "논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."
-    },
-    {
-      "id": "mcp",
-      "name": "MCP · 컨텍스트",
-      "emoji": "🔌",
-      "en": "MCP · Context",
-      "desc": "MCP 서버를 만들거나 외부 컨텍스트를 연결해 Claude가 쓸 수 있는 도구 범위를 넓혀주는 스킬들이에요."
     },
     {
       "id": "korea",
@@ -77,7 +77,7 @@
       "name": "Superpowers",
       "repo": "obra/superpowers",
       "author": "Jesse Vincent",
-      "stars": 159504,
+      "stars": 159587,
       "desc": "이 스킬은 brainstorm → plan → implement → test 흐름을 하나로 묶어주는 올인원 워크플로우 플러그인이다. 브레인스토밍과 TDD, 코드 리뷰가 끊김 없이 이어지기 때문에 새 프로젝트를 시작할 때 가장 먼저 설치해두면 좋다.",
       "tags": [
         "#workflow-engine",
@@ -85,105 +85,105 @@
         "#brainstorming"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-09"
     },
     {
       "category": "workflow",
       "name": "Claude Mem",
       "repo": "thedotmack/claude-mem",
       "author": "thedotmack",
-      "stars": 62950,
+      "stars": 63010,
       "desc": "이 스킬은 지난 대화를 자동으로 요약·압축해 다음 세션에 다시 주입해주는 장기 메모리 플러그인이다. 세션이 바뀌어도 프로젝트 맥락이 그대로 유지되기 때문에 수 주짜리 긴 작업도 이어서 진행할 수 있다.",
       "tags": [
         "#memory",
         "#continuity"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-08-31"
     },
     {
       "category": "workflow",
       "name": "Planning with Files",
       "repo": "OthmanAdi/planning-with-files",
       "author": "OthmanAdi",
-      "stars": 19035,
+      "stars": 19041,
       "desc": "이 스킬은 태스크를 마크다운 파일 트리로 쪼개서 관리하는 프로젝트 플래닝 도구다. 각 파일이 하나의 진행 단계를 나타내기 때문에 Claude가 다음에 할 일을 스스로 파악하고, GitHub Actions와 엮으면 파일 변경만으로 배포까지 이어진다.",
       "tags": [
         "#project-management",
         "#markdown"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-03"
     },
     {
       "category": "workflow",
       "name": "Claude Skills 220+",
       "repo": "alirezarezvani/claude-skills",
       "author": "alirezarezvani",
-      "stars": 11877,
+      "stars": 11891,
       "desc": "이 컬렉션은 엔지니어링, 법무, 재무, HR, 마케팅 등 220개가 넘는 CLAUDE.md 스킬을 도메인별 폴더로 정리해놓았다. 필요한 스킬만 골라 복사하면 되기 때문에 스킬을 처음 도입하는 팀이 전체 가능성을 한눈에 훑어보기 좋다.",
       "tags": [
         "#skills-collection",
         "#multi-domain"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-19"
     },
     {
       "category": "workflow",
       "name": "Andrej Karpathy Skills",
       "repo": "forrestchang/andrej-karpathy-skills",
       "author": "forrestchang",
-      "stars": 60011,
+      "stars": 60255,
       "desc": "이 파일은 Karpathy가 정리한 LLM 코딩 함정(off-by-one, 상태 누락, 타입 혼용 등)을 체크리스트로 묶어둔 CLAUDE.md다. 프로젝트 루트에 하나만 올려두어도 반복 실수가 눈에 띄게 줄어들고, 수학 연산이나 배열 인덱스가 많은 코드에서 특히 효과가 크다.",
       "tags": [
         "#claude-md",
         "#best-practice"
       ],
       "lang": "Markdown",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-27"
     },
     {
       "category": "research",
       "name": "ARIS",
       "repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
       "author": "wanshuiyin",
-      "stars": 7015,
+      "stars": 7020,
       "desc": "이 스킬은 사용자가 자는 동안 Claude가 자율적으로 ML 논문을 검색·요약·분석해주는 리서치 자동화 도구다. 아침에 일어나면 지정해둔 주제의 최신 논문 리포트가 완성돼 있어서 매주 AI 트렌드를 모니터링하기에 적합하다.",
       "tags": [
         "#autonomous",
         "#research"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-10"
     },
     {
       "category": "research",
       "name": "Autoresearch",
       "repo": "uditgoenka/autoresearch",
       "author": "uditgoenka",
-      "stars": 3845,
+      "stars": 3846,
       "desc": "이 스킬은 리서치 → 가설 → 검증 → 피드백 루프를 Claude가 스스로 반복하는 자율 연구 도구다. 사용자는 목표만 던져주면 되기 때문에 단순 검색을 넘어 '왜'를 파고드는 딥 다이브 분석에 쓰기 좋다.",
       "tags": [
         "#autonomous",
         "#self-improvement"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-13"
     },
     {
       "category": "workflow",
       "name": "Pro-Workflow",
       "repo": "rohitg00/pro-workflow",
       "author": "rohitg00",
-      "stars": 1945,
+      "stars": 1947,
       "desc": "이 스킬은 틀린 부분만 골라 다시 학습하는 교정 기반 메모리 시스템이다. 세션이 쌓일수록 Claude가 프로젝트 맥락과 패턴을 더 잘 이해하게 되기 때문에, 긴 프로젝트에서 같은 설명을 반복할 필요가 없어진다.",
       "tags": [
         "#memory",
         "#context"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-01"
     },
     {
       "category": "harness",
@@ -197,98 +197,98 @@
         "#agents"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-01"
     },
     {
       "category": "harness",
       "name": "Agentsys",
       "repo": "agent-sh/agentsys",
       "author": "agent-sh",
-      "stars": 743,
+      "stars": 744,
       "desc": "이 패키지는 플러그인 19개와 에이전트 프리셋 47개를 하나로 묶어둔 자동화 번들이다. 코드 작성 이후의 테스트, 배포, 모니터링, 알림까지 에이전트 팀이 이어받아 처리하기 때문에 혼자 다루기 벅찬 엔지니어링 파이프라인을 맡기기 좋다.",
       "tags": [
         "#agents",
         "#automation"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-15"
     },
     {
       "category": "token",
       "name": "Caveman",
       "repo": "JuliusBrussee/caveman",
       "author": "Julius Brussee",
-      "stars": 38434,
+      "stars": 38523,
       "desc": "이 스킬은 CLAUDE.md에 '원시인처럼 짧게 답하라'는 규칙 한 줄을 얹는 가장 단순한 토큰 절약 도구다. 출력 길이가 65~75% 정도 줄어들어 API 비용이 바로 떨어지고, 지금 당장 비용을 아껴야 할 때 5초면 적용할 수 있다.",
       "tags": [
         "#token-saving",
         "#output"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-04-04"
     },
     {
       "category": "token",
       "name": "RTK (Rust Token Killer)",
       "repo": "rtk-ai/rtk",
       "author": "rtk-ai",
-      "stars": 29683,
+      "stars": 29737,
       "desc": "이 도구는 터미널 출력을 Claude에 보내기 전에 걸러내고 압축하는 Rust CLI 프록시다. 로그 같은 노이즈가 제거돼 의미 있는 정보만 전달되기 때문에 토큰 사용량이 60~90% 줄고, DevOps나 서버 관리 환경에서 무료 사용량을 크게 늘릴 수 있다.",
       "tags": [
         "#cli-proxy",
         "#terminal"
       ],
       "lang": "Rust",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-22"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "Context Mode",
       "repo": "mksglu/context-mode",
       "author": "mksglu",
-      "stars": 7779,
+      "stars": 7793,
       "desc": "이 MCP는 Playwright나 GitHub API, 로그 출력을 Claude에 그대로 붓지 않고 SQLite 샌드박스에 격리해 저장한다. Claude가 SQL 쿼리로 필요한 부분만 읽어가기 때문에 컨텍스트가 98%까지 압축되고, 대용량 자동화 출력을 다루는 CI/CD 파이프라인에 잘 어울린다.",
       "tags": [
         "#mcp",
         "#sandbox"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-23"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "code-review-graph",
       "repo": "tirth8205/code-review-graph",
       "author": "tirth8205",
-      "stars": 11265,
+      "stars": 11299,
       "desc": "이 MCP는 Tree-sitter로 코드베이스를 분석해 함수·클래스 간 의존성 그래프를 만들어준다. '이 함수를 호출하는 모든 곳'을 쿼리 한 번으로 가져올 수 있어서 대형 모노레포에서도 관련 심볼만 읽어가며 정확하게 코드 리뷰를 돌릴 수 있다.",
       "tags": [
         "#mcp",
         "#knowledge-graph"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-26"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "Token Savior",
       "repo": "Mibayy/token-savior",
       "author": "Mibayy",
-      "stars": 413,
+      "stars": 418,
       "desc": "이 MCP는 파일 전체를 컨텍스트에 올리는 대신 함수·클래스 단위 심볼로 탐색하게 해준다. 컨텍스트를 97%까지 줄여주면서 세션 간 탐색 히스토리도 기억하기 때문에, 수십만 줄 규모의 레거시 코드를 분석할 때 사실상 필수 도구가 된다.",
       "tags": [
         "#mcp",
         "#symbol-navigation"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-30"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "claude-context",
       "repo": "zilliztech/claude-context",
       "author": "Zilliz",
-      "stars": 5996,
+      "stars": 6000,
       "desc": "이 MCP는 BM25 키워드와 벡터 임베딩을 섞은 하이브리드 검색으로 전체 코드베이스를 인덱싱한다. '이 기능과 관련된 파일'을 자동으로 찾아 올려주어 불필요한 파일 로딩이 사라지고, Milvus를 만든 Zilliz의 공식 오픈소스라 검색 품질도 안정적이다.",
       "tags": [
         "#mcp",
@@ -296,96 +296,96 @@
         "#bm25"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-06-06"
     },
     {
       "category": "token",
       "name": "token-optimizer-mcp",
       "repo": "ooples/token-optimizer-mcp",
       "author": "ooples",
-      "stars": 95,
+      "stars": 104,
       "desc": "이 MCP는 캐싱, 응답 압축, 불필요한 도구 호출 제거를 조합해 토큰을 95% 넘게 아껴준다. 같은 쿼리는 캐시에서 바로 돌려주기 때문에 속도와 비용이 함께 좋아지고, 반복 작업이 많은 자동화 환경에서 사용량 폭발을 막아준다.",
       "tags": [
         "#mcp",
         "#caching"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-11"
     },
     {
       "category": "token",
       "name": "claude-token-efficient",
       "repo": "drona23/claude-token-efficient",
       "author": "drona23",
-      "stars": 4446,
+      "stars": 4454,
       "desc": "이 파일은 Claude가 불필요한 서론과 반복을 줄이고 간결하게 답하도록 유도하는 CLAUDE.md 드롭인 설정이다. 프로젝트 루트에 파일 하나만 복사하면 끝이기 때문에 별도 설정 없이 즉시 적용할 수 있는 가장 가벼운 토큰 절약 방법이다.",
       "tags": [
         "#claude-md",
         "#drop-in"
       ],
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-30"
     },
     {
       "category": "token",
       "name": "claude-token-optimizer",
       "repo": "nadimtuhin/claude-token-optimizer",
       "author": "nadimtuhin",
-      "stars": 69,
+      "stars": 75,
       "desc": "이 템플릿은 어떤 프로젝트에도 5분이면 붙일 수 있는 토큰 절약 프롬프트 셋업이다. 문서, 코드, 대화 상황별로 최적화된 설정이 준비돼 있어서 골라 쓰기만 해도 약 30%의 절감 효과를 얻고, 이후 별도 조정 없이도 안정적으로 돌아간다.",
       "tags": [
         "#setup",
         "#prompts"
       ],
-      "added_at": "2026-04-19"
+      "added_at": "2025-11-10"
     },
     {
       "category": "token",
       "name": "token-optimizer",
       "repo": "alexgreensh/token-optimizer",
       "author": "alexgreensh",
-      "stars": 411,
+      "stars": 418,
       "desc": "이 스킬은 컨텍스트에서 쓸모없이 자리만 차지하는 '고스트 토큰'(주석, 빈 줄, 반복 경고문 등)을 찾아 제거한다. 코드 품질은 그대로 두면서 컨텍스트 활용도를 높여주기 때문에, 대형 코드베이스에서 토큰 한계에 자주 걸리는 경우에 유용하다.",
       "tags": [
         "#analysis",
         "#ghost-tokens"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-26"
     },
     {
       "category": "business",
       "name": "GStack",
       "repo": "garrytan/gstack",
       "author": "Garry Tan",
-      "stars": 77067,
+      "stars": 77114,
       "desc": "이 컬렉션은 YC CEO 개리 탄이 직접 고르고 쓰는 스타트업 경영 도구 23개를 묶어놓았다. PMF 검증, OKR 설정, 팀 피드백, 제품 스펙 같은 CEO 일상 업무가 단계별 스킬로 자동화돼 있어서 투자사 미팅 준비나 분기 목표 수립에 바로 쓸 수 있다.",
       "tags": [
         "#strategy",
         "#executive"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-11"
     },
     {
       "category": "business",
       "name": "Career Ops",
       "repo": "santifer/career-ops",
       "author": "santifer",
-      "stars": 36288,
+      "stars": 36317,
       "desc": "이 스킬은 이력서, 자기소개서, 면접 준비, 지원 현황 추적까지 14가지 커리어 모드를 한 곳에서 돌려준다. 지원하는 직군이나 회사에 맞춰 서류를 자동으로 커스터마이징해주기 때문에 이직을 준비하는 직장인이 서류 전형 통과율을 끌어올리기에 좋다.",
       "tags": [
         "#career",
         "#hr"
       ],
       "lang": "JavaScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-04-04"
     },
     {
       "category": "business",
       "name": "Marketing Skills",
       "repo": "coreyhaines31/marketingskills",
       "author": "coreyhaines31",
-      "stars": 22022,
+      "stars": 22033,
       "desc": "이 스킬셋은 CRO, 카피라이팅, SEO, 데이터 분석을 하나의 파이프라인으로 이어준다. 랜딩 페이지 A/B 테스트 설계부터 이메일 캠페인 문구까지 한 번에 처리되기 때문에, 에이전시 없이 스타트업이 직접 그로스 실험을 돌릴 수 있다.",
       "tags": [
         "#marketing",
@@ -393,34 +393,34 @@
         "#seo"
       ],
       "lang": "JavaScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-15"
     },
     {
       "category": "business",
       "name": "Minimalist Entrepreneur",
       "repo": "slavingia/skills",
       "author": "Sahil Lavingia",
-      "stars": 8028,
+      "stars": 8029,
       "desc": "이 스킬 모음은 Gumroad CEO Sahil Lavingia의 린 스타트업 방법론을 옮겨놓은 것이다. 아이디어 검증부터 MVP 출시, 첫 유료 고객 확보까지 의사결정 플로우를 안내해주어, 제품 개발보다 고객 발견이 먼저라는 원칙을 자연스럽게 따라가게 해준다.",
       "tags": [
         "#startup",
         "#lean"
       ],
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-23"
     },
     {
-      "category": "business",
+      "category": "geo",
       "name": "GEO SEO Claude",
       "repo": "zubair-trabzada/geo-seo-claude",
       "author": "zubair-trabzada",
-      "stars": 6420,
+      "stars": 6425,
       "desc": "이 스킬은 AI 검색 크롤러가 콘텐츠와 브랜드 권위도를 어떻게 평가하는지 분석해 생성형 검색(GEO) 전략을 짜준다. ChatGPT나 Perplexity에서 내 브랜드가 더 자주 언급되도록 구체적인 콘텐츠 전략을 제시해주기 때문에, 전통 SEO만으로는 채우지 못하는 AI 검색 노출 문제를 보완할 수 있다.",
       "tags": [
         "#seo",
         "#geo"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-18"
     },
     {
       "category": "business",
@@ -434,21 +434,21 @@
         "#campaigns"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-02"
     },
     {
-      "category": "business",
+      "category": "geo",
       "name": "SEO & GEO Skills",
       "repo": "aaron-he-zhu/seo-geo-claude-skills",
       "author": "aaron-he-zhu",
-      "stars": 1072,
+      "stars": 1074,
       "desc": "이 스킬셋은 AI 에이전트 35명이 협업해 SEO·GEO 스킬 20개를 돌리는 구성이다. 키워드 클러스터링, 콘텐츠 갭 분석, 내부 링크 최적화가 병렬로 처리되기 때문에 전략 수립부터 콘텐츠 작성까지 하나의 완전 자동화 루프로 이어진다.",
       "tags": [
         "#seo",
         "#geo"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
+      "added_at": "2025-12-18"
     },
     {
       "category": "business",
@@ -462,7 +462,7 @@
         "#compliance"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-26"
     },
     {
       "category": "business",
@@ -476,7 +476,7 @@
         "#content"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-11"
     },
     {
       "category": "business",
@@ -490,63 +490,63 @@
         "#multi-channel"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-26"
     },
     {
       "category": "research",
       "name": "Last 30 Days",
       "repo": "mvanhorn/last30days-skill",
       "author": "Matt Van Horn",
-      "stars": 22680,
+      "stars": 22690,
       "desc": "이 스킬은 Reddit, X, YouTube, Hacker News의 최근 30일 콘텐츠를 자동으로 모아 주간 트렌드 리포트를 만들어준다. 플랫폼별 화제 키워드, 떠오르는 기술, 감정 분석까지 구조화된 보고서로 돌려주기 때문에 매주 업계 동향을 직접 뒤지던 시간을 명령 한 번으로 대체한다.",
       "tags": [
         "#trends",
         "#social"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-23"
     },
     {
       "category": "research",
       "name": "Claude Scientific Skills",
       "repo": "K-Dense-AI/claude-scientific-skills",
       "author": "K-Dense-AI",
-      "stars": 18857,
+      "stars": 18862,
       "desc": "이 에이전트 팀은 논문 리뷰, 데이터 시각화, 통계 분석, 재무 모델링까지 과학 연구에 필요한 작업을 분담해서 수행한다. PubMed와 arXiv에서 논문을 자동으로 가져와 요약·비교·인용 정리까지 마쳐주기 때문에 R&D 팀이나 논문 저자가 조사 시간을 80% 이상 줄일 수 있다.",
       "tags": [
         "#research",
         "#science"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-19"
     },
     {
       "category": "research",
       "name": "Graphify",
       "repo": "safishamsi/graphify",
       "author": "safishamsi",
-      "stars": 30322,
+      "stars": 30378,
       "desc": "이 스킬은 폴더 안의 코드, 문서, 논문을 분석해 '무엇이 무엇을 참조하는지'를 지식 그래프로 그려준다. 그래프에 '이 모듈이 의존하는 파일 전부 보여줘' 같은 자연어 질문을 던질 수 있기 때문에, 새로 합류한 팀원의 온보딩이나 아키텍처 리뷰에 쓰기 좋다.",
       "tags": [
         "#knowledge-graph",
         "#docs"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-04-03"
     },
     {
       "category": "research",
       "name": "NotebookLM Py",
       "repo": "teng-lin/notebooklm-py",
       "author": "teng-lin",
-      "stars": 11142,
+      "stars": 11146,
       "desc": "이 라이브러리는 Google NotebookLM을 파이썬에서 쓸 수 있도록 감싼 API 래퍼다. 문서를 노트북에 올리고 질문하면 출처가 명확한 답이 돌아오기 때문에, Claude Code 스크립트에서 NotebookLM 분석을 자동화해 보고서 파이프라인을 만들 수 있다.",
       "tags": [
         "#notebooklm",
         "#api"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-07"
     },
     {
       "category": "research",
@@ -560,7 +560,7 @@
         "#qa"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-19"
     },
     {
       "category": "research",
@@ -574,7 +574,7 @@
         "#social-research"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-08"
     },
     {
       "category": "research",
@@ -588,21 +588,21 @@
         "#verification"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-11-04"
     },
     {
       "category": "research",
       "name": "Deep Research Skills",
       "repo": "Weizhena/Deep-Research-skills",
       "author": "Weizhena",
-      "stars": 468,
+      "stars": 470,
       "desc": "이 스킬은 AI가 1차 조사를 하면 사람이 피드백을 주고, 그 피드백을 바탕으로 AI가 다시 심화 조사를 이어가는 협력형 리서치 도구다. 완전 자동화보다 품질이 높고 수작업보다 훨씬 빠르기 때문에 전문적 판단이 필요한 의사결정 리서치에 적합하다.",
       "tags": [
         "#deep-research",
         "#human-in-loop"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-12-29"
     },
     {
       "category": "research",
@@ -616,7 +616,7 @@
         "#paper"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-04"
     },
     {
       "category": "research",
@@ -630,48 +630,48 @@
         "#report"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2025-12-25"
     },
     {
       "category": "research",
       "name": "Ars Contexta",
       "repo": "agenticnotetaking/arscontexta",
       "author": "agenticnotetaking",
-      "stars": 3165,
+      "stars": 3167,
       "desc": "이 스킬은 대화 속 핵심 인사이트를 자동으로 뽑아 마크다운 기반 Second Brain을 쌓아주는 지식 관리 도구다. 태그, 카테고리, 링크가 자동으로 붙어 노트가 쌓일수록 검색 가능한 지식 DB가 되고, Obsidian이나 Notion과 연동하면 기존 노트 시스템에 AI 자동화를 더할 수 있다.",
       "tags": [
         "#second-brain",
         "#knowledge"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-15"
     },
     {
       "category": "finance",
       "name": "QuantAgent",
       "repo": "Y-Research-SBU/QuantAgent",
       "author": "Y-Research-SBU",
-      "stars": 2370,
+      "stars": 2371,
       "desc": "이 스킬은 '최근 52주 신고가에 RSI 30 이하 종목 롱' 같은 전략을 자연어로 입력하면 자동으로 백테스트와 포트폴리오 최적화를 돌려준다. 코드를 직접 쓰지 않아도 퀀트 전략을 실험할 수 있기 때문에, 전문 퀀트가 아닌 투자자도 데이터 기반 의사결정을 내릴 수 있다.",
       "tags": [
         "#quant",
         "#backtesting"
       ],
-      "added_at": "2026-04-19"
+      "added_at": "2025-07-10"
     },
     {
       "category": "finance",
       "name": "LangAlpha",
       "repo": "ginlix-ai/LangAlpha",
       "author": "ginlix-ai",
-      "stars": 849,
+      "stars": 852,
       "desc": "이 플랫폼은 주식, ETF, 채권의 재무제표 분석과 포트폴리오 최적화, 자동 거래까지 한곳에서 제공하는 AI 금융 도구다. '저평가 배당주 5개 추천해줘'라고 말하면 근거와 함께 결과가 돌아오고, API 연결로 실제 거래까지 자동화할 수 있어서 알고리즘 투자를 처음 해보는 개인에게 잘 맞는다.",
       "tags": [
         "#investment",
         "#trading"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-18"
     },
     {
       "category": "finance",
@@ -685,7 +685,7 @@
         "#multi-agent"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-02"
     },
     {
       "category": "finance",
@@ -699,7 +699,7 @@
         "#crypto"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-14"
     },
     {
       "category": "finance",
@@ -713,7 +713,7 @@
         "#trading"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-15"
     },
     {
       "category": "finance",
@@ -726,7 +726,7 @@
         "#stocks",
         "#korea"
       ],
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-12"
     },
     {
       "category": "automation",
@@ -740,7 +740,7 @@
         "#parallel"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
+      "added_at": "2025-08-18"
     },
     {
       "category": "automation",
@@ -754,21 +754,21 @@
         "#chatbot"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2024-02-19"
     },
     {
       "category": "automation",
       "name": "Lark CLI",
       "repo": "larksuite/cli",
       "author": "Larksuite",
-      "stars": 8214,
+      "stars": 8221,
       "desc": "이 CLI는 라크(Feishu)의 공식 커맨드라인 도구로, 메신저·문서·달력·화상미팅·승인·할 일을 19개 AI 스킬로 자동화해준다. 한국 기업에서 많이 쓰는 라크 환경과 Claude Code를 가장 자연스럽게 엮어주기 때문에, '내일 오전 10시 팀 회의 잡고 아젠다 공유해줘' 같은 문장이 바로 실행된다.",
       "tags": [
         "#lark",
         "#feishu"
       ],
       "lang": "Go",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-25"
     },
     {
       "category": "automation",
@@ -782,7 +782,7 @@
         "#e2e"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-12-02"
     },
     {
       "category": "automation",
@@ -796,7 +796,7 @@
         "#testing"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-19"
     },
     {
       "category": "automation",
@@ -810,7 +810,7 @@
         "#agent-sdk"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2026-01-08"
     },
     {
       "category": "automation",
@@ -824,7 +824,7 @@
         "#jira"
       ],
       "lang": "TypeScript",
-      "added_at": "2026-04-19"
+      "added_at": "2025-10-25"
     },
     {
       "category": "automation",
@@ -838,14 +838,14 @@
         "#ux"
       ],
       "lang": "Python",
-      "added_at": "2026-04-19"
+      "added_at": "2026-02-26"
     },
     {
       "category": "harness",
       "name": "Harness",
       "repo": "revfactory/harness",
       "author": "revfactory",
-      "stars": 2644,
+      "stars": 2648,
       "desc": "이 스킬은 도메인별 에이전트 팀을 설계하게 해주는 메타 도구다. HR, 세일즈, 엔지니어링 같은 역할을 정의하면 역할에 맞는 에이전트와 스킬이 자동으로 만들어지기 때문에, 단순히 스킬을 쓰는 단계를 넘어 자신만의 AI 팀을 짜고 싶을 때 좋은 출발점이 된다.",
       "tags": [
         "#agent-design",
@@ -853,7 +853,7 @@
       ],
       "lang": "HTML",
       "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-26"
     },
     {
       "category": "harness",
@@ -868,14 +868,14 @@
       ],
       "lang": "Markdown",
       "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-22"
     },
     {
       "category": "design",
       "name": "Awesome Design MD",
       "repo": "VoltAgent/awesome-design-md",
       "author": "VoltAgent",
-      "stars": 60059,
+      "stars": 60121,
       "desc": "이 컬렉션은 에어비앤비, 네이버, 토스, Vercel 등 유명 서비스의 공개 디자인 시스템을 DESIGN.md 파일로 정리해놓았다. Claude Code가 이 파일을 읽고 해당 디자인 언어에 맞는 컴포넌트를 만들어주기 때문에, '토스처럼 만들어줘'라고 하면 토스 스타일의 버튼, 카드, 폼이 바로 나온다.",
       "tags": [
         "#design-system",
@@ -883,7 +883,7 @@
         "#naver"
       ],
       "lang": "HTML",
-      "added_at": "2026-04-19"
+      "added_at": "2026-03-31"
     },
     {
       "category": "design",
@@ -1124,7 +1124,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "MCP Servers (공식)",
       "repo": "modelcontextprotocol/servers",
       "author": "Anthropic",
@@ -1154,7 +1154,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "Awesome MCP Servers",
       "repo": "wong2/awesome-mcp-servers",
       "author": "wong2",
@@ -1183,6 +1183,154 @@
       "lang": "Markdown",
       "facebook": "https://www.facebook.com/rev.minho",
       "added_at": "2026-04-19"
+    },
+    {
+      "category": "geo",
+      "name": "GTM Engineer Skills",
+      "repo": "onvoyage-ai/gtm-engineer-skills",
+      "author": "onvoyage-ai",
+      "stars": 849,
+      "lang": "HTML",
+      "added_at": "2026-04-20",
+      "desc": "이 Claude Code 스킬은 웹사이트의 AEO·GEO 점수를 끌어올려 ChatGPT·Perplexity 같은 AI 검색에서 인용될 가능성을 높여준다. 콘텐츠 구조, 스키마, 인용 가능성을 한 번에 진단·개선해주기 때문에, GTM 엔지니어가 SEO 대행사 없이 AI 검색 가시성을 직접 관리할 때 잘 맞는다.",
+      "tags": [
+        "#aeo",
+        "#geo",
+        "#gtm"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "Awesome GEO",
+      "repo": "amplifying-ai/awesome-generative-engine-optimization",
+      "author": "amplifying-ai",
+      "stars": 308,
+      "added_at": "2026-04-20",
+      "desc": "이 저장소는 GEO 가이드, 도구, 연구 논문, 케이스 스터디를 한곳에 모아둔 큐레이션 리스트다. 생성형 검색 최적화의 전체 판을 한눈에 훑어볼 수 있기 때문에, GEO 전략을 처음 설계하는 팀이 참고 자료를 빠르게 정리할 때 유용하다.",
+      "tags": [
+        "#awesome",
+        "#curated",
+        "#research"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "geo-optimizer",
+      "repo": "geo-team-red/geo-optimizer",
+      "author": "geo-team-red",
+      "stars": 173,
+      "lang": "Go",
+      "added_at": "2026-04-20",
+      "desc": "이 프레임워크는 GEO 전략을 Go 라이브러리 형태로 제공하는 플러그형 툴킷이다. 자주 쓰이는 최적화 전략이 내장돼 있고 테스트 커버리지가 잘 갖춰져 있어서, 자체 서비스에 AI 검색 최적화 로직을 코드로 붙이려는 엔지니어링 팀에 적합하다.",
+      "tags": [
+        "#framework",
+        "#go",
+        "#geo"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "AutoGEO",
+      "repo": "cxcscmu/AutoGEO",
+      "author": "CMU",
+      "stars": 123,
+      "lang": "Python",
+      "added_at": "2026-04-20",
+      "desc": "이 프로젝트는 생성형 엔진의 선호도를 자동으로 학습해 콘텐츠를 최적화하는 ICLR'26 논문 공식 구현체다. 사람이 일일이 규칙을 만들지 않아도 엔진별 인용 패턴을 학습해 반영해주기 때문에, GEO를 연구·실험하는 팀이 최신 학계 접근을 실전에 적용할 때 참고할 만하다.",
+      "tags": [
+        "#research",
+        "#auto",
+        "#iclr"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "eGEOagents",
+      "repo": "mverab/eGEOagents",
+      "author": "mverab",
+      "stars": 98,
+      "lang": "Python",
+      "added_at": "2026-04-20",
+      "desc": "이 스킬 모음은 ChatGPT, Perplexity, Claude, Gemini 등 주요 생성형 검색엔진 각각에 맞춰 콘텐츠를 최적화해주는 GEO 에이전트 세트다. 엔진별 크롤링·인용 특성이 다르기 때문에, 여러 AI 검색을 동시에 타겟팅하고 싶을 때 채널별 최적화를 한 번에 돌릴 수 있다.",
+      "tags": [
+        "#agents",
+        "#multi-engine",
+        "#geo"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "geo-optimizer-skill",
+      "repo": "Auriti-Labs/geo-optimizer-skill",
+      "author": "Auriti Labs",
+      "stars": 86,
+      "lang": "Python",
+      "added_at": "2026-04-20",
+      "desc": "이 스킬은 웹사이트를 감사해 AI 검색엔진이 잘 찾고 인용하도록 최적화해주는 Claude Code 툴킷이다. 단순 점수 산출을 넘어 구체적인 개선안을 함께 제시하기 때문에, AI 검색 가시성을 빠르게 높이고 싶은 자영업자·스타트업에 잘 맞는다.",
+      "tags": [
+        "#skill",
+        "#audit",
+        "#optimize"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "GetCito",
+      "repo": "ai-search-guru/getcito-worlds-first-open-source-aio-aeo-or-geo-tool",
+      "author": "ai-search-guru",
+      "stars": 84,
+      "lang": "TypeScript",
+      "added_at": "2026-04-20",
+      "desc": "이 도구는 AIO(AI 검색 최적화)·AEO·GEO를 한 번에 다루는 오픈소스 올인원 플랫폼이다. 일반 SEO 도구가 다루지 못하는 AI 엔진 전용 점검 기능을 제공하기 때문에, 상용 GEO SaaS 대신 자체 호스팅을 선호하는 팀에 적합하다.",
+      "tags": [
+        "#aio",
+        "#aeo",
+        "#geo"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "aeo.js",
+      "repo": "multivmlabs/aeo.js",
+      "author": "multivmlabs",
+      "stars": 66,
+      "lang": "TypeScript",
+      "added_at": "2026-04-20",
+      "desc": "이 라이브러리는 현대 웹사이트를 ChatGPT·Claude·Perplexity 같은 AI 검색에 노출시키는 Answer Engine Optimization을 코드로 붙여주는 JS 패키지다. 사이트 빌드 파이프라인에 바로 끼워 넣을 수 있기 때문에, Next.js·Nuxt 기반 제품에서 프레임워크 레벨로 AEO를 자동화할 때 효과적이다.",
+      "tags": [
+        "#aeo",
+        "#js",
+        "#library"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "ultimate-seo-geo",
+      "repo": "mykpono/ultimate-seo-geo",
+      "author": "mykpono",
+      "stars": 37,
+      "lang": "Python",
+      "added_at": "2026-04-20",
+      "desc": "이 스킬은 전체 사이트를 감사해 전통 SEO와 AI 검색(Google AI Overviews, ChatGPT 등) 최적화를 동시에 돌려주는 Claude용 올인원 도구다. 발견 항목마다 점수가 매겨져 우선순위가 분명하기 때문에, 제한된 시간 안에 가장 효과 큰 개선부터 집행하려는 마케터·에이전시에 잘 어울린다.",
+      "tags": [
+        "#seo",
+        "#geo",
+        "#audit"
+      ]
+    },
+    {
+      "category": "geo",
+      "name": "claude-seo-skill",
+      "repo": "mangollc/claude-seo-skill",
+      "author": "mangollc",
+      "stars": 28,
+      "added_at": "2026-04-20",
+      "desc": "이 플러그인은 키워드 리서치, 기술 감사, 콘텐츠 최적화, 로컬 SEO, AEO까지 에이전시 수준 SEO 업무를 Claude Code 안에 담아놓았다. 여러 SEO 도구를 오가지 않고 한 워크플로우에서 진행할 수 있기 때문에, SEO 업무를 자동화하려는 소규모 에이전시·프리랜서에 적합하다.",
+      "tags": [
+        "#seo",
+        "#aeo",
+        "#agency"
+      ]
     }
   ]
 }
