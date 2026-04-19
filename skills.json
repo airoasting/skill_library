@@ -921,7 +921,7 @@
       "repo": "revfactory/harness-100",
       "author": "revfactory",
       "stars": 589,
-      "desc": "이 사전은 10개 도메인(HR·영업·법무·마케팅·엔지니어링 등) × 10개 하네스로 구성된 에이전트 978명, 스킬 630개의 완성형 패키지입니다. 원하는 도메인 하네스를 그대로 불러오거나 조금 고쳐서 실전에 바로 투입할 수 있기 때문에, 에이전트 팀 설계를 처음 해보는 팀에게 가장 빠른 길이 됩니다.",
+      "desc": "이 스킬은 10개 도메인(HR·영업·법무·마케팅·엔지니어링 등) × 10개 하네스로 구성된 에이전트 978명, 스킬 630개의 완성형 패키지입니다. 원하는 도메인 하네스를 그대로 불러오거나 조금 고쳐서 실전에 바로 투입할 수 있기 때문에, 에이전트 팀 설계를 처음 해보는 팀에게 가장 빠른 길이 됩니다.",
       "tags": [
         "#agent-teams",
         "#production",
@@ -938,11 +938,11 @@
       "repo": "VoltAgent/awesome-design-md",
       "author": "VoltAgent",
       "stars": 60121,
-      "desc": "이 컬렉션은 에어비앤비, 네이버, 토스, Vercel 등 유명 서비스의 공개 디자인 시스템을 DESIGN.md 파일로 정리해놓았습니다. Claude Code가 이 파일을 읽고 해당 디자인 언어에 맞는 컴포넌트를 만들어주기 때문에, '토스처럼 만들어줘'라고 하면 토스 스타일의 버튼, 카드, 폼이 바로 나옵니다.",
+      "desc": "이 컬렉션은 Stripe, Vercel, Linear, Notion, Figma, Airbnb, Supabase, Cursor 등 해외 유명 서비스 69곳의 디자인 시스템을 DESIGN.md 파일로 정리해놓았습니다. Claude Code나 Google Stitch가 이 파일을 읽고 해당 디자인 언어에 맞는 UI를 만들어주기 때문에, 'Linear처럼 만들어줘'라고 하면 Linear 스타일의 버튼, 카드, 폼이 바로 나옵니다.",
       "tags": [
         "#design-system",
-        "#toss",
-        "#naver"
+        "#linear",
+        "#stripe"
       ],
       "lang": "HTML",
       "added_at": "2026-03-31",
