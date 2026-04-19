@@ -65,7 +65,6 @@ async function load() {
   }
   state.catMap = Object.fromEntries(state.data.categories.map(c => [c.id, c]));
   renderCats();
-  renderAdder();
   renderAll();
   wireTabs();
 }
@@ -226,84 +225,6 @@ function renderRank() {
     </div>`).join('');
 }
 
-// ========= Adder =========
-function renderAdder() {
-  const sel = document.getElementById('ghCat');
-  sel.innerHTML = `<option value="auto">자동 분류</option>` +
-    state.data.categories.map(c => `<option value="${c.id}">${c.emoji} ${escapeHtml(c.name)}</option>`).join('');
-
-  document.getElementById('toggleAdder').onclick = () =>
-    document.getElementById('adder').classList.toggle('hidden');
-  document.getElementById('fetchBtn').onclick = addFromGithub;
-  document.getElementById('downloadBtn').onclick = downloadJson;
-}
-
-function parseRepo(url) {
-  const m = String(url).match(/github\.com\/([^\/\s]+)\/([^\/\s#?]+)/i);
-  if (!m) return null;
-  return `${m[1]}/${m[2].replace(/\.git$/, '')}`;
-}
-
-async function addFromGithub() {
-  const url = document.getElementById('ghUrl').value.trim();
-  const chosenCat = document.getElementById('ghCat').value;
-  const log = document.getElementById('log');
-  log.textContent = '';
-
-  const full = parseRepo(url);
-  if (!full) { log.textContent = '❌ 올바른 GitHub URL이 아닙니다.'; return; }
-  if (state.data.skills.some(s => s.repo === full)) {
-    log.textContent = `⚠️ 이미 등록된 저장소: ${full}`; return;
-  }
-
-  log.textContent = `→ ${full} 메타데이터를 가져오는 중…`;
-  try {
-    const [repoRes, topicRes] = await Promise.all([
-      fetch(`https://api.github.com/repos/${full}`),
-      fetch(`https://api.github.com/repos/${full}/topics`, {
-        headers: { 'Accept': 'application/vnd.github.mercy-preview+json' }
-      })
-    ]);
-    if (!repoRes.ok) throw new Error(`GitHub API ${repoRes.status}`);
-    const repo = await repoRes.json();
-    const topics = topicRes.ok ? ((await topicRes.json()).names || []) : [];
-
-    const meta = { name: repo.name, full_name: repo.full_name, description: repo.description || '', topics };
-    const cat = chosenCat === 'auto' ? classify(meta) : chosenCat;
-    const skill = {
-      category: cat,
-      name: repo.name,
-      repo: repo.full_name,
-      author: (repo.owner && repo.owner.login) || '—',
-      stars: repo.stargazers_count || 0,
-      desc: repo.description || '(설명이 등록되어 있지 않습니다)',
-      tags: topics.slice(0, 4).map(t => '#' + t),
-      lang: repo.language || undefined,
-      pushed_at: repo.pushed_at
-    };
-    state.data.skills.push(skill);
-    renderCats(); renderAll();
-    toast(`추가됨: ${skill.name} (★${fmt(skill.stars)}) → ${state.catMap[cat]?.name || cat}`);
-    log.textContent = `✅ 추가됨 → [${cat}] ${skill.name}\n수정 데이터를 저장하려면 "skills.json 내보내기"를 눌러 파일을 교체하세요.`;
-    document.getElementById('ghUrl').value = '';
-  } catch (e) {
-    log.textContent = `❌ 실패: ${e.message}`;
-  }
-}
-
-function downloadJson() {
-  const clean = {
-    categories: state.data.categories,
-    skills: state.data.skills.map(s => ({ ...s }))
-  };
-  const blob = new Blob([JSON.stringify(clean, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'skills.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  toast('skills.json 내보내기 완료');
-}
 
 // ========= Helpers =========
 function isNew(s) {

@@ -503,7 +503,6 @@
       <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="cta ghost" id="toggleAdder">＋ 스킬 추가</button>
   </div>
  </div>
 </header>
@@ -536,17 +535,6 @@
       <div class="big-num"><span id="totalNum">0</span><small>TOTAL SKILLS</small></div>
     </section>
 
-    <!-- Adder -->
-    <section class="adder hidden" id="adder">
-      <div class="row">
-        <input id="ghUrl" type="text" placeholder="GitHub 저장소 URL (예: https://github.com/obra/superpowers)" />
-        <select id="ghCat" aria-label="카테고리"></select>
-        <button class="cta" id="fetchBtn">자동 추가</button>
-        <button class="cta ghost" id="downloadBtn">skills.json 내보내기</button>
-      </div>
-      <div class="small">GitHub API로 이름·설명·스타 수·작성자·아바타를 자동 수집합니다. (미인증 호출은 시간당 60회 제한)</div>
-      <div class="log" id="log"></div>
-    </section>
 
     <div class="tabs" role="tablist">
       <div class="tab active" data-sort="stars" role="tab">스타순</div>
@@ -562,18 +550,6 @@
 
   <!-- RIGHT -->
   <aside class="sidebar-right">
-    <div class="panel-card">
-      <h4>이번 주 브리프</h4>
-      <div class="brief">
-        <div class="item"><span class="pin"></span>
-          <div><div class="t">신규 등록 스킬 점검</div><div class="s">매주 토요일 오전 9시</div></div>
-        </div>
-        <div class="item"><span class="pin" style="background:var(--beige)"></span>
-          <div><div class="t">큐레이션 기준 업데이트</div><div class="s">카테고리 규칙 개정 예정</div></div>
-        </div>
-      </div>
-    </div>
-
     <div class="panel-card">
       <h4>Top 5 <span class="tag-count">by stars</span></h4>
       <div id="topRank"></div>
@@ -1532,11 +1508,11 @@
       "repo": "VoltAgent/awesome-design-md",
       "author": "VoltAgent",
       "stars": 60121,
-      "desc": "이 컬렉션은 에어비앤비, 네이버, 토스, Vercel 등 유명 서비스의 공개 디자인 시스템을 DESIGN.md 파일로 정리해놓았습니다. Claude Code가 이 파일을 읽고 해당 디자인 언어에 맞는 컴포넌트를 만들어주기 때문에, '토스처럼 만들어줘'라고 하면 토스 스타일의 버튼, 카드, 폼이 바로 나옵니다.",
+      "desc": "이 컬렉션은 Stripe, Vercel, Linear, Notion, Figma, Airbnb, Supabase, Cursor 등 해외 유명 서비스 69곳의 디자인 시스템을 DESIGN.md 파일로 정리해놓았습니다. Claude Code나 Google Stitch가 이 파일을 읽고 해당 디자인 언어에 맞는 UI를 만들어주기 때문에, 'Linear처럼 만들어줘'라고 하면 Linear 스타일의 버튼, 카드, 폼이 바로 나옵니다.",
       "tags": [
         "#design-system",
-        "#toss",
-        "#naver"
+        "#linear",
+        "#stripe"
       ],
       "lang": "HTML",
       "added_at": "2026-03-31",
