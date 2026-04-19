@@ -184,7 +184,7 @@
       grid-template-columns: 56px 1fr;
       padding: 20px 18px; gap: 14px; border-radius: 14px;
     }
-    .featured::before { top: 12px; right: 14px; font-size: 10px; }
+    .featured .ed-pick-badge { top: 12px; right: 14px; font-size: 10px; }
     .featured .avatar { width: 56px; height: 56px; border-radius: 14px; }
     .featured h2 { font-size: 20px; }
     .featured p { font-size: 13.5px; grid-column: 1 / -1; }
@@ -324,12 +324,24 @@
     transition: transform .2s, box-shadow .2s;
   }
   .featured:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .featured::before {
-    content: "★ EDITOR'S PICK";
-    position: absolute; top: 18px; right: 24px;
+  .ed-pick-badge {
     font-family: var(--serif); font-style: italic; font-weight: 500;
-    color: var(--beige); font-size: 11px; letter-spacing: 0.2em;
-    opacity: 0.8;
+    color: var(--beige); letter-spacing: 0.2em;
+    opacity: 0.85; white-space: nowrap;
+  }
+  .featured .ed-pick-badge {
+    position: absolute; top: 18px; right: 24px;
+    font-size: 11px;
+  }
+  .card h3 .ed-pick-badge {
+    font-size: 9.5px; margin-left: 2px;
+    display: inline-block; vertical-align: middle;
+  }
+  .badge-pick {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--beige); letter-spacing: 0.18em;
+    font-size: 9.5px; opacity: 0.85; white-space: nowrap;
+    margin-left: 4px; display: inline-block; vertical-align: middle;
   }
   .featured .avatar {
     width: 72px; height: 72px; border-radius: 18px; background: var(--panel-3); overflow: hidden;
@@ -382,6 +394,7 @@
     display:flex; align-items:center; gap:8px; line-height: 1.3; color: var(--text);
   }
   .card .badge-new { color: var(--accent); font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid var(--accent); background: var(--accent-soft); }
+  .card .badge-pick { color: #b8860b; font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid #d4a017; background: #fff8e1; }
   .card .meta-row { color: var(--text-sub); font-size: 12.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .cat-pill {
     background: var(--beige-soft); color: var(--beige); font-size: 11px; padding: 2px 9px; border-radius: 999px; font-weight: 600; letter-spacing: 0.01em;
@@ -502,7 +515,7 @@
     <nav class="nav-section nav" aria-label="피드">
       <div class="nav-label">Feeds</div>
       <a data-cat="all" class="active" tabindex="0" role="button"><span>전체</span><span class="count" id="count-all">0</span></a>
-      <a data-cat="new" tabindex="0" role="button"><span>신규 (최근 14일)</span><span class="count" id="count-new">0</span></a>
+      <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" id="count-pick">0</span></a>
     </nav>
     <nav class="nav-section nav" id="nav-cats-wrap" aria-label="카테고리">
       <div class="nav-label">Categories</div>
@@ -666,7 +679,8 @@
         "#brainstorming"
       ],
       "lang": "Shell",
-      "added_at": "2025-10-09"
+      "added_at": "2025-10-09",
+      "editors_pick": true
     },
     {
       "category": "workflow",
@@ -711,7 +725,8 @@
         "#collection"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19"
+      "added_at": "2025-10-19",
+      "editors_pick": true
     },
     {
       "category": "workflow",
@@ -726,7 +741,8 @@
         "#llm-pitfalls"
       ],
       "lang": "Markdown",
-      "added_at": "2026-01-27"
+      "added_at": "2026-01-27",
+      "editors_pick": true
     },
     {
       "category": "research",
@@ -1023,7 +1039,8 @@
         "#ai-search"
       ],
       "lang": "Python",
-      "added_at": "2026-02-18"
+      "added_at": "2026-02-18",
+      "editors_pick": true
     },
     {
       "category": "business",
@@ -1143,10 +1160,11 @@
         "#onboarding"
       ],
       "lang": "Python",
-      "added_at": "2026-04-03"
+      "added_at": "2026-04-03",
+      "editors_pick": true
     },
     {
-      "category": "research",
+      "category": "automation",
       "name": "NotebookLM Py",
       "repo": "teng-lin/notebooklm-py",
       "author": "teng-lin",
@@ -1158,10 +1176,11 @@
         "#python"
       ],
       "lang": "Python",
-      "added_at": "2026-01-07"
+      "added_at": "2026-01-07",
+      "editors_pick": true
     },
     {
-      "category": "research",
+      "category": "automation",
       "name": "NotebookLM Skill",
       "repo": "PleasePrompto/notebooklm-skill",
       "author": "PleasePrompto",
@@ -1173,7 +1192,8 @@
         "#sourced"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19"
+      "added_at": "2025-10-19",
+      "editors_pick": true
     },
     {
       "category": "research",
@@ -1503,7 +1523,8 @@
       ],
       "lang": "Markdown",
       "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-03-22"
+      "added_at": "2026-03-22",
+      "editors_pick": true
     },
     {
       "category": "design",
@@ -1518,7 +1539,8 @@
         "#naver"
       ],
       "lang": "HTML",
-      "added_at": "2026-03-31"
+      "added_at": "2026-03-31",
+      "editors_pick": true
     },
     {
       "category": "design",
@@ -1984,6 +2006,6 @@
 }
 </script>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

@@ -85,7 +85,8 @@
         "#brainstorming"
       ],
       "lang": "Shell",
-      "added_at": "2025-10-09"
+      "added_at": "2025-10-09",
+      "editors_pick": true
     },
     {
       "category": "workflow",
@@ -130,7 +131,8 @@
         "#collection"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19"
+      "added_at": "2025-10-19",
+      "editors_pick": true
     },
     {
       "category": "workflow",
@@ -145,7 +147,8 @@
         "#llm-pitfalls"
       ],
       "lang": "Markdown",
-      "added_at": "2026-01-27"
+      "added_at": "2026-01-27",
+      "editors_pick": true
     },
     {
       "category": "research",
@@ -442,7 +445,8 @@
         "#ai-search"
       ],
       "lang": "Python",
-      "added_at": "2026-02-18"
+      "added_at": "2026-02-18",
+      "editors_pick": true
     },
     {
       "category": "business",
@@ -562,10 +566,11 @@
         "#onboarding"
       ],
       "lang": "Python",
-      "added_at": "2026-04-03"
+      "added_at": "2026-04-03",
+      "editors_pick": true
     },
     {
-      "category": "research",
+      "category": "automation",
       "name": "NotebookLM Py",
       "repo": "teng-lin/notebooklm-py",
       "author": "teng-lin",
@@ -577,10 +582,11 @@
         "#python"
       ],
       "lang": "Python",
-      "added_at": "2026-01-07"
+      "added_at": "2026-01-07",
+      "editors_pick": true
     },
     {
-      "category": "research",
+      "category": "automation",
       "name": "NotebookLM Skill",
       "repo": "PleasePrompto/notebooklm-skill",
       "author": "PleasePrompto",
@@ -592,7 +598,8 @@
         "#sourced"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19"
+      "added_at": "2025-10-19",
+      "editors_pick": true
     },
     {
       "category": "research",
@@ -922,7 +929,8 @@
       ],
       "lang": "Markdown",
       "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-03-22"
+      "added_at": "2026-03-22",
+      "editors_pick": true
     },
     {
       "category": "design",
@@ -937,7 +945,8 @@
         "#naver"
       ],
       "lang": "HTML",
-      "added_at": "2026-03-31"
+      "added_at": "2026-03-31",
+      "editors_pick": true
     },
     {
       "category": "design",

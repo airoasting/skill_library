@@ -73,11 +73,11 @@ async function load() {
 // ========= Nav =========
 function renderCats() {
   const host = document.getElementById('nav-cats');
-  const counts = { all: state.data.skills.length, new: 0 };
+  const counts = { all: state.data.skills.length, pick: 0 };
   for (const c of state.data.categories) counts[c.id] = 0;
   for (const s of state.data.skills) {
     counts[s.category] = (counts[s.category] || 0) + 1;
-    if (isNew(s)) counts.new++;
+    if (s.editors_pick) counts.pick++;
   }
   host.innerHTML = state.data.categories.map(c =>
     `<a data-cat="${c.id}" tabindex="0" role="button">
@@ -86,12 +86,12 @@ function renderCats() {
      </a>`).join('');
   host.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setCat(a.dataset.cat)));
 
-  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="new"]').forEach(a => {
+  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"]').forEach(a => {
     a.addEventListener('click', () => setCat(a.dataset.cat));
   });
 
   document.getElementById('count-all').textContent = counts.all;
-  document.getElementById('count-new').textContent = counts.new;
+  document.getElementById('count-pick').textContent = counts.pick;
   document.getElementById('totalNum').textContent = counts.all;
   highlightActiveCat();
 }
@@ -120,8 +120,8 @@ function wireTabs() {
 function filtered() {
   const q = state.query.trim().toLowerCase();
   let items = state.data.skills.slice();
-  if (state.activeCat === 'new') {
-    items = items.filter(isNew);
+  if (state.activeCat === 'pick') {
+    items = items.filter(s => s.editors_pick);
   } else if (state.activeCat !== 'all') {
     items = items.filter(s => s.category === state.activeCat);
   }
@@ -151,8 +151,8 @@ function renderCatIntro() {
   if (!host) return;
   const id = state.activeCat;
   const introByBuiltin = {
-    all: { emoji: '✨', name: '전체 스킬', desc: '지금까지 등록된 모든 스킬을 한자리에서 둘러볼 수 있어요.' },
-    new: { emoji: '🆕', name: '최근 업데이트', desc: '최근 2주 안에 새로 올라오거나 업데이트된 따끈따끈한 스킬만 모아뒀어요.' }
+    all:  { emoji: '✨', name: '전체 스킬', desc: '지금까지 등록된 모든 스킬을 한자리에서 둘러볼 수 있어요.' },
+    pick: { emoji: '✦', name: "Editor's Pick", desc: '에디터가 직접 골라낸 특별 추천 스킬이에요.' }
   };
   const cat = introByBuiltin[id] || state.catMap[id];
   if (!cat || !cat.desc) { host.hidden = true; host.innerHTML = ''; return; }
@@ -164,8 +164,10 @@ function renderFeatured(s) {
   const host = document.getElementById('featured');
   if (!s) { host.innerHTML = ''; return; }
   const cat = state.catMap[s.category];
+  const pickBadge = s.editors_pick ? `<span class="ed-pick-badge">★ EDITOR'S PICK</span>` : '';
   host.innerHTML = `
     <a class="featured" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
+      ${pickBadge}
       <div class="avatar">${avatarImg(s)}</div>
       <div>
         <h2>${escapeHtml(s.name)} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h2>
@@ -173,7 +175,7 @@ function renderFeatured(s) {
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
-        <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,5).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
+        <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
       </div>
       <div class="stars"><strong>${fmt(s.stars)}</strong><span>stars</span></div>
     </a>`;
@@ -190,15 +192,15 @@ function renderFeed(items) {
 
 function card(s, rank) {
   const cat = state.catMap[s.category];
-  const tags = (s.tags || []).slice(0, 4).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
-  const badge = isNew(s) ? `<span class="badge-new">NEW</span>` : '';
+  const tags = (s.tags || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+  const badge = s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '';
   const repoUrl = s.repo ? `https://github.com/${s.repo}` : '#';
   return `
     <a class="card" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span>${pickBadge}</h3>
         <div class="meta-row">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
