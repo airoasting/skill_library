@@ -193,7 +193,7 @@
     .featured .stars strong { font-size: 26px; display: inline-block; }
     .featured .stars span { margin-top: 0; font-size: 10px; }
 
-    .card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%); border-color: #d4a017; }
+    .card.card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%) !important; border-color: #d4a017 !important; }
   .card {
       grid-template-columns: 40px 1fr;
       grid-template-areas: "av body" "stars stars";
@@ -374,7 +374,7 @@
 
   /* ===== Feed / Card ===== */
   .feed { display:flex; flex-direction:column; gap: 10px; }
-  .card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%); border-color: #d4a017; }
+  .card.card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%) !important; border-color: #d4a017 !important; }
   .card {
     background: var(--panel);
     border: 1px solid var(--line);
