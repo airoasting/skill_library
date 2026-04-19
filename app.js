@@ -233,7 +233,7 @@ function renderRank() {
   const host = document.getElementById('topRank');
   const top = state.data.skills.slice().sort((a,b) => (b.stars||0) - (a.stars||0)).slice(0, 5);
   host.innerHTML = top.map((s, i) => `
-    <div class="rank-row">
+    <a class="rank-row" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="r-num">${String(i+1).padStart(2,'0')}</div>
       <div class="r-av">${avatarImg(s)}</div>
       <div class="r-info">
@@ -241,7 +241,7 @@ function renderRank() {
         <div class="author">${escapeHtml(s.author || '')}</div>
       </div>
       <div class="star">★${fmt(s.stars)}</div>
-    </div>`).join('');
+    </a>`).join('');
 }
 
 
