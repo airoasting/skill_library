@@ -426,6 +426,14 @@
   }
   .card .badge-new { color: var(--accent); font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid var(--accent); background: var(--accent-soft); }
   .card .badge-pick { color: #b8860b; font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid #d4a017; background: #fff8e1; }
+  :root[data-theme="dark"] .card.card-pick,
+  :root[data-theme="dark"] .featured-pick {
+    background: linear-gradient(135deg, #2a2410 0%, #342b14 100%) !important;
+    border-color: #8a6a1f !important;
+  }
+  :root[data-theme="dark"] .card .badge-pick {
+    color: #e8c970; border-color: #8a6a1f; background: rgba(212, 160, 23, 0.15);
+  }
   .card .meta-row { color: var(--text-sub); font-size: 12.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .cat-pill {
     background: var(--beige-soft); color: var(--beige); font-size: 11px; padding: 2px 9px; border-radius: 999px; font-weight: 600; letter-spacing: 0.01em;
