@@ -109,7 +109,7 @@ function wireTabs() {
       document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       state.sort = tab.dataset.sort;
-      const hint = { stars: '★ 스타순', new: '⏱ 최근 업데이트순', name: 'A-Z' };
+      const hint = { stars: '★ 스타순', name: 'A-Z' };
       document.getElementById('sortHint').textContent = hint[state.sort] || '';
       renderAll();
     });
@@ -131,7 +131,6 @@ function filtered() {
   );
   const sorter = {
     stars: (a,b) => (b.stars||0) - (a.stars||0),
-    new:   (a,b) => new Date(b.added_at||0) - new Date(a.added_at||0),
     name:  (a,b) => a.name.localeCompare(b.name, 'ko')
   }[state.sort] || ((a,b) => (b.stars||0) - (a.stars||0));
   items.sort(sorter);
@@ -169,10 +168,9 @@ function renderFeatured(s) {
     <a class="featured" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)}</h2>
+        <h2>${escapeHtml(s.name)} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h2>
         <div class="author">
-          <span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}
-          ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
+          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
         <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,5).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
@@ -200,7 +198,7 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge} <span class="author-inline"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
         <div class="meta-row">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
