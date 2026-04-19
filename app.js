@@ -170,10 +170,10 @@ function renderFeatured(s) {
     <a class="featured" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} <span class="creator-pill">Created by ${escapeHtml(s.author || '—')}${fbBadgeInline(s.facebook)}</span></h2>
+        <h2>${escapeHtml(s.name)}</h2>
         <div class="author">
-          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
-          ${s.lang ? `<span class="sep">·</span><span>${escapeHtml(s.lang)}</span>` : ''}
+          <span>${escapeHtml(s.author || '—')}</span>${s.facebook ? fbBadgeInline(s.facebook) : ''}
+          ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
           ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
@@ -202,10 +202,10 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} <span class="creator-pill">Created by ${escapeHtml(s.author || '—')}${fbBadgeInline(s.facebook)}</span> ${badge}</h3>
+        <h3>${escapeHtml(s.name)} ${badge}</h3>
         <div class="meta-row">
-          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
-          ${s.lang ? `<span class="sep">·</span><span>${escapeHtml(s.lang)}</span>` : ''}
+          <span>${escapeHtml(s.author || '—')}</span>${s.facebook ? fbBadgeInline(s.facebook) : ''}
+          ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
           ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
         </div>
         <p class="desc">${escapeHtml(s.desc || '')}</p>

@@ -299,7 +299,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "token",
       "name": "token-optimizer-mcp",
       "repo": "ooples/token-optimizer-mcp",
       "author": "ooples",
@@ -535,7 +535,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "research",
       "name": "NotebookLM Py",
       "repo": "teng-lin/notebooklm-py",
       "author": "teng-lin",
@@ -549,7 +549,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "research",
       "name": "NotebookLM Skill",
       "repo": "PleasePrompto/notebooklm-skill",
       "author": "PleasePrompto",
@@ -941,7 +941,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "design",
+      "category": "harness",
       "name": "AI Team Skills",
       "repo": "ThendCN/ai-team-skills",
       "author": "ThendCN",
@@ -1067,7 +1067,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "korea",
+      "category": "automation",
       "name": "Video Transcription",
       "repo": "treesoop/video_transcription",
       "author": "treesoop",
@@ -1139,7 +1139,7 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "mcp",
+      "category": "automation",
       "name": "GitHub MCP Server",
       "repo": "github/github-mcp-server",
       "author": "GitHub",
