@@ -172,12 +172,12 @@ function renderFeatured(s) {
       <div>
         <h2>${escapeHtml(s.name)}</h2>
         <div class="author">
-          <span>${escapeHtml(s.author || '—')}</span>${s.facebook ? fbBadgeInline(s.facebook) : ''}
+          <span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}
           ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
           ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
-        <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,5).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}${fbBadge(s.facebook)}</div>
+        <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,5).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
       </div>
       <div class="stars"><strong>${fmt(s.stars)}</strong><span>stars</span></div>
     </a>`;
@@ -204,12 +204,12 @@ function card(s, rank) {
       <div class="body">
         <h3>${escapeHtml(s.name)} ${badge}</h3>
         <div class="meta-row">
-          <span>${escapeHtml(s.author || '—')}</span>${s.facebook ? fbBadgeInline(s.facebook) : ''}
+          <span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}
           ${cat ? `<span class="sep">·</span><span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
           ${s.added_at ? `<span class="sep">·</span><span class="date">📅 ${fmtDate(s.added_at)}</span>` : ''}
         </div>
         <p class="desc">${escapeHtml(s.desc || '')}</p>
-        <div class="tags">${tags}${fbBadge(s.facebook)}</div>
+        <div class="tags">${tags}</div>
       </div>
       <div class="stars"><strong>${fmt(s.stars)}</strong>stars</div>
     </a>`;
