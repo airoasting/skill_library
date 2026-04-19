@@ -195,7 +195,7 @@ function card(s, rank) {
   const badge = s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '';
   const repoUrl = s.repo ? `https://github.com/${s.repo}` : '#';
   return `
-    <a class="card" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
+    <a class="card${s.editors_pick ? ' card-pick' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
