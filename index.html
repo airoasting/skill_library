@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI ROASTING · Skill Library</title>
+<style>
+  /* ===== Pretendard (local) ===== */
+  @font-face {
+    font-family: 'Pretendard';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('asset/fonts/PretendardVariable.ttf') format('truetype-variations');
+  }
+  @font-face { font-family: 'Pretendard'; font-weight: 400; src: url('asset/fonts/Pretendard-Regular.otf') format('opentype'); }
+  @font-face { font-family: 'Pretendard'; font-weight: 500; src: url('asset/fonts/Pretendard-Medium.otf') format('opentype'); }
+  @font-face { font-family: 'Pretendard'; font-weight: 600; src: url('asset/fonts/Pretendard-SemiBold.otf') format('opentype'); }
+  @font-face { font-family: 'Pretendard'; font-weight: 700; src: url('asset/fonts/Pretendard-Bold.otf') format('opentype'); }
+  @font-face { font-family: 'Pretendard'; font-weight: 800; src: url('asset/fonts/Pretendard-ExtraBold.otf') format('opentype'); }
+  @font-face { font-family: 'Pretendard'; font-weight: 900; src: url('asset/fonts/Pretendard-Black.otf') format('opentype'); }
+
+  /* ===== Theme tokens ===== */
+  :root[data-theme="light"] {
+    --bg: #f6f3ec;               /* warm paper */
+    --bg-2: #efeadf;
+    --panel: #ffffff;
+    --panel-2: #faf7f0;
+    --panel-3: #f1ece0;
+    --line: #e5dfd0;
+    --line-2: #d4ccb8;
+    --text: #1a1a1a;
+    --text-sub: #5a5a58;
+    --text-dim: #8a8780;
+    --accent: #3d7a5c;           /* deep forest green */
+    --accent-strong: #2f5f47;
+    --accent-soft: rgba(61,122,92,0.10);
+    --beige: #8a6a3a;            /* coffee brown accent */
+    --beige-soft: rgba(138,106,58,0.10);
+    --shadow-sm: 0 1px 2px rgba(30, 25, 15, 0.04), 0 1px 3px rgba(30, 25, 15, 0.05);
+    --shadow-md: 0 4px 14px rgba(30, 25, 15, 0.06);
+    --shadow-lg: 0 24px 60px rgba(30, 25, 15, 0.10);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1012;
+    --bg-2: #141518;
+    --panel: #17181b;
+    --panel-2: #1c1e22;
+    --panel-3: #23262b;
+    --line: #292c32;
+    --line-2: #383c44;
+    --text: #eceef1;
+    --text-sub: #b4b9bf;
+    --text-dim: #7f858c;
+    --accent: #7ac5a2;
+    --accent-strong: #5bb68c;
+    --accent-soft: rgba(122,197,162,0.14);
+    --beige: #d9c9a8;
+    --beige-soft: rgba(217,201,168,0.10);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.4);
+    --shadow-lg: 0 24px 60px rgba(0,0,0,0.5);
+  }
+  :root {
+    --radius: 14px;
+    --serif: 'Newsreader', 'Source Serif Pro', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color .25s, color .25s;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+  code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.92em; color: var(--beige); background: var(--beige-soft); padding: 1px 6px; border-radius: 5px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+  /* ===== Top bar ===== */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; gap: 16px;
+    max-width: 1440px; margin: 0 auto;
+    padding: 14px 28px;
+  }
+  @media (max-width: 720px) { .topbar-inner { padding: 12px 16px; } }
+  .brand { display:flex; align-items:center; gap:14px; min-width: 240px; }
+  .brand .mark {
+    width:40px; height:40px; border-radius:50%;
+    overflow:hidden; flex-shrink:0;
+    background: transparent;
+  }
+  .brand .mark img { width:100%; height:100%; object-fit: cover; display:block; }
+  .brand .wordmark { display:flex; flex-direction:column; line-height:1.05; }
+  .brand .wordmark .n {
+    font-family: var(--serif);
+    font-weight: 500; font-style: italic;
+    font-size: 22px; letter-spacing: 0.005em;
+    color: var(--text);
+  }
+  .brand .wordmark .n strong { font-weight: 700; color: var(--beige); }
+  .brand .wordmark .sub {
+    font-size: 10.5px; color: var(--text-dim); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-top: 2px;
+  }
+
+  .search {
+    flex: 1; max-width: 620px;
+    display:flex; align-items:center; gap:10px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 10px 16px; border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); outline: none; }
+  .search input {
+    flex:1; background:transparent; border:0; outline:none;
+    color: var(--text); font-size: 14px; font-family: inherit;
+  }
+  .search input::placeholder { color: var(--text-dim); }
+  .search .hint { color: var(--text-dim); font-size:11.5px; border:1px solid var(--line); padding:2px 7px; border-radius:6px; font-family: ui-monospace, monospace; }
+  .topbar .right { margin-left:auto; display:flex; align-items:center; gap:10px; }
+
+  .icon-btn {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: transparent; border: 1px solid var(--line);
+    color: var(--text-sub); cursor: pointer;
+    display: grid; place-items: center; font-size: 16px;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .icon-btn:hover { background: var(--panel); color: var(--text); border-color: var(--line-2); }
+  .icon-btn svg { width: 18px; height: 18px; }
+
+  .cta {
+    background: var(--accent); color:#ffffff;
+    border:0; padding: 10px 18px; border-radius: 10px;
+    font-weight: 700; cursor: pointer; font-size: 13.5px;
+    transition: background .15s, transform .1s;
+  }
+  .cta:hover { background: var(--accent-strong); }
+  .cta:active { transform: translateY(1px); }
+  .cta.ghost { background: transparent; color: var(--text); border:1px solid var(--line-2); font-weight:600; }
+  .cta.ghost:hover { border-color: var(--text-sub); background: var(--panel); }
+
+  /* ===== Layout ===== */
+  .wrap { display: grid; grid-template-columns: 240px 1fr 320px; gap: 28px; max-width: 1440px; margin: 0 auto; padding: 28px; }
+  @media (max-width: 1100px) { .wrap { grid-template-columns: 220px 1fr; } .sidebar-right { display:none; } }
+  @media (max-width: 720px) {
+    .wrap { grid-template-columns: 1fr; padding: 14px; gap: 16px; }
+    .sidebar-left { display:none; }
+    .topbar-inner { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
+    .brand { min-width: 0; gap: 10px; }
+    .brand .mark { width: 34px; height: 34px; }
+    .brand .wordmark .n { font-size: 17px; }
+    .brand .wordmark .sub { font-size: 9.5px; letter-spacing: 0.18em; }
+    .search { order: 3; flex: 1 1 100%; max-width: 100%; padding: 9px 12px; }
+    .search .hint { display: none; }
+    .topbar .right { margin-left: auto; gap: 6px; }
+    .icon-btn { width: 36px; height: 36px; }
+    .cta.ghost { padding: 8px 12px; font-size: 12.5px; }
+
+    .hero { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 2px 18px; margin-bottom: 18px; }
+    .hero h1 { font-size: 30px !important; line-height: 1.15; }
+    .hero .meta { font-size: 13.5px; margin-top: 10px; }
+    .hero .big-num { font-size: 60px !important; align-self: flex-end; }
+    .hero .big-num small { font-size: 9.5px; margin-top: 8px; }
+
+    .tabs { gap: 16px; margin-bottom: 14px; padding: 0 2px; overflow-x: auto; }
+    .tab { padding: 12px 2px; font-size: 13px; white-space: nowrap; }
+
+    .featured {
+      grid-template-columns: 56px 1fr;
+      padding: 20px 18px; gap: 14px; border-radius: 14px;
+    }
+    .featured::before { top: 12px; right: 14px; font-size: 10px; }
+    .featured .avatar { width: 56px; height: 56px; border-radius: 14px; }
+    .featured h2 { font-size: 20px; }
+    .featured p { font-size: 13.5px; grid-column: 1 / -1; }
+    .featured .author { font-size: 12px; }
+    .featured .stars { grid-column: 1 / -1; text-align: left; min-width: 0; display: flex; align-items: baseline; gap: 10px; }
+    .featured .stars strong { font-size: 26px; display: inline-block; }
+    .featured .stars span { margin-top: 0; font-size: 10px; }
+
+    .card {
+      grid-template-columns: 40px 1fr;
+      grid-template-areas: "av body" "stars stars";
+      padding: 16px 16px; gap: 12px; border-radius: 14px;
+    }
+    .card .rank { display: none; }
+    .card .avatar { grid-area: av; width: 40px; height: 40px; border-radius: 10px; }
+    .card .body { grid-area: body; min-width: 0; }
+    .card .body h3 { font-size: 15.5px; flex-wrap: wrap; gap: 6px; }
+    .card .meta-row { font-size: 12px; margin-bottom: 8px; }
+    .card .desc { font-size: 13px; margin-bottom: 10px; }
+    .tag { font-size: 11px; padding: 2px 8px; }
+    .card .stars { grid-area: stars; text-align: left; padding-top: 0; border-top: 1px dashed var(--line); padding-top: 10px; display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+    .card .stars strong { display: inline-block; font-size: 18px; margin-bottom: 0; }
+
+    .adder { padding: 14px 14px; }
+    .adder .row { gap: 8px; }
+    .adder input[type="text"] { min-width: 0; width: 100%; flex: 1 1 100%; }
+    .adder select, .adder .cta { flex: 1 1 auto; }
+    .adder .small { font-size: 11.5px; }
+
+    .toast { left: 14px; right: 14px; transform: translateY(20px); bottom: 14px; text-align: center; }
+    .toast.show { transform: translateY(0); }
+  }
+  @media (max-width: 380px) {
+    .brand .wordmark .sub { display: none; }
+    .hero h1 { font-size: 26px !important; }
+    .hero .big-num { font-size: 52px !important; }
+  }
+
+  /* ===== Left sidebar ===== */
+  .sidebar-left { position: sticky; top: 88px; align-self: start; }
+  .nav-section { margin-bottom: 28px; }
+  .nav-label { font-size:10.5px; color: var(--text-dim); letter-spacing:0.18em; text-transform: uppercase; padding: 0 12px; margin-bottom:10px; font-weight:700; }
+  .nav a {
+    position: relative;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 9px 14px; border-radius: 10px; color: var(--text-sub);
+    font-weight:500; cursor:pointer; user-select:none;
+    font-size: 13.5px;
+    transition: background .15s, color .15s;
+  }
+  .nav a:hover { background: var(--panel); color: var(--text); }
+  .nav a.active {
+    background: var(--accent-soft); color: var(--accent-strong); font-weight:700;
+  }
+  :root[data-theme="dark"] .nav a.active { color: var(--text); }
+  .nav a.active::before {
+    content:""; position:absolute; left:-6px; top:9px; bottom:9px;
+    width: 3px; border-radius: 2px; background: var(--accent);
+  }
+  .nav a .count {
+    font-size:11px; color: var(--text-dim); font-variant-numeric: tabular-nums;
+    background: var(--panel); padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); font-weight: 600;
+  }
+  .nav a.active .count { color: var(--accent-strong); background: var(--panel); border-color: var(--accent-soft); }
+
+  /* ===== Hero ===== */
+  .hero {
+    display:flex; justify-content:space-between; align-items:flex-end; gap: 24px;
+    padding: 44px 4px 28px; border-bottom:1px solid var(--line); margin-bottom: 28px;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; letter-spacing:-0.03em; line-height:1.08; margin: 0;
+    color: var(--text);
+  }
+  .hero h1 .italic {
+    font-family: var(--serif);
+    font-weight: 500; font-style: italic;
+    color: var(--beige);
+    letter-spacing: -0.015em;
+    font-size: 1.04em;
+  }
+  .hero .meta { color: var(--text-sub); font-size: 14.5px; max-width: 460px; margin-top: 18px; line-height:1.65; }
+  .hero .meta .dot { color: var(--text-dim); margin: 0 8px; }
+  .hero .big-num {
+    font-family: var(--serif); font-size: 104px; font-weight: 500; font-style: italic;
+    letter-spacing:-0.05em; color: var(--beige); line-height: 0.9;
+  }
+  .hero .big-num small { display:block; font-family: 'Pretendard', sans-serif; font-size:10.5px; color: var(--text-dim); font-weight:700; letter-spacing:0.2em; text-align:right; margin-top:12px; font-style: normal; }
+
+  /* ===== Tabs ===== */
+  .tabs { display:flex; gap: 24px; border-bottom: 1px solid var(--line); margin-bottom: 22px; padding: 0 4px; align-items: center; }
+  .tab { padding: 14px 2px; color: var(--text-sub); font-weight:600; cursor:pointer; border-bottom: 2px solid transparent; font-size: 13.5px; transition: color .15s, border-color .15s; margin-bottom: -1px; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--text); border-bottom-color: var(--accent); }
+  .tabs .spacer { flex: 1; }
+  .tabs .sort { color: var(--text-dim); font-size: 12px; letter-spacing: 0.04em; }
+
+  /* ===== Creator pill ===== */
+  .creator-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-sub);
+    letter-spacing: 0.01em;
+    vertical-align: middle;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .creator-pill .fb-inline {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px;
+    color: #1877F2;
+    cursor: pointer;
+  }
+  .creator-pill .fb-inline svg { width: 14px; height: 14px; }
+  .creator-pill .fb-inline:hover { color: #0b5ed7; }
+  .card .creator-pill { font-size: 10.5px; padding: 3px 10px; }
+  .date { color: var(--text-dim); font-size: 12px; }
+
+  /* ===== Category intro ===== */
+  .cat-intro {
+    margin: 2px 0 18px;
+    padding: 14px 18px;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    color: var(--text-sub);
+    font-size: 13.5px;
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cat-intro .emoji { font-size: 16px; }
+  .cat-intro strong { color: var(--text); font-weight: 700; margin-right: 4px; }
+
+  /* ===== Featured ===== */
+  .featured {
+    background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin-bottom: 22px;
+    display: grid; grid-template-columns: 72px 1fr auto; gap: 22px;
+    align-items: center;
+    position: relative; overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .featured:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .featured::before {
+    content: "★ EDITOR'S PICK";
+    position: absolute; top: 18px; right: 24px;
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--beige); font-size: 11px; letter-spacing: 0.2em;
+    opacity: 0.8;
+  }
+  .featured .avatar {
+    width: 72px; height: 72px; border-radius: 18px; background: var(--panel-3); overflow: hidden;
+    border: 1px solid var(--line); flex-shrink: 0;
+  }
+  .featured .avatar img { width:100%; height:100%; object-fit: cover; display: block; }
+  .featured h2 { margin: 0 0 6px; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; line-height: 1.2; }
+  .featured .author { color: var(--text-sub); font-size: 13px; margin-bottom: 12px; }
+  .featured .author .cat-pill { margin-left: 8px; }
+  .featured p { margin: 0 0 14px; color: var(--text); opacity: 0.88; font-size: 14px; line-height: 1.55; max-width: 640px; }
+  .featured .stars { text-align: right; min-width: 100px; }
+  .featured .stars strong { display: block; font-family: var(--serif); font-style: italic; font-size: 38px; font-weight: 600; color: var(--beige); line-height: 1; letter-spacing: -0.02em; }
+  .featured .stars span { color: var(--text-dim); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-top: 4px; display: inline-block; }
+
+  /* ===== Feed / Card ===== */
+  .feed { display:flex; flex-direction:column; gap: 10px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: grid; grid-template-columns: 32px 44px 1fr auto; gap: 18px;
+    align-items: flex-start;
+    transition: border-color .15s, background .15s, transform .15s, box-shadow .15s;
+  }
+  .card:hover { border-color: var(--line-2); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+  .card .rank { color: var(--text-dim); font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; padding-top: 10px; font-variant-numeric: tabular-nums; }
+  .card .avatar {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--panel-3); overflow: hidden;
+    border: 1px solid var(--line); flex-shrink: 0;
+  }
+  .card .avatar img { width:100%; height:100%; object-fit: cover; display: block; }
+  .card .body h3 {
+    margin:0 0 5px; font-size: 18px; font-weight: 700; letter-spacing:-0.012em;
+    display:flex; align-items:center; gap:8px; line-height: 1.3; color: var(--text);
+  }
+  .card .badge-new { color: var(--accent); font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid var(--accent); background: var(--accent-soft); }
+  .card .meta-row { color: var(--text-sub); font-size: 12.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .cat-pill {
+    background: var(--beige-soft); color: var(--beige); font-size: 11px; padding: 2px 9px; border-radius: 999px; font-weight: 600; letter-spacing: 0.01em;
+  }
+  .fb-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 999px;
+    background: rgba(24, 119, 242, 0.10); color: #1877f2;
+    cursor: pointer; transition: background .15s;
+    flex-shrink: 0;
+  }
+  .fb-link:hover { background: #1877f2; color: #fff; }
+  .fb-link svg { width: 13px; height: 13px; }
+  .card .meta-row .sep { color: var(--text-dim); }
+  .card .meta-row .lang-dot { width: 8px; height: 8px; border-radius: 99px; background: var(--text-dim); display: inline-block; }
+  .card .desc { color: var(--text); opacity:.82; margin: 0 0 12px; font-size: 13px; line-height: 1.6; }
+  .card .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { background: var(--panel-3); color: var(--text-sub); font-size: 11.5px; padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+  .card .stars { text-align:right; color: var(--text-dim); font-size: 10.5px; white-space: nowrap; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; min-width: 76px; padding-top: 6px; }
+  .card .stars strong { display:block; color: var(--text); font-family: var(--serif); font-style: italic; font-size: 22px; font-weight: 600; letter-spacing: -0.015em; text-transform: none; margin-bottom: 4px; }
+
+  /* ===== Right sidebar ===== */
+  .sidebar-right { position: sticky; top: 88px; align-self: start; display:flex; flex-direction:column; gap:16px; }
+  .panel-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .panel-card h4 { margin: 0 0 14px; font-size: 10.5px; color: var(--text-dim); font-weight:700; letter-spacing: 0.18em; text-transform: uppercase; display:flex; justify-content:space-between; align-items:center; }
+  .panel-card h4 .tag-count { color: var(--text-sub); font-size: 11px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+
+  .brief { display:flex; flex-direction:column; gap:12px; }
+  .brief .item { display:flex; gap:10px; align-items:flex-start; }
+  .brief .pin { width: 6px; height: 6px; border-radius: 99px; background: var(--accent); margin-top: 7px; flex-shrink: 0; }
+  .brief .t { color: var(--text); font-weight:600; font-size: 13.5px; line-height: 1.45; }
+  .brief .s { color: var(--text-dim); font-size:11.5px; margin-top: 2px; letter-spacing: 0.01em; }
+
+  .rank-row { display:flex; align-items:center; gap: 10px; padding:10px 0; border-top:1px dashed var(--line); }
+  .rank-row:first-of-type { border-top:0; padding-top: 4px; }
+  .rank-row .r-num { font-family: var(--serif); font-style: italic; color: var(--text-dim); font-size: 14px; font-weight: 500; width: 18px; flex-shrink: 0; }
+  .rank-row .r-av { width: 28px; height: 28px; border-radius: 8px; background: var(--panel-3); overflow: hidden; flex-shrink: 0; border: 1px solid var(--line); }
+  .rank-row .r-av img { width:100%; height:100%; object-fit: cover; }
+  .rank-row .r-info { flex: 1; min-width: 0; }
+  .rank-row .name { font-weight:600; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
+  .rank-row .author { color: var(--text-dim); font-size: 11.5px; }
+  .rank-row .star { color: var(--beige); font-size:13px; font-weight:600; font-family: var(--serif); font-style: italic; flex-shrink: 0; }
+
+  /* ===== Adder ===== */
+  .adder {
+    border: 1px dashed var(--line-2); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 22px; background: var(--panel);
+  }
+  .adder .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .adder input, .adder select {
+    background: var(--bg-2); border:1px solid var(--line); color: var(--text);
+    padding: 10px 14px; border-radius: 9px; font-size: 13.5px; font-family: inherit; outline:none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .adder input:focus, .adder select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .adder input[type="text"] { flex:1; min-width: 300px; }
+  .adder .log { margin-top: 12px; font-size:12.5px; color: var(--text-sub); white-space: pre-wrap; }
+  .adder .small { font-size:12px; color: var(--text-dim); margin-top: 8px; }
+
+  /* ===== Toast ===== */
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--panel); border: 1px solid var(--accent); color: var(--text);
+    padding: 12px 22px; border-radius: 12px; font-size: 13.5px; font-weight: 600;
+    box-shadow: var(--shadow-lg); z-index: 100; opacity: 0; pointer-events: none;
+    transition: opacity .25s, transform .25s;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast::before { content: "✓ "; color: var(--accent); margin-right: 4px; }
+
+  /* ===== Skeleton ===== */
+  .skeleton { background: linear-gradient(90deg, var(--panel-2) 25%, var(--panel-3) 50%, var(--panel-2) 75%); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 8px; height: 80px; }
+  @keyframes sk { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* ===== Utils ===== */
+  .hidden { display:none !important; }
+  .empty { color: var(--text-sub); padding: 60px 20px; text-align: center; border: 1px dashed var(--line); border-radius: var(--radius); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+ <div class="topbar-inner">
+  <a class="brand" href="javascript:location.reload()" aria-label="AI ROASTING 홈">
+    <div class="mark" aria-hidden="true"><img src="asset/logo1.png" alt="" onerror="this.style.display='none'"/></div>
+    <div class="wordmark">
+      <span class="n">AI <strong>Roasting</strong></span>
+      <span class="sub">Skill Library</span>
+    </div>
+  </a>
+  <label class="search">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-dim)"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="q" type="text" placeholder="스킬, 저자, 태그로 검색" aria-label="검색" />
+    <span class="hint">⌘K</span>
+  </label>
+  <div class="right">
+    <button class="icon-btn" id="themeBtn" aria-label="테마 전환" title="테마 전환">
+      <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="cta ghost" id="toggleAdder">＋ 스킬 추가</button>
+  </div>
+ </div>
+</header>
+
+<div class="wrap">
+
+  <!-- LEFT -->
+  <aside class="sidebar-left">
+    <nav class="nav-section nav" aria-label="피드">
+      <div class="nav-label">Feeds</div>
+      <a data-cat="all" class="active" tabindex="0" role="button"><span>전체</span><span class="count" id="count-all">0</span></a>
+      <a data-cat="new" tabindex="0" role="button"><span>신규 (최근 14일)</span><span class="count" id="count-new">0</span></a>
+    </nav>
+    <nav class="nav-section nav" id="nav-cats-wrap" aria-label="카테고리">
+      <div class="nav-label">Categories</div>
+      <div id="nav-cats"></div>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <section class="hero">
+      <div>
+        <h1>비즈니스 리더를 위해<br/>엄선한 AI 스킬</h1>
+        <p class="meta">
+          검증된 실무 스킬만 선별합니다.
+          <span class="dot">·</span>매주 토요일 업데이트
+        </p>
+      </div>
+      <div class="big-num"><span id="totalNum">0</span><small>TOTAL SKILLS</small></div>
+    </section>
+
+    <!-- Adder -->
+    <section class="adder hidden" id="adder">
+      <div class="row">
+        <input id="ghUrl" type="text" placeholder="GitHub 저장소 URL (예: https://github.com/obra/superpowers)" />
+        <select id="ghCat" aria-label="카테고리"></select>
+        <button class="cta" id="fetchBtn">자동 추가</button>
+        <button class="cta ghost" id="downloadBtn">skills.json 내보내기</button>
+      </div>
+      <div class="small">GitHub API로 이름·설명·스타 수·작성자·아바타를 자동 수집합니다. (미인증 호출은 시간당 60회 제한)</div>
+      <div class="log" id="log"></div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <div class="tab active" data-sort="stars" role="tab">스타순</div>
+      <div class="tab" data-sort="name" role="tab">이름순</div>
+      <div class="tab" data-sort="date" role="tab">날짜순</div>
+      <div class="spacer"></div>
+      <div class="sort" id="sortHint">★ 스타순</div>
+    </div>
+
+    <div id="catIntro" class="cat-intro" hidden></div>
+    <div id="featured"></div>
+    <div class="feed" id="feed"></div>
+  </main>
+
+  <!-- RIGHT -->
+  <aside class="sidebar-right">
+    <div class="panel-card">
+      <h4>이번 주 브리프</h4>
+      <div class="brief">
+        <div class="item"><span class="pin"></span>
+          <div><div class="t">신규 등록 스킬 점검</div><div class="s">매주 토요일 오전 9시</div></div>
+        </div>
+        <div class="item"><span class="pin" style="background:var(--beige)"></span>
+          <div><div class="t">큐레이션 기준 업데이트</div><div class="s">카테고리 규칙 개정 예정</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-card">
+      <h4>Top 5 <span class="tag-count">by stars</span></h4>
+      <div id="topRank"></div>
+    </div>
+
+    <div class="panel-card">
+      <h4>사용 팁</h4>
+      <div style="color:var(--text-sub); font-size:12.5px; line-height:1.65;">
+        상단의 <b style="color:var(--text);">＋ 스킬 추가</b>에 GitHub URL을 넣으면 메타데이터가 자동 수집되고, <code>skills.json</code>으로 내보낼 수 있습니다.
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Inline fallback data (file:// 환경 대응) -->
+<script type="application/json" id="skills-data">
+{"categories":[{"id":"harness","name":"하네스 · 에이전트 설계","emoji":"🛠","en":"Harness & Agent Design","desc":"에이전트 팀과 런타임 구조를 직접 조립해 나만의 AI 팀을 설계하는 플랫폼 레이어 스킬이에요."},{"id":"workflow","name":"개발 루프 · 방법론","emoji":"🚀","en":"Dev Loop & Methodology","desc":"기획부터 구현, 리뷰까지 Claude가 일하는 방식 자체를 잡아주는 방법론 스킬이에요."},{"id":"automation","name":"외부 연동 · 자동화","emoji":"🤖","en":"External Integration","desc":"브라우저, 메신저, 이슈 트래커처럼 외부 시스템과 Claude를 이어서 업무를 자동으로 돌리는 스킬이에요."},{"id":"design","name":"디자인 · 창작","emoji":"🎨","en":"Design · Creative","desc":"UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."},{"id":"business","name":"비즈니스 · 리더십","emoji":"💼","en":"Business · Leadership","desc":"마케팅, 세일즈, 경영, 법무까지 실무에서 바로 써먹는 비즈니스 의사결정을 돕는 스킬들이에요."},{"id":"finance","name":"투자 · 금융","emoji":"💹","en":"Investment · Finance","desc":"트레이딩부터 포트폴리오 관리, 리서치까지 투자와 금융 업무에 특화된 스킬들이에요."},{"id":"research","name":"리서치 · 인사이트","emoji":"📊","en":"Research · Insights","desc":"논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."},{"id":"mcp","name":"MCP · 컨텍스트","emoji":"🔌","en":"MCP · Context","desc":"MCP 서버를 만들거나 외부 컨텍스트를 연결해 Claude가 쓸 수 있는 도구 범위를 넓혀주는 스킬들이에요."},{"id":"korea","name":"한국 특화 스킬 · MCP","emoji":"🇰🇷","en":"Korea Skills · MCP","desc":"한글 문서부터 카카오, 토스, 네이버 같은 국내 서비스까지, 한국 환경에 딱 맞춘 스킬과 MCP 모음이에요."},{"id":"token","name":"토큰 절약","emoji":"⚡","en":"Token Efficiency","desc":"컨텍스트와 토큰 사용량을 줄여서 비용은 아끼고 응답 속도는 끌어올리는 효율화 스킬들이에요."}],"skills":[{"category":"workflow","name":"Superpowers","repo":"obra/superpowers","author":"Jesse Vincent","stars":159504,"desc":"이 스킬은 brainstorm → plan → implement → test 흐름을 하나로 묶어주는 올인원 워크플로우 플러그인이다. 브레인스토밍과 TDD, 코드 리뷰가 끊김 없이 이어지기 때문에 새 프로젝트를 시작할 때 가장 먼저 설치해두면 좋다.","tags":["#workflow-engine","#tdd","#brainstorming"],"lang":"Shell","added_at":"2026-04-19"},{"category":"workflow","name":"Claude Mem","repo":"thedotmack/claude-mem","author":"thedotmack","stars":62950,"desc":"이 스킬은 지난 대화를 자동으로 요약·압축해 다음 세션에 다시 주입해주는 장기 메모리 플러그인이다. 세션이 바뀌어도 프로젝트 맥락이 그대로 유지되기 때문에 수 주짜리 긴 작업도 이어서 진행할 수 있다.","tags":["#memory","#continuity"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"workflow","name":"Planning with Files","repo":"OthmanAdi/planning-with-files","author":"OthmanAdi","stars":19035,"desc":"이 스킬은 태스크를 마크다운 파일 트리로 쪼개서 관리하는 프로젝트 플래닝 도구다. 각 파일이 하나의 진행 단계를 나타내기 때문에 Claude가 다음에 할 일을 스스로 파악하고, GitHub Actions와 엮으면 파일 변경만으로 배포까지 이어진다.","tags":["#project-management","#markdown"],"lang":"Python","added_at":"2026-04-19"},{"category":"workflow","name":"Claude Skills 220+","repo":"alirezarezvani/claude-skills","author":"alirezarezvani","stars":11877,"desc":"이 컬렉션은 엔지니어링, 법무, 재무, HR, 마케팅 등 220개가 넘는 CLAUDE.md 스킬을 도메인별 폴더로 정리해놓았다. 필요한 스킬만 골라 복사하면 되기 때문에 스킬을 처음 도입하는 팀이 전체 가능성을 한눈에 훑어보기 좋다.","tags":["#skills-collection","#multi-domain"],"lang":"Python","added_at":"2026-04-19"},{"category":"workflow","name":"Andrej Karpathy Skills","repo":"forrestchang/andrej-karpathy-skills","author":"forrestchang","stars":60011,"desc":"이 파일은 Karpathy가 정리한 LLM 코딩 함정(off-by-one, 상태 누락, 타입 혼용 등)을 체크리스트로 묶어둔 CLAUDE.md다. 프로젝트 루트에 하나만 올려두어도 반복 실수가 눈에 띄게 줄어들고, 수학 연산이나 배열 인덱스가 많은 코드에서 특히 효과가 크다.","tags":["#claude-md","#best-practice"],"lang":"Markdown","added_at":"2026-04-19"},{"category":"research","name":"ARIS","repo":"wanshuiyin/Auto-claude-code-research-in-sleep","author":"wanshuiyin","stars":7015,"desc":"이 스킬은 사용자가 자는 동안 Claude가 자율적으로 ML 논문을 검색·요약·분석해주는 리서치 자동화 도구다. 아침에 일어나면 지정해둔 주제의 최신 논문 리포트가 완성돼 있어서 매주 AI 트렌드를 모니터링하기에 적합하다.","tags":["#autonomous","#research"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Autoresearch","repo":"uditgoenka/autoresearch","author":"uditgoenka","stars":3845,"desc":"이 스킬은 리서치 → 가설 → 검증 → 피드백 루프를 Claude가 스스로 반복하는 자율 연구 도구다. 사용자는 목표만 던져주면 되기 때문에 단순 검색을 넘어 '왜'를 파고드는 딥 다이브 분석에 쓰기 좋다.","tags":["#autonomous","#self-improvement"],"lang":"Python","added_at":"2026-04-19"},{"category":"workflow","name":"Pro-Workflow","repo":"rohitg00/pro-workflow","author":"rohitg00","stars":1945,"desc":"이 스킬은 틀린 부분만 골라 다시 학습하는 교정 기반 메모리 시스템이다. 세션이 쌓일수록 Claude가 프로젝트 맥락과 패턴을 더 잘 이해하게 되기 때문에, 긴 프로젝트에서 같은 설명을 반복할 필요가 없어진다.","tags":["#memory","#context"],"lang":"Python","added_at":"2026-04-19"},{"category":"harness","name":"Claude Workflow v2","repo":"CloudAI-X/claude-workflow-v2","author":"CloudAI-X","stars":1341,"desc":"이 런타임은 에이전트·스킬·훅을 블록처럼 조립해 커스텀 워크플로우를 만들어주는 범용 플랫폼이다. 조건 분기, 병렬 실행, 에러 재시도를 설정 파일만으로 구성할 수 있어 반복 업무를 한 번 설계해두고 완전히 자동화하고 싶을 때 쓴다.","tags":["#plugin","#agents"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"harness","name":"Agentsys","repo":"agent-sh/agentsys","author":"agent-sh","stars":743,"desc":"이 패키지는 플러그인 19개와 에이전트 프리셋 47개를 하나로 묶어둔 자동화 번들이다. 코드 작성 이후의 테스트, 배포, 모니터링, 알림까지 에이전트 팀이 이어받아 처리하기 때문에 혼자 다루기 벅찬 엔지니어링 파이프라인을 맡기기 좋다.","tags":["#agents","#automation"],"lang":"Shell","added_at":"2026-04-19"},{"category":"token","name":"Caveman","repo":"JuliusBrussee/caveman","author":"Julius Brussee","stars":38434,"desc":"이 스킬은 CLAUDE.md에 '원시인처럼 짧게 답하라'는 규칙 한 줄을 얹는 가장 단순한 토큰 절약 도구다. 출력 길이가 65~75% 정도 줄어들어 API 비용이 바로 떨어지고, 지금 당장 비용을 아껴야 할 때 5초면 적용할 수 있다.","tags":["#token-saving","#output"],"lang":"Python","added_at":"2026-04-19"},{"category":"token","name":"RTK (Rust Token Killer)","repo":"rtk-ai/rtk","author":"rtk-ai","stars":29683,"desc":"이 도구는 터미널 출력을 Claude에 보내기 전에 걸러내고 압축하는 Rust CLI 프록시다. 로그 같은 노이즈가 제거돼 의미 있는 정보만 전달되기 때문에 토큰 사용량이 60~90% 줄고, DevOps나 서버 관리 환경에서 무료 사용량을 크게 늘릴 수 있다.","tags":["#cli-proxy","#terminal"],"lang":"Rust","added_at":"2026-04-19"},{"category":"mcp","name":"Context Mode","repo":"mksglu/context-mode","author":"mksglu","stars":7779,"desc":"이 MCP는 Playwright나 GitHub API, 로그 출력을 Claude에 그대로 붓지 않고 SQLite 샌드박스에 격리해 저장한다. Claude가 SQL 쿼리로 필요한 부분만 읽어가기 때문에 컨텍스트가 98%까지 압축되고, 대용량 자동화 출력을 다루는 CI/CD 파이프라인에 잘 어울린다.","tags":["#mcp","#sandbox"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"mcp","name":"code-review-graph","repo":"tirth8205/code-review-graph","author":"tirth8205","stars":11265,"desc":"이 MCP는 Tree-sitter로 코드베이스를 분석해 함수·클래스 간 의존성 그래프를 만들어준다. '이 함수를 호출하는 모든 곳'을 쿼리 한 번으로 가져올 수 있어서 대형 모노레포에서도 관련 심볼만 읽어가며 정확하게 코드 리뷰를 돌릴 수 있다.","tags":["#mcp","#knowledge-graph"],"lang":"Python","added_at":"2026-04-19"},{"category":"mcp","name":"Token Savior","repo":"Mibayy/token-savior","author":"Mibayy","stars":413,"desc":"이 MCP는 파일 전체를 컨텍스트에 올리는 대신 함수·클래스 단위 심볼로 탐색하게 해준다. 컨텍스트를 97%까지 줄여주면서 세션 간 탐색 히스토리도 기억하기 때문에, 수십만 줄 규모의 레거시 코드를 분석할 때 사실상 필수 도구가 된다.","tags":["#mcp","#symbol-navigation"],"lang":"Python","added_at":"2026-04-19"},{"category":"mcp","name":"claude-context","repo":"zilliztech/claude-context","author":"Zilliz","stars":5996,"desc":"이 MCP는 BM25 키워드와 벡터 임베딩을 섞은 하이브리드 검색으로 전체 코드베이스를 인덱싱한다. '이 기능과 관련된 파일'을 자동으로 찾아 올려주어 불필요한 파일 로딩이 사라지고, Milvus를 만든 Zilliz의 공식 오픈소스라 검색 품질도 안정적이다.","tags":["#mcp","#search","#bm25"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"mcp","name":"token-optimizer-mcp","repo":"ooples/token-optimizer-mcp","author":"ooples","stars":95,"desc":"이 MCP는 캐싱, 응답 압축, 불필요한 도구 호출 제거를 조합해 토큰을 95% 넘게 아껴준다. 같은 쿼리는 캐시에서 바로 돌려주기 때문에 속도와 비용이 함께 좋아지고, 반복 작업이 많은 자동화 환경에서 사용량 폭발을 막아준다.","tags":["#mcp","#caching"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"token","name":"claude-token-efficient","repo":"drona23/claude-token-efficient","author":"drona23","stars":4446,"desc":"이 파일은 Claude가 불필요한 서론과 반복을 줄이고 간결하게 답하도록 유도하는 CLAUDE.md 드롭인 설정이다. 프로젝트 루트에 파일 하나만 복사하면 끝이기 때문에 별도 설정 없이 즉시 적용할 수 있는 가장 가벼운 토큰 절약 방법이다.","tags":["#claude-md","#drop-in"],"added_at":"2026-04-19"},{"category":"token","name":"claude-token-optimizer","repo":"nadimtuhin/claude-token-optimizer","author":"nadimtuhin","stars":69,"desc":"이 템플릿은 어떤 프로젝트에도 5분이면 붙일 수 있는 토큰 절약 프롬프트 셋업이다. 문서, 코드, 대화 상황별로 최적화된 설정이 준비돼 있어서 골라 쓰기만 해도 약 30%의 절감 효과를 얻고, 이후 별도 조정 없이도 안정적으로 돌아간다.","tags":["#setup","#prompts"],"added_at":"2026-04-19"},{"category":"token","name":"token-optimizer","repo":"alexgreensh/token-optimizer","author":"alexgreensh","stars":411,"desc":"이 스킬은 컨텍스트에서 쓸모없이 자리만 차지하는 '고스트 토큰'(주석, 빈 줄, 반복 경고문 등)을 찾아 제거한다. 코드 품질은 그대로 두면서 컨텍스트 활용도를 높여주기 때문에, 대형 코드베이스에서 토큰 한계에 자주 걸리는 경우에 유용하다.","tags":["#analysis","#ghost-tokens"],"lang":"Python","added_at":"2026-04-19"},{"category":"business","name":"GStack","repo":"garrytan/gstack","author":"Garry Tan","stars":77067,"desc":"이 컬렉션은 YC CEO 개리 탄이 직접 고르고 쓰는 스타트업 경영 도구 23개를 묶어놓았다. PMF 검증, OKR 설정, 팀 피드백, 제품 스펙 같은 CEO 일상 업무가 단계별 스킬로 자동화돼 있어서 투자사 미팅 준비나 분기 목표 수립에 바로 쓸 수 있다.","tags":["#strategy","#executive"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"business","name":"Career Ops","repo":"santifer/career-ops","author":"santifer","stars":36288,"desc":"이 스킬은 이력서, 자기소개서, 면접 준비, 지원 현황 추적까지 14가지 커리어 모드를 한 곳에서 돌려준다. 지원하는 직군이나 회사에 맞춰 서류를 자동으로 커스터마이징해주기 때문에 이직을 준비하는 직장인이 서류 전형 통과율을 끌어올리기에 좋다.","tags":["#career","#hr"],"lang":"JavaScript","added_at":"2026-04-19"},{"category":"business","name":"Marketing Skills","repo":"coreyhaines31/marketingskills","author":"coreyhaines31","stars":22022,"desc":"이 스킬셋은 CRO, 카피라이팅, SEO, 데이터 분석을 하나의 파이프라인으로 이어준다. 랜딩 페이지 A/B 테스트 설계부터 이메일 캠페인 문구까지 한 번에 처리되기 때문에, 에이전시 없이 스타트업이 직접 그로스 실험을 돌릴 수 있다.","tags":["#marketing","#cro","#seo"],"lang":"JavaScript","added_at":"2026-04-19"},{"category":"business","name":"Minimalist Entrepreneur","repo":"slavingia/skills","author":"Sahil Lavingia","stars":8028,"desc":"이 스킬 모음은 Gumroad CEO Sahil Lavingia의 린 스타트업 방법론을 옮겨놓은 것이다. 아이디어 검증부터 MVP 출시, 첫 유료 고객 확보까지 의사결정 플로우를 안내해주어, 제품 개발보다 고객 발견이 먼저라는 원칙을 자연스럽게 따라가게 해준다.","tags":["#startup","#lean"],"added_at":"2026-04-19"},{"category":"business","name":"GEO SEO Claude","repo":"zubair-trabzada/geo-seo-claude","author":"zubair-trabzada","stars":6420,"desc":"이 스킬은 AI 검색 크롤러가 콘텐츠와 브랜드 권위도를 어떻게 평가하는지 분석해 생성형 검색(GEO) 전략을 짜준다. ChatGPT나 Perplexity에서 내 브랜드가 더 자주 언급되도록 구체적인 콘텐츠 전략을 제시해주기 때문에, 전통 SEO만으로는 채우지 못하는 AI 검색 노출 문제를 보완할 수 있다.","tags":["#seo","#geo"],"lang":"Python","added_at":"2026-04-19"},{"category":"business","name":"AI Marketing Suite","repo":"zubair-trabzada/ai-marketing-claude","author":"zubair-trabzada","stars":1366,"desc":"이 수트는 마케팅 스킬 15개를 에이전트 5명이 병렬로 돌리는 자동화 패키지다. 웹사이트 감사 → 경쟁사 분석 → 카피 초안 → 캠페인 기획을 명령 한 번으로 끝낼 수 있어서, 창업자가 마케팅팀 없이 여러 채널을 동시에 실험할 때 효율적이다.","tags":["#marketing","#campaigns"],"lang":"Python","added_at":"2026-04-19"},{"category":"business","name":"SEO & GEO Skills","repo":"aaron-he-zhu/seo-geo-claude-skills","author":"aaron-he-zhu","stars":1072,"desc":"이 스킬셋은 AI 에이전트 35명이 협업해 SEO·GEO 스킬 20개를 돌리는 구성이다. 키워드 클러스터링, 콘텐츠 갭 분석, 내부 링크 최적화가 병렬로 처리되기 때문에 전략 수립부터 콘텐츠 작성까지 하나의 완전 자동화 루프로 이어진다.","tags":["#seo","#geo"],"lang":"Shell","added_at":"2026-04-19"},{"category":"business","name":"AI Legal Claude","repo":"zubair-trabzada/ai-legal-claude","author":"zubair-trabzada","stars":760,"desc":"이 스킬은 계약서 검토, NDA 초안 작성, 컴플라이언스 체크를 전문 스킬 14개와 병렬 에이전트 5명이 나눠 처리한다. 법무팀이 없는 스타트업도 계약 리스크를 빠르게 파악하고 표준 조항을 자동으로 만들 수 있기 때문에, 변호사 검토에 올리기 전 1차 스크리닝으로 쓰면 시간과 비용을 크게 아낀다.","tags":["#legal","#compliance"],"lang":"Python","added_at":"2026-04-19"},{"category":"business","name":"OpenClaudia Skills","repo":"OpenClaudia/openclaudia-skills","author":"OpenClaudia","stars":390,"desc":"이 모음은 SEO 콘텐츠, 이메일 시퀀스, SNS 광고 카피, 뉴스레터를 자동으로 만들어주는 오픈소스 마케팅 스킬 34개를 담고 있다. 콘텐츠 캘린더부터 퍼포먼스 리포트까지 전체 마케팅 사이클을 다루기 때문에, 소규모 팀도 대형 대행사 수준의 생산량을 낼 수 있다.","tags":["#marketing","#content"],"lang":"Python","added_at":"2026-04-19"},{"category":"business","name":"Marketing Skills 160+","repo":"kostja94/marketing-skills","author":"kostja94","stars":353,"desc":"이 패키지는 페이스북, 인스타그램, 구글, TikTok, 이메일, SEO 등 160개가 넘는 채널별 마케팅 스킬을 통합해 제공한다. 채널별 알고리즘 특성에 맞춰 콘텐츠를 자동 변환해주기 때문에, 하나의 브랜드 스토리를 여러 채널에 최적화해 운영할 때 적합하다.","tags":["#marketing","#multi-channel"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Last 30 Days","repo":"mvanhorn/last30days-skill","author":"Matt Van Horn","stars":22680,"desc":"이 스킬은 Reddit, X, YouTube, Hacker News의 최근 30일 콘텐츠를 자동으로 모아 주간 트렌드 리포트를 만들어준다. 플랫폼별 화제 키워드, 떠오르는 기술, 감정 분석까지 구조화된 보고서로 돌려주기 때문에 매주 업계 동향을 직접 뒤지던 시간을 명령 한 번으로 대체한다.","tags":["#trends","#social"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Claude Scientific Skills","repo":"K-Dense-AI/claude-scientific-skills","author":"K-Dense-AI","stars":18857,"desc":"이 에이전트 팀은 논문 리뷰, 데이터 시각화, 통계 분석, 재무 모델링까지 과학 연구에 필요한 작업을 분담해서 수행한다. PubMed와 arXiv에서 논문을 자동으로 가져와 요약·비교·인용 정리까지 마쳐주기 때문에 R&D 팀이나 논문 저자가 조사 시간을 80% 이상 줄일 수 있다.","tags":["#research","#science"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Graphify","repo":"safishamsi/graphify","author":"safishamsi","stars":30322,"desc":"이 스킬은 폴더 안의 코드, 문서, 논문을 분석해 '무엇이 무엇을 참조하는지'를 지식 그래프로 그려준다. 그래프에 '이 모듈이 의존하는 파일 전부 보여줘' 같은 자연어 질문을 던질 수 있기 때문에, 새로 합류한 팀원의 온보딩이나 아키텍처 리뷰에 쓰기 좋다.","tags":["#knowledge-graph","#docs"],"lang":"Python","added_at":"2026-04-19"},{"category":"mcp","name":"NotebookLM Py","repo":"teng-lin/notebooklm-py","author":"teng-lin","stars":11142,"desc":"이 라이브러리는 Google NotebookLM을 파이썬에서 쓸 수 있도록 감싼 API 래퍼다. 문서를 노트북에 올리고 질문하면 출처가 명확한 답이 돌아오기 때문에, Claude Code 스크립트에서 NotebookLM 분석을 자동화해 보고서 파이프라인을 만들 수 있다.","tags":["#notebooklm","#api"],"lang":"Python","added_at":"2026-04-19"},{"category":"mcp","name":"NotebookLM Skill","repo":"PleasePrompto/notebooklm-skill","author":"PleasePrompto","stars":5940,"desc":"이 스킬은 Claude Code에서 NotebookLM 노트북에 바로 질문할 수 있게 해준다. 원본 문서에 근거가 없으면 답을 만들지 않도록 설계돼 있어서, 회사 내부 문서나 정책·계약서처럼 정확한 근거 기반 Q&A가 필요한 상황에 잘 맞는다.","tags":["#notebooklm","#qa"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"X Research Skill","repo":"rohunvora/x-research-skill","author":"rohunvora","stars":1076,"desc":"이 스킬은 X(트위터)에서 키워드를 추적·분석해 트렌드 브리핑을 자동으로 작성해준다. 주요 인플루언서 의견, 감정 분포, 바이럴 콘텐츠 패턴까지 리포트에 담아주기 때문에 마케터, 투자자, 리서처가 시장 반응을 실시간으로 파악할 때 유용하다.","tags":["#x","#social-research"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Claude Deep Research","repo":"199-biotechnologies/claude-deep-research-skill","author":"199-biotechnologies","stars":502,"desc":"이 스킬은 정보 수집 → 교차 검증 → 신뢰도 평가 → 보고서 작성까지 8단계 파이프라인으로 기업급 딥 리서치를 돌려준다. 단계마다 출처를 붙여주기 때문에 환각 없이 품질이 보장되고, 투자 DD, 시장 조사, 기술 동향 파악처럼 신뢰성이 중요한 리서치에 잘 맞는다.","tags":["#deep-research","#verification"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Deep Research Skills","repo":"Weizhena/Deep-Research-skills","author":"Weizhena","stars":468,"desc":"이 스킬은 AI가 1차 조사를 하면 사람이 피드백을 주고, 그 피드백을 바탕으로 AI가 다시 심화 조사를 이어가는 협력형 리서치 도구다. 완전 자동화보다 품질이 높고 수작업보다 훨씬 빠르기 때문에 전문적 판단이 필요한 의사결정 리서치에 적합하다.","tags":["#deep-research","#human-in-loop"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Academic Paper Skills","repo":"lishix520/academic-paper-skills","author":"lishix520","stars":281,"desc":"이 스킬은 논문 주제 선정, 구조 설계, 섹션별 집필, 참고문헌 정리를 각각 독립 스킬로 나눠 병렬로 작업한다. 파트별로 따로 개선하거나 재사용할 수 있기 때문에, 영어 논문에 익숙하지 않은 연구자도 초안을 훨씬 빠르게 완성할 수 있다.","tags":["#academic","#paper"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Claude Code Deep Research","repo":"liangdabiao/Claude-Code-Deep-Research-main","author":"liangdabiao","stars":238,"desc":"이 스킬은 복잡한 주제를 찬성, 반대, 맥락, 데이터, 결론의 여러 각도에서 동시에 조사해 구조화된 보고서를 만들어준다. 단순 검색이 아니라 논쟁의 여러 면을 함께 살피기 때문에, 의사결정에 앞서 편향 없는 사전 조사가 필요할 때 빠르게 돌릴 수 있다.","tags":["#deep-research","#report"],"lang":"Python","added_at":"2026-04-19"},{"category":"research","name":"Ars Contexta","repo":"agenticnotetaking/arscontexta","author":"agenticnotetaking","stars":3165,"desc":"이 스킬은 대화 속 핵심 인사이트를 자동으로 뽑아 마크다운 기반 Second Brain을 쌓아주는 지식 관리 도구다. 태그, 카테고리, 링크가 자동으로 붙어 노트가 쌓일수록 검색 가능한 지식 DB가 되고, Obsidian이나 Notion과 연동하면 기존 노트 시스템에 AI 자동화를 더할 수 있다.","tags":["#second-brain","#knowledge"],"lang":"Shell","added_at":"2026-04-19"},{"category":"finance","name":"QuantAgent","repo":"Y-Research-SBU/QuantAgent","author":"Y-Research-SBU","stars":2370,"desc":"이 스킬은 '최근 52주 신고가에 RSI 30 이하 종목 롱' 같은 전략을 자연어로 입력하면 자동으로 백테스트와 포트폴리오 최적화를 돌려준다. 코드를 직접 쓰지 않아도 퀀트 전략을 실험할 수 있기 때문에, 전문 퀀트가 아닌 투자자도 데이터 기반 의사결정을 내릴 수 있다.","tags":["#quant","#backtesting"],"added_at":"2026-04-19"},{"category":"finance","name":"LangAlpha","repo":"ginlix-ai/LangAlpha","author":"ginlix-ai","stars":849,"desc":"이 플랫폼은 주식, ETF, 채권의 재무제표 분석과 포트폴리오 최적화, 자동 거래까지 한곳에서 제공하는 AI 금융 도구다. '저평가 배당주 5개 추천해줘'라고 말하면 근거와 함께 결과가 돌아오고, API 연결로 실제 거래까지 자동화할 수 있어서 알고리즘 투자를 처음 해보는 개인에게 잘 맞는다.","tags":["#investment","#trading"],"lang":"Python","added_at":"2026-04-19"},{"category":"finance","name":"TradingAgents AShare","repo":"KylinMountain/TradingAgents-AShare","author":"KylinMountain","stars":187,"desc":"이 시스템은 A주(중국 주식) 전문 에이전트 15명이 기관 투자팀처럼 협업하는 멀티에이전트 구성이다. 뉴스, 기술분석, 펀더멘털 에이전트가 동시에 분석해 합의된 거래 신호를 만들어주기 때문에, 감정에 휘둘리지 않는 데이터 기반 판단이 필요한 A주 투자자에게 유용하다.","tags":["#trading","#multi-agent"],"lang":"Python","added_at":"2026-04-19"},{"category":"finance","name":"MAIA Skill","repo":"Hainrixz/maia-skill","author":"Hainrixz","stars":62,"desc":"이 스킬은 주식, 암호화폐, 외환 시장을 각각 맡은 리서치 에이전트 5명이 동시에 분석해 포트폴리오 다각화 인사이트를 건네준다. 자산군 간 상관관계와 리스크를 종합적으로 따져 최적 비중을 제안해주기 때문에, 분산 투자 중인 개인 투자자의 리밸런싱에 어울린다.","tags":["#stocks","#crypto"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"finance","name":"Finance Skills","repo":"JoelLewis/finance_skills","author":"JoelLewis","stars":46,"desc":"이 모음은 투자 위험 평가, 컴플라이언스 체크, 거래 실행, 포트폴리오 리포트까지 금융사 업무에 특화된 스킬 81개를 담고 있다. 스킬을 따로 쓰거나 파이프라인으로 엮을 수 있기 때문에, 핀테크 스타트업이나 금융 서비스 팀이 AI 기반 운영을 빠르게 구축하기에 좋다.","tags":["#compliance","#trading"],"lang":"Python","added_at":"2026-04-19"},{"category":"finance","name":"Stock Analysis Agent","repo":"kipeum86/stock-analysis-agent","author":"kipeum86","stars":39,"desc":"이 에이전트는 미국·한국 주식의 재무제표, 밸류에이션(PER·PBR·DCF), 경쟁사 비교를 클릭 한 번으로 수행하는 기관급 리서치 도구다. 투자 의사결정에 필요한 데이터를 구조화된 보고서로 자동 정리해주기 때문에, 개인 투자자도 애널리스트 수준의 종목 분석을 비용 없이 해볼 수 있다.","tags":["#stocks","#korea"],"added_at":"2026-04-19"},{"category":"automation","name":"CCPM","repo":"automazeio/ccpm","author":"automazeio","stars":7996,"desc":"이 도구는 GitHub 이슈를 태스크로 바꿔 Claude가 Worktree를 자동으로 만들고, 에이전트 팀이 병렬로 작업한 뒤 각자 PR을 올려주는 완전 자동화 PM 시스템이다. 이슈만 써두면 코딩, 테스트, PR까지 에이전트가 알아서 처리해주기 때문에 개발자는 코드 리뷰에만 집중할 수 있다.","tags":["#pm","#parallel"],"lang":"Shell","added_at":"2026-04-19"},{"category":"automation","name":"Refly","repo":"refly-ai/refly","author":"refly-ai","stars":7226,"desc":"이 에이전트 빌더는 대화만으로 Slack·Lark 봇을 만들고 외부 API와 연결해 메신저 안에서 업무를 자동으로 돌린다. '구매 승인 요청 오면 Slack DM으로 알려줘' 같은 요구를 자연어로 구성할 수 있기 때문에, 노코드로 회사 업무 봇을 만들고 싶은 팀에 잘 맞는다.","tags":["#slack","#chatbot"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"automation","name":"Lark CLI","repo":"larksuite/cli","author":"Larksuite","stars":8214,"desc":"이 CLI는 라크(Feishu)의 공식 커맨드라인 도구로, 메신저·문서·달력·화상미팅·승인·할 일을 19개 AI 스킬로 자동화해준다. 한국 기업에서 많이 쓰는 라크 환경과 Claude Code를 가장 자연스럽게 엮어주기 때문에, '내일 오전 10시 팀 회의 잡고 아젠다 공유해줘' 같은 문장이 바로 실행된다.","tags":["#lark","#feishu"],"lang":"Go","added_at":"2026-04-19"},{"category":"automation","name":"Playwright (dev-browser)","repo":"SawyerHood/dev-browser","author":"SawyerHood","stars":5937,"desc":"이 도구는 Playwright 기반의 브라우저 자동화 패키지로, 웹 스크래핑·E2E 테스트·폼 자동 입력 같은 RPA 작업을 Claude Code에서 바로 실행한다. 실제 브라우저를 제어하기 때문에 로그인이 필요한 사이트나 동적 콘텐츠도 다룰 수 있어서, 경쟁사 가격 추적이나 보고서 자동 다운로드 같은 반복 업무 자동화에 유용하다.","tags":["#browser","#e2e"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"automation","name":"Playwright Skill","repo":"lackeyjb/playwright-skill","author":"lackeyjb","stars":2458,"desc":"이 스킬은 Claude가 Playwright 자동화 코드를 알아서 만들고 바로 실행해주는 브라우저 제어 도구다. '이 사이트에서 로그인하고 데이터 가져와'라고 말하면 스크립트 작성 없이 브라우저 작업이 끝나기 때문에, 비개발자인 마케팅·운영팀도 웹 자동화를 실행할 수 있다.","tags":["#playwright","#testing"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"automation","name":"Goodable","repo":"ImGoodBai/goodable","author":"ImGoodBai","stars":172,"desc":"이 워크스페이스는 OS 제어, 파일 관리, 브라우저, 코드 편집을 하나의 인터페이스로 묶어놓은 로컬 퍼스트 데스크톱 AI 환경이다. 기능을 모듈처럼 조합해 에이전트 SDK 기반 자동화 환경을 꾸밀 수 있기 때문에, 민감한 데이터를 클라우드에 올리지 않고 로컬에서 처리해야 할 때 잘 맞는다.","tags":["#desktop","#agent-sdk"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"automation","name":"Specweave","repo":"anton-abyzov/specweave","author":"anton-abyzov","stars":126,"desc":"이 스킬은 기능 설명을 입력하면 기술 스펙, 구현 계획, GitHub 이슈, Jira 태스크를 자동으로 만들고 동기화해준다. 요구사항에서 개발 태스크까지의 거리가 명령 한 번으로 줄어들기 때문에, PM과 개발자 사이의 커뮤니케이션 비용과 스펙 누락을 함께 줄일 수 있다.","tags":["#spec","#jira"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"automation","name":"Design Research","repo":"hamelsmu/design-research","author":"hamelsmu","stars":64,"desc":"이 스킬은 에이전트 팀이 경쟁사 웹사이트 여러 곳을 동시에 방문해 스크린샷과 분석을 모은 뒤 UX 벤치마킹 리포트를 만들어준다. 컴포넌트 구조, IA, 인터랙션 패턴까지 비교 분석해주기 때문에, 신규 서비스 기획이나 리디자인 전 경쟁사 UX 조사에 잘 맞는다.","tags":["#design","#ux"],"lang":"Python","added_at":"2026-04-19"},{"category":"harness","name":"Harness","repo":"revfactory/harness","author":"revfactory","stars":2644,"desc":"이 스킬은 도메인별 에이전트 팀을 설계하게 해주는 메타 도구다. HR, 세일즈, 엔지니어링 같은 역할을 정의하면 역할에 맞는 에이전트와 스킬이 자동으로 만들어지기 때문에, 단순히 스킬을 쓰는 단계를 넘어 자신만의 AI 팀을 짜고 싶을 때 좋은 출발점이 된다.","tags":["#agent-design","#harness"],"lang":"HTML","facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"},{"category":"harness","name":"Harness 100","repo":"revfactory/harness-100","author":"revfactory","stars":589,"desc":"이 사전은 10개 도메인(HR·영업·법무·마케팅·엔지니어링 등) × 10개 하네스로 구성된 에이전트 978명, 스킬 630개의 완성형 패키지다. 원하는 도메인 하네스를 그대로 불러오거나 조금 고쳐서 실전에 바로 투입할 수 있기 때문에, 에이전트 팀 설계를 처음 해보는 팀에게 가장 빠른 길이 된다.","tags":["#agent-teams","#production"],"lang":"Markdown","facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"},{"category":"design","name":"Awesome Design MD","repo":"VoltAgent/awesome-design-md","author":"VoltAgent","stars":60059,"desc":"이 컬렉션은 에어비앤비, 네이버, 토스, Vercel 등 유명 서비스의 공개 디자인 시스템을 DESIGN.md 파일로 정리해놓았다. Claude Code가 이 파일을 읽고 해당 디자인 언어에 맞는 컴포넌트를 만들어주기 때문에, '토스처럼 만들어줘'라고 하면 토스 스타일의 버튼, 카드, 폼이 바로 나온다.","tags":["#design-system","#toss","#naver"],"lang":"HTML","added_at":"2026-04-19"},{"category":"design","name":"Frontend Slides","repo":"zarazhangrui/frontend-slides","author":"zarazhangrui","stars":13402,"desc":"이 스킬은 Claude가 HTML/CSS 기반 인터랙티브 슬라이드를 만들어주는 도구다. 텍스트만 입력해도 애니메이션, 차트, 다이어그램이 들어간 발표 자료를 5분 안에 뽑을 수 있기 때문에, PowerPoint나 Keynote 없이도 개발자나 PM이 디자이너 없이 발표 자료를 완성할 수 있다.","tags":["#presentation","#frontend"],"lang":"Shell","added_at":"2026-04-19"},{"category":"design","name":"Humanizer","repo":"blader/humanizer","author":"blader","stars":12849,"desc":"이 스킬은 AI 글 특유의 과한 서론, 반복 표현, 구조적 나열을 감지해 사람이 쓴 것처럼 다시 써준다. 블로그, 이메일, 제안서처럼 실제 독자에게 보여야 하는 글에서 AI 냄새를 깔끔하게 지워주기 때문에, AI 초안을 퍼블리싱 가능한 수준으로 다듬는 마지막 단계에 잘 어울린다.","tags":["#writing","#humanize"],"added_at":"2026-04-19"},{"category":"design","name":"Nothing Design Skill","repo":"dominikmartn/nothing-design-skill","author":"dominikmartn","stars":1855,"desc":"이 스킬은 Nothing Phone의 단색·미니멀·고대비 타이포그래피 기반 브랜드 디자인 언어를 코드로 옮겨준다. '이 기능의 설정 화면 만들어줘'라고 하면 Nothing 스타일의 UI 컴포넌트 코드가 바로 나오기 때문에, 미니멀한 디자인 시스템을 빠르게 프로토타이핑할 때 쓰기 좋다.","tags":["#design","#monochrome"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"design","name":"Avoid AI Writing","repo":"conorbronsdon/avoid-ai-writing","author":"conorbronsdon","stars":994,"desc":"이 스킬은 과도한 형용사, 반복되는 구조, 기계적 나열 같은 AI 글쓰기 패턴을 찾아내 제거하고 사람 문체로 바꿔준다. 어떤 AI 모델이 쓴 글이든 자연스럽게 다듬어주기 때문에, 고객사·임원·대중용 커뮤니케이션에서 AI 작성 흔적을 지울 때 유용하다.","tags":["#writing","#humanize"],"lang":"Shell","added_at":"2026-04-19"},{"category":"design","name":"AI Team Skills","repo":"ThendCN/ai-team-skills","author":"ThendCN","stars":97,"desc":"이 스킬은 UI 생성은 Gemini, 코드 작성은 Codex, 오케스트레이션은 Claude Code가 맡는 멀티 LLM 협업 구성이다. 각 모델의 강점을 조합하는 방식이라 단일 모델만 쓸 때보다 결과 품질이 올라가고, 풀스택 AI 개발 파이프라인을 비용 효율적으로 꾸려보고 싶을 때 참고할 만하다.","tags":["#gemini","#codex"],"lang":"Python","added_at":"2026-04-19"},{"category":"design","name":"Awesome Novel Studio","repo":"MJbae/awesome-novel-studio","author":"MJbae","stars":37,"desc":"이 도구는 캐릭터 설정, 세계관 구축, 챕터별 스토리 전개를 단계별 스킬로 풀어낸 웹소설 집필 도우미다. 플롯 홀 감지, 일관성 검증, 문체 유지까지 함께 챙겨주기 때문에, 웹소설 작가가 집필 속도를 높이고 스토리 구조를 체계적으로 관리할 때 활용하기 좋다.","tags":["#novel","#webnovel"],"added_at":"2026-04-19"},{"category":"design","name":"Design with Claude Code","repo":"Sota-Mikami/design-with-claude-code","author":"Sota-Mikami","stars":30,"desc":"이 패키지는 Claude Code로 UI를 프로토타이핑할 때 쓸 템플릿과 재사용 가능한 디자인 스킬을 모아놓았다. 버튼, 카드, 폼, 모달 같은 공통 컴포넌트를 바로 만들어낼 수 있는 레퍼런스를 제공하기 때문에, 새 프로젝트에서 디자인 시스템 없이 빠르게 프로토타입을 만들어야 할 때 출발점이 된다.","tags":["#ui","#prototype"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"design","name":"AI Co-Writing System","repo":"az9713/ai-co-writing-claude-skills","author":"az9713","stars":27,"desc":"이 시스템은 사람이 방향을 잡으면 AI가 초안을 쓰고, 다시 피드백을 받아 개선하는 루프형 협업 글쓰기 도구다. 컨텍스트 엔지니어링 원칙으로 AI의 역할을 분명히 제한해주기 때문에 톤, 스타일, 내용의 일관성이 유지되고, 글쓰기에 AI를 처음 도입하는 팀이 워크플로우를 구조화할 때 적합하다.","tags":["#writing","#co-writing"],"lang":"Shell","added_at":"2026-04-19"},{"category":"design","name":"Claude Novel Skill","repo":"mane23-ai/claude-novel-skill","author":"mane23-ai","stars":7,"desc":"이 스킬은 플롯 설계, 문체 설정, 대화 작성, 장면 묘사를 단계별 지시로 나눠 진행하는 소설 창작 협업 도구다. 각 요소를 따로 수정할 수 있기 때문에 특정 챕터만 다시 쓰거나 문체만 바꾸는 작업도 쉬워서, 단편·장편 소설을 혼자 쓰는 작가에게 좋은 AI 파트너가 된다.","tags":["#novel","#storytelling"],"added_at":"2026-04-19"},{"category":"korea","name":"rhwp","repo":"edwardkim/rhwp","author":"edwardkim","stars":1400,"desc":"이 도구는 Rust와 WebAssembly로 구현한 HWP/HWPX 뷰어·에디터로, 브라우저에서 바로 한글 파일을 열고 편집할 수 있다. Windows의 한글 프로그램이 없어도 Mac·Linux·모바일에서 그대로 쓸 수 있기 때문에, 공공기관·교육기관 문서를 OS 제약 없이 다뤄야 하는 팀에게 유용하다.","tags":["#hwp","#rust","#wasm"],"lang":"Rust","added_at":"2026-04-19"},{"category":"korea","name":"K-Skill","repo":"NomaDamas/k-skill","author":"NomaDamas","stars":1893,"desc":"이 스킬은 SRT 좌석 예약, 카카오톡 메시지 전송, KBO 야구 스코어, 미세먼지 조회를 자연어 명령으로 실행하는 한국 생활 특화 도구다. '다음 주 서울→부산 KTX 2매 예매해줘' 같은 요청에도 실제 예약 링크까지 안내해주기 때문에, 일상 반복 작업을 Claude에 맡기고 싶은 한국 사용자에게 잘 어울린다.","tags":["#korea","#srt","#kakao"],"lang":"JavaScript","added_at":"2026-04-19"},{"category":"korea","name":"Legalize KR","repo":"legalize-kr/legalize-kr","author":"legalize-kr","stars":1152,"desc":"이 데이터베이스는 한국 법률 전체를 Git 이력으로 관리하는 마크다운 법령 저장소다. 법령 개정 이력을 버전별로 조회하고 조항끼리 비교·검색할 수 있기 때문에, 법령 기반 서비스를 만들거나 계약·정책 작업에서 근거 법령을 빠르게 확인할 때 쓴다.","tags":["#legal","#korean-law"],"added_at":"2026-04-19"},{"category":"korea","name":"Korean Privacy Terms","repo":"kimlawtech/korean-privacy-terms","author":"kimlawtech","stars":55,"desc":"이 스킬은 한국 개인정보보호법과 정보통신망법을 기반으로 서비스 유형에 맞춘 개인정보처리방침과 이용약관을 자동으로 만들어준다. 법무 검토에 올리기 전 1차 초안을 스스로 준비할 수 있기 때문에, 앱·웹 서비스 출시를 준비하는 팀이 시간과 비용을 크게 아낄 수 있다.","tags":["#privacy","#terms","#legal"],"lang":"Go Template","added_at":"2026-04-19"},{"category":"korea","name":"Video Transcription","repo":"treesoop/video_transcription","author":"treesoop","stars":6,"desc":"이 스킬은 영상의 오디오를 텍스트로 전사하면서 화면 캡처 이미지를 타임스탬프와 함께 묶어 정리해준다. 음성과 화면 정보를 한 문서에 합쳐주기 때문에 검색·요약·번역이 쉬운 통합 전사본이 만들어지고, 강의·인터뷰·회의 영상을 자막이나 자료로 재활용할 때 적합하다.","tags":["#video","#transcription"],"lang":"Python","added_at":"2026-04-19"},{"category":"korea","name":"Robin's Skills","repo":"revfactory/skills","author":"revfactory","stars":5,"desc":"이 모음은 Spring Boot 설계, HWP 편집, Gemini 연동, 멀티에이전트 구성, 1on1 미팅, 인력 배치 등 한국 기업 실무를 담은 9개 스킬을 제공한다. Java/Spring 중심의 국내 개발 환경과 HR 프로세스를 그대로 반영해놓았기 때문에, 국내 엔터프라이즈 팀이 Claude Code를 실무에 바로 붙일 때 좋은 첫 카드가 된다.","tags":["#hwp","#1on1","#spring-boot"],"facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"},{"category":"korea","name":"토스페이먼츠 하네스","repo":"revfactory/toss-payment","author":"revfactory","stars":1,"desc":"이 하네스는 토스페이먼츠 결제 API 전체(일반 결제, 정기결제, 취소, 조회, 웹훅)를 Claude 에이전트가 설계·구현·테스트까지 담당하게 해준다. API 문서를 뒤지고 코드를 쓰는 과정을 대화로 대체할 수 있기 때문에, 토스페이먼츠 도입을 고민 중인 스타트업이 프로토타입을 하루 안에 만들어 검증할 수 있다.","tags":["#payment","#toss"],"facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"},{"category":"korea","name":"카카오페이 하네스","repo":"revfactory/kakaopay","author":"revfactory","stars":1,"desc":"이 하네스는 카카오페이의 단건 결제, 정기결제, 결제 취소·조회를 Claude Code 에이전트가 설계·구현·자동화해주는 패키지다. 카카오페이 공식 문서를 바탕으로 정확한 API 호출 코드를 만들어주기 때문에, 카카오페이를 결제 수단으로 추가하려는 서비스가 구현 시간을 크게 줄일 수 있다.","tags":["#payment","#kakaopay"],"facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"},{"category":"mcp","name":"MCP Servers (공식)","repo":"modelcontextprotocol/servers","author":"Anthropic","stars":84100,"desc":"이 컬렉션은 Anthropic이 직접 관리하는 MCP 공식 서버 모음으로, 파일시스템·웹 검색·데이터베이스·Git·Slack 등 20여 개 레퍼런스 구현체를 제공한다. 설치 한 줄이면 Claude Desktop이나 Claude Code에 바로 붙일 수 있기 때문에, 새 MCP 서버를 만들 때 이 레포의 코드 패턴이 가장 빠른 학습 자료가 된다.","tags":["#mcp","#official","#anthropic"],"lang":"TypeScript","added_at":"2026-04-19"},{"category":"mcp","name":"GitHub MCP Server","repo":"github/github-mcp-server","author":"GitHub","stars":29100,"desc":"이 MCP는 GitHub 공식 서버로, 저장소 생성·파일 편집·이슈 등록·PR 생성·리뷰를 Claude가 자연어 명령으로 바로 실행한다. 'main 브랜치에 버그 수정 커밋하고 PR 열어줘'처럼 말하면 Claude Code 안에서 GitHub 작업이 끝까지 이어지기 때문에, 코드 작성부터 PR 제출까지 컨텍스트 전환 없이 처리하고 싶은 개발자에게 잘 맞는다.","tags":["#mcp","#github","#official"],"lang":"Go","added_at":"2026-04-19"},{"category":"mcp","name":"Awesome MCP Servers","repo":"wong2/awesome-mcp-servers","author":"wong2","stars":15000,"desc":"이 디렉터리는 MCP 서버 1,000개 이상을 카테고리·언어·용도별로 정리해둔 큐레이션 저장소다. 데이터베이스, 결제, 메신저, 클라우드, 개발 도구 등으로 분류돼 있어서 필요한 서버를 바로 찾을 수 있고, PR로 참여할 수 있는 커뮤니티 허브 역할도 함께 한다.","tags":["#mcp","#directory","#curated"],"lang":"Markdown","added_at":"2026-04-19"},{"category":"korea","name":"Claude Code Mastering","repo":"revfactory/claude-code-mastering","author":"revfactory","stars":772,"desc":"이 책은 Claude Code를 처음부터 실무 수준까지 익히도록 13장으로 구성한 한국어 교과서다. 설치, CLAUDE.md 설계, 훅, 스킬, 에이전트, 하네스를 단계별로 풀어주기 때문에 국내 개발자·비개발자 모두에게 적합하고, 팀 온보딩 자료로도 바로 쓸 수 있다.","tags":["#guide","#education","#korean"],"lang":"Markdown","facebook":"https://www.facebook.com/rev.minho","added_at":"2026-04-19"}]}
+</script>
+
+<script src="app.js?v=2"></script>
+</body>
+</html>
