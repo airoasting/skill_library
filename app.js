@@ -200,7 +200,7 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span>${pickBadge}</h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
         <div class="meta-row">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
