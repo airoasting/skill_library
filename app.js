@@ -92,11 +92,29 @@ function renderCats() {
   document.getElementById('count-all').textContent = counts.all;
   document.getElementById('count-pick').textContent = counts.pick;
   document.getElementById('totalNum').textContent = counts.all;
+  renderMobileCats(counts);
   highlightActiveCat();
 }
+
+function renderMobileCats(counts) {
+  const bar = document.getElementById('mobileCatsBar');
+  if (!bar) return;
+  const cats = [
+    { id: 'all', label: '전체' },
+    { id: 'pick', label: '✦ Pick' },
+    ...state.data.categories.map(c => ({ id: c.id, label: `${c.emoji} ${c.name}` }))
+  ];
+  bar.innerHTML = cats.map(c =>
+    `<button class="mobile-cat-btn${state.activeCat === c.id ? ' active' : ''}" data-cat="${c.id}">${escapeHtml(c.label)}</button>`
+  ).join('');
+  bar.querySelectorAll('.mobile-cat-btn').forEach(btn =>
+    btn.addEventListener('click', () => setCat(btn.dataset.cat))
+  );
+}
+
 function setCat(id) { state.activeCat = id; highlightActiveCat(); renderAll(); }
 function highlightActiveCat() {
-  document.querySelectorAll('.sidebar-left .nav a').forEach(a => {
+  document.querySelectorAll('.sidebar-left .nav a, .mobile-cat-btn').forEach(a => {
     a.classList.toggle('active', a.dataset.cat === state.activeCat);
   });
 }
