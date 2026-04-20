@@ -64,6 +64,7 @@ async function load() {
     return;
   }
   state.catMap = Object.fromEntries(state.data.categories.map(c => [c.id, c]));
+  state.authors = state.data.authors || {};
   renderCats();
   renderAll();
   wireTabs();
@@ -197,7 +198,7 @@ function renderFeatured(s) {
     <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}${liBadge(s.linkedin)}</span></h2>
+        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
         <div class="author">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -229,7 +230,7 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}${liBadge(s.linkedin)}</span></h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h3>
         <div class="meta-row">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -291,6 +292,16 @@ function liBadge(url) {
   if (!url) return '';
   const safe = escapeHtml(url);
   return `<span class="li-link" role="link" tabindex="0" title="만든 사람 링크드인" onclick="event.preventDefault(); event.stopPropagation(); window.open('${safe}','_blank','noopener');"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .78 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .78 23.21 0 22.23 0z"/></svg></span>`;
+}
+function xBadge(url) {
+  if (!url) return '';
+  const safe = escapeHtml(url);
+  return `<span class="x-link" role="link" tabindex="0" title="만든 사람 X" onclick="event.preventDefault(); event.stopPropagation(); window.open('${safe}','_blank','noopener');"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>`;
+}
+function authorBadges(author) {
+  const a = (state.authors || {})[author];
+  if (!a) return '';
+  return fbBadge(a.facebook) + liBadge(a.linkedin) + xBadge(a.x || a.twitter);
 }
 function avatarImg(s) {
   const owner = (s.repo || '').split('/')[0];

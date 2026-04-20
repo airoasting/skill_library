@@ -1,6 +1,6 @@
 ---
 description: GitHub 주소와 카테고리를 받아 skills.json에 새 카드 추가
-argument-hint: <github-url> [category-id]
+argument-hint: <github-url> [category-id] [--fb <url>] [--li <url>] [--x <url>]
 allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
 ---
 
@@ -16,6 +16,7 @@ allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
 - **누락 처리**:
   - 주소가 없거나 파싱 실패 → 중단하고 사용자에게 주소 재요청.
   - 카테고리가 비어 있으면 1·2단계를 먼저 돌려 후보를 **제안**만 하고, 사용자 확인 후 3단계로 진행.
+- **저자 소셜 옵션 파싱**: 인자 중 `--fb <url>`, `--li <url>`, `--x <url>` 또는 자연어로 "페북: …, 링크드인: …, X: …" 형태가 있으면 값을 추출해 기억. 일부만 있어도 OK (없는 건 그냥 비움).
 
 ## 0.5. 중복 검사 (최우선 게이트)
 
@@ -50,6 +51,33 @@ allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
 - 카테고리 정의와 저장소 성격을 매칭해 최적 id를 판단.
 - 사용자가 준 id와 **일치** → 3단계로.
 - **불일치** → 중단하고 "원래 제안: `X` / 더 적합해 보임: `Y` — 이유 2~3줄" 형식으로 역제안. 사용자가 `X` 강행 vs `Y` 수용을 선택한 뒤에만 3단계 진행.
+
+## 2.5. 저자 소셜 처리 (authors 맵)
+
+저자의 페북·링크드인·X 주소는 **카드가 아니라 `skills.json`의 최상위 `authors` 맵**에 저자 id 단위로 저장돼. 같은 저자의 다른 카드에도 자동으로 버튼이 붙어.
+
+```json
+"authors": {
+  "hollobit": {
+    "facebook": "https://…",
+    "linkedin": "https://…",
+    "x": "https://…"
+  }
+}
+```
+
+처리 순서:
+
+1. `owner`(= author id)가 이미 `authors`에 있는지 확인.
+2. **있음** → 아무 것도 하지 않고 3단계로 (기존 기억 그대로 사용).
+   - 단, 사용자가 이번에 준 `--fb/--li/--x`(또는 자연어)가 있고 기존 값과 **다르면** 사용자에게 "덮어쓸까?" 확인한 뒤 반영.
+3. **없음**:
+   - 사용자가 이번에 소셜 인자를 제공했다면 → 그 값들로 `authors[owner]` 신규 엔트리 생성.
+   - 전혀 안 줬으면 → 그냥 넘어가 (소셜 버튼 없이 카드만 생성). 강제로 묻지는 마.
+4. Edit로 `authors` 블록에 삽입할 때는 JSON 문법을 깨뜨리지 않도록, 기존 블록의 마지막 엔트리 + 닫는 `}`를 `old_string`으로 잡고 `,` + 새 엔트리를 끼우는 패턴을 사용. `authors` 블록 자체가 없는 드문 경우엔 파일 최상단 `{` 바로 뒤에 `"authors": { ... },` 형태로 삽입.
+
+URL 정규화(선택):
+- 입력이 `@hollobit`이나 `hollobit`처럼 id만 온 경우 → X는 `https://x.com/<id>`, 링크드인은 `https://www.linkedin.com/in/<id>/`, 페북은 `https://www.facebook.com/<id>`로 조립 가능. 단 사용자가 full URL을 줬으면 그대로 사용.
 
 ## 3. 카드 작성
 
