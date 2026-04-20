@@ -239,7 +239,8 @@
     }
     .featured .avatar { grid-area: av; width: 48px; height: 48px; border-radius: 12px; }
     .featured > div:not(.avatar):not(.stars) { grid-area: info; min-width: 0; }
-    .featured h2 { font-size: 18px; flex-wrap: wrap; gap: 6px; word-break: keep-all; }
+    .featured h2 { display: block; font-size: 18px; word-break: keep-all; }
+    .featured h2 .author-pill { display: inline-flex; margin-left: 4px; }
     .featured p { word-break: keep-all; overflow-wrap: break-word; }
     .featured h2 .author-pill { font-size: 11px; padding: 2px 8px; }
     .featured .author { font-size: 12px; margin-bottom: 8px; }
@@ -261,7 +262,10 @@
     .card .stars strong { font-size: 18px; display: inline-block; margin-bottom: 0; }
     .card .body { grid-area: body; min-width: 0; }
     .card .body { min-width: 0; }
-    .card .body h3 { font-size: 14.5px; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; word-break: keep-all; }
+    .card .body h3 { display: block; font-size: 14.5px; margin-bottom: 4px; word-break: keep-all; }
+    .card .body h3 .author-pill,
+    .card .body h3 .badge-pick,
+    .card .body h3 .badge-new { display: inline-flex; margin-left: 4px; vertical-align: middle; }
     .card .desc { word-break: keep-all; overflow-wrap: break-word; }
     .card .body h3 .author-pill { font-size: 10.5px; padding: 1px 7px; }
     .card .meta-row { font-size: 11.5px; margin-bottom: 6px; flex-wrap: wrap; gap: 4px; }
