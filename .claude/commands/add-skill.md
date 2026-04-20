@@ -17,6 +17,23 @@ allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
   - 주소가 없거나 파싱 실패 → 중단하고 사용자에게 주소 재요청.
   - 카테고리가 비어 있으면 1·2단계를 먼저 돌려 후보를 **제안**만 하고, 사용자 확인 후 3단계로 진행.
 
+## 0.5. 중복 검사 (최우선 게이트)
+
+네트워크를 타기 전에 먼저 로컬에서 확인해 시간을 아껴.
+
+- `skills.json`의 `skills[]`를 읽어 `repo` 필드를 모두 대조.
+- 대소문자 무시(`lower()`)로 `<owner>/<repo>` 정확 일치 여부 확인.
+- **일치하는 항목이 하나라도 있으면** 즉시 중단하고 아래 형식으로 알린 뒤 종료:
+
+  ```
+  ⚠️ 이미 등록된 저장소입니다.
+  - repo: <owner>/<repo>
+  - 기존 카드: [<category>] <name> (added_at: <date>)
+  추가하지 않고 종료합니다.
+  ```
+
+- 중복이 없을 때만 1단계로 진행.
+
 ## 1. 저장소 분석
 
 - 1차: `gh repo view <owner>/<repo> --json name,description,stargazerCount,owner,primaryLanguage,repositoryTopics,url`.
