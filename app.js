@@ -161,6 +161,18 @@ function renderAll() {
   renderFeatured(items[0]);
   renderFeed(items.slice(1));
   renderRank();
+  updateTotalNum();
+}
+
+function updateTotalNum() {
+  const el = document.getElementById('totalNum');
+  if (!el) return;
+  const id = state.activeCat;
+  const skills = state.data.skills;
+  const n = id === 'all' ? skills.length
+    : id === 'pick' ? skills.filter(s => s.editors_pick).length
+    : skills.filter(s => s.category === id).length;
+  el.textContent = n;
 }
 
 function renderCatIntro() {
