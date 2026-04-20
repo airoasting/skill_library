@@ -1435,6 +1435,20 @@
         "#national-assembly",
         "#legislative-data"
       ]
+    },
+    {
+      "category": "research",
+      "name": "CL4R1T4S",
+      "repo": "elder-plinius/CL4R1T4S",
+      "author": "elder-plinius",
+      "stars": 16300,
+      "added_at": "2026-04-20",
+      "desc": "이 컬렉션은 ChatGPT, Gemini, Claude, Grok 등 주요 AI 모델의 시스템 프롬프트를 수집·공개하는 투명성 아카이브입니다. AI 내부 지시문과 행동 프레임워크를 연구하려는 프롬프트 엔지니어와 AI 거버넌스 연구자에게 적합합니다.",
+      "tags": [
+        "#system-prompts",
+        "#ai-transparency",
+        "#red-teaming"
+      ]
     }
   ]
 }
