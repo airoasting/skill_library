@@ -1,0 +1,3 @@
+#!/bin/sh
+# skills.json 을 index.html 인라인 데이터로 자동 동기화
+python3 "$(git rev-parse --show-toplevel)/scripts/sync-inline.py" || exit 1
