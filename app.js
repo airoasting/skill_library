@@ -197,7 +197,7 @@ function renderFeatured(s) {
     <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h2>
+        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}${liBadge(s.linkedin)}</span></h2>
         <div class="author">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -229,7 +229,7 @@ function card(s, rank) {
       <div class="rank">${String(rank).padStart(2,'0')}</div>
       <div class="avatar">${avatarImg(s)}</div>
       <div class="body">
-        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h3>
+        <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}${liBadge(s.linkedin)}</span></h3>
         <div class="meta-row">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -286,6 +286,11 @@ function fbBadge(url) {
   if (!url) return '';
   const safe = escapeHtml(url);
   return `<span class="fb-link" role="link" tabindex="0" title="만든 사람 페이스북" onclick="event.preventDefault(); event.stopPropagation(); window.open('${safe}','_blank','noopener');"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></span>`;
+}
+function liBadge(url) {
+  if (!url) return '';
+  const safe = escapeHtml(url);
+  return `<span class="li-link" role="link" tabindex="0" title="만든 사람 링크드인" onclick="event.preventDefault(); event.stopPropagation(); window.open('${safe}','_blank','noopener');"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .78 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .78 23.21 0 22.23 0z"/></svg></span>`;
 }
 function avatarImg(s) {
   const owner = (s.repo || '').split('/')[0];
