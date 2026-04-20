@@ -197,7 +197,7 @@ function renderFeatured(s) {
     <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h2>
+        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${fbBadge(s.facebook)}</span></h2>
         <div class="author">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -205,7 +205,6 @@ function renderFeatured(s) {
         <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
       </div>
       <div class="stars">
-        ${s.editors_pick ? `<span class="badge-pick" style="display:block;margin-bottom:10px;">✦ PICK</span>` : ''}
         <strong>${fmt(s.stars)}</strong><span>stars</span>
       </div>
     </a>`;
