@@ -42,7 +42,7 @@ allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
   - WebFetch로 `https://github.com/<owner>/<repo>` 페이지에서 description·stars·primary language·topics 추출.
   - README는 WebFetch로 `https://raw.githubusercontent.com/<owner>/<repo>/HEAD/README.md` (없으면 `master` 브랜치) 시도.
   - 둘 다 실패하면 무엇이 막혔는지 사용자에게 알리고 중단.
-- **중복 검사**: `skills.json`의 기존 항목에 대해 `repo` **그리고** `name` 둘 다 대조. 하나라도 충돌하면 중단하고 어떤 카드와 겹치는지 알려.
+- **2차 중복 검사(이름 충돌)**: 0.5의 `repo` 대조를 통과했어도, `name` 필드(repo 메타에서 생성한 Title Case)가 기존 카드와 동일하면 중단하고 어떤 카드와 겹치는지 알려.
 
 ## 2. 카테고리 검증
 
