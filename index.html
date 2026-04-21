@@ -651,6 +651,26 @@
   .cat-intro .emoji { font-size: 16px; }
   .cat-intro strong { color: var(--text); font-weight: 700; margin-right: 4px; }
 
+  .cat-intro.cat-intro-long {
+    display: block;
+    padding: 18px 22px 16px;
+    color: var(--text-sub);
+  }
+  .cat-intro.cat-intro-long .cat-intro-head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .cat-intro.cat-intro-long .cat-intro-head .emoji { font-size: 18px; }
+  .cat-intro.cat-intro-long .cat-intro-head strong { margin: 0; font-weight: 800; }
+  .cat-intro.cat-intro-long p.pick-lede {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+  .cat-intro.cat-intro-long p.pick-lede strong { color: var(--text); font-weight: 700; }
+
   /* ===== Featured ===== */
   .featured {
     background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);

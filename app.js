@@ -287,9 +287,20 @@ function renderCatIntro() {
   const id = state.activeCat;
   const introByBuiltin = {
     all:  { emoji: '✨', name: '전체 스킬', desc: '지금까지 등록된 모든 스킬을 한자리에서 둘러볼 수 있어요.' },
-    pick: { emoji: '✦', name: "Editor's Pick", desc: '에디터가 직접 골라낸 특별 추천 스킬이에요.' }
+    pick: { emoji: '✦', name: "Editor's Pick", desc: '' }
   };
   const cat = introByBuiltin[id] || state.catMap[id];
+  host.classList.toggle('cat-intro-long', id === 'pick');
+  if (id === 'pick') {
+    host.hidden = false;
+    host.innerHTML = `
+      <div class="cat-intro-head">
+        <span class="emoji">✦</span>
+        <strong>Editor's Pick 선정 기준</strong>
+      </div>
+      <p class="pick-lede">이 라이브러리는 비개발자 비즈니스 리더를 위해 만들어졌습니다. 그래서 에디터 픽도 <strong>효용성·대표성·신뢰성</strong> 세 축을 각 5점 만점으로 평가해 <strong>평균 4점을 넘는 스킬</strong>에만 배지를 답니다. 효용성은 비개발자가 당일 업무에 바로 쓸 수 있는지, 대표성은 같은 카테고리에서 가장 먼저 추천할 만한지, 신뢰성은 별 수와 저자 이력, 유지보수 활동이 믿을 만한지를 봅니다.</p>`;
+    return;
+  }
   if (!cat || !cat.desc) { host.hidden = true; host.innerHTML = ''; return; }
   host.hidden = false;
   host.innerHTML = `<span class="emoji">${cat.emoji || ''}</span><span><strong>${escapeHtml(cat.name)}</strong>${escapeHtml(cat.desc)}</span>`;
