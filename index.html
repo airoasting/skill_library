@@ -386,7 +386,10 @@
     .about-body { padding: 14px 20px 22px; font-size: 14px; }
     .about-lead .lead { font-size: 19px; }
     .sec-title { font-size: 15.5px; }
+    .about-desktop { display: none; }
   }
+  .about-mobile { display: none; }
+  @media (max-width: 720px) { .about-mobile { display: inline; } }
 
   .cta {
     background: var(--accent); color:#ffffff;
@@ -978,7 +981,7 @@
     <section class="hero">
       <div>
         <h1>비즈니스 리더를 위해<br/>엄선한 AI 스킬</h1>
-        <p class="meta">매주 토요일 업데이트 <span class="dot">·</span> <a class="hero-about" id="aboutLink" href="#about" role="button">이 프로젝트는 무엇인가요? →</a></p>
+        <p class="meta">매주 토요일 업데이트 <span class="dot">·</span> <a class="hero-about" id="aboutLink" href="#about" role="button"><span class="about-desktop">이 프로젝트는 무엇인가요?</span><span class="about-mobile">프로젝트 소개</span> →</a></p>
       </div>
       <div class="big-num"><span id="totalNum">0</span><small>SKILLS</small></div>
     </section>
