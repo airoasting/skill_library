@@ -180,14 +180,15 @@
       "repo": "alirezarezvani/claude-skills",
       "author": "alirezarezvani",
       "stars": 11891,
-      "desc": "이 컬렉션은 엔지니어링, 법무, 재무, HR, 마케팅 등 220개가 넘는 CLAUDE.md 스킬을 도메인별 폴더로 정리해놓았습니다. 필요한 스킬만 골라 복사하면 되기 때문에 스킬을 처음 도입하는 팀이 전체 가능성을 한눈에 훑어보기 좋습니다.",
+      "desc": "이 컬렉션은 엔지니어링, 법무, 재무, HR, 마케팅 등 235개의 CLAUDE.md 스킬을 도메인별 폴더로 정리해놓았습니다. 필요한 스킬만 골라 복사하면 되기 때문에 스킬을 처음 도입하는 팀이 전체 가능성을 한눈에 훑어보기 좋습니다.",
       "tags": [
         "#skills-collection",
         "#multi-domain",
         "#collection"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19"
+      "added_at": "2025-10-19",
+      "editors_pick": true
     },
     {
       "category": "workflow",
@@ -923,7 +924,8 @@
       ],
       "lang": "Markdown",
       "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-03-22"
+      "added_at": "2026-03-22",
+      "editors_pick": true
     },
     {
       "category": "design",
