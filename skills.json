@@ -235,36 +235,6 @@
       "added_at": "2026-02-01"
     },
     {
-      "category": "harness",
-      "name": "Claude Workflow v2",
-      "repo": "CloudAI-X/claude-workflow-v2",
-      "author": "CloudAI-X",
-      "stars": 1341,
-      "desc": "이 런타임은 에이전트·스킬·훅을 블록처럼 조립해 커스텀 워크플로우를 만들어주는 범용 플랫폼입니다. 조건 분기, 병렬 실행, 에러 재시도를 설정 파일만으로 구성할 수 있어 반복 업무를 한 번 설계해두고 완전히 자동화하고 싶을 때 씁니다.",
-      "tags": [
-        "#plugin",
-        "#agents",
-        "#workflow"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-01-01"
-    },
-    {
-      "category": "harness",
-      "name": "Agentsys",
-      "repo": "agent-sh/agentsys",
-      "author": "agent-sh",
-      "stars": 744,
-      "desc": "이 패키지는 플러그인 19개와 에이전트 프리셋 47개를 하나로 묶어둔 자동화 번들입니다. 코드 작성 이후의 테스트, 배포, 모니터링, 알림까지 에이전트 팀이 이어받아 처리하기 때문에 혼자 다루기 벅찬 엔지니어링 파이프라인을 맡기기 좋습니다.",
-      "tags": [
-        "#agents",
-        "#automation",
-        "#bundle"
-      ],
-      "lang": "Shell",
-      "added_at": "2026-01-15"
-    },
-    {
       "category": "token",
       "name": "Caveman",
       "repo": "JuliusBrussee/caveman",
@@ -1047,21 +1017,6 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "harness",
-      "name": "AI Team Skills",
-      "repo": "ThendCN/ai-team-skills",
-      "author": "ThendCN",
-      "stars": 97,
-      "desc": "이 스킬은 UI 생성은 Gemini, 코드 작성은 Codex, 오케스트레이션은 Claude Code가 맡는 멀티 LLM 협업 구성입니다. 각 모델의 강점을 조합하는 방식이라 단일 모델만 쓸 때보다 결과 품질이 올라가고, 풀스택 AI 개발 파이프라인을 비용 효율적으로 꾸려보고 싶을 때 참고할 만합니다.",
-      "tags": [
-        "#gemini",
-        "#codex",
-        "#multi-llm"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-19"
-    },
-    {
       "category": "design",
       "name": "Awesome Novel Studio",
       "repo": "MJbae/awesome-novel-studio",
@@ -1504,34 +1459,6 @@
       ]
     },
     {
-      "category": "harness",
-      "name": "Archon",
-      "repo": "coleam00/Archon",
-      "author": "coleam00",
-      "stars": 19100,
-      "added_at": "2026-04-21",
-      "desc": "이 스킬은 AI 코딩 에이전트의 작업 흐름을 YAML 워크플로우로 고정하는 오픈소스 하네스 빌더입니다. 기획·구현·검증·리뷰·PR 생성을 결정론적으로 재현하기 때문에 AI 코딩 결과를 반복 가능하게 만들고 싶을 때 적합합니다.",
-      "tags": [
-        "#harness-builder",
-        "#yaml-workflow",
-        "#deterministic"
-      ]
-    },
-    {
-      "category": "harness",
-      "name": "Multica",
-      "repo": "multica-ai/multica",
-      "author": "multica-ai",
-      "stars": 17600,
-      "added_at": "2026-04-21",
-      "desc": "이 플랫폼은 코딩 에이전트를 칸반 보드 위의 팀원처럼 관리해주는 오픈소스 매니지드 에이전트 허브입니다. 작업 할당·진행 추적·스킬 축적을 한곳에서 처리하기 때문에 사람과 AI가 섞인 팀의 개발 운영에 적합합니다.",
-      "tags": [
-        "#managed-agents",
-        "#task-tracking",
-        "#team-collaboration"
-      ]
-    },
-    {
       "category": "automation",
       "name": "MarkItDown",
       "repo": "microsoft/markitdown",
@@ -1547,16 +1474,100 @@
     },
     {
       "category": "harness",
-      "name": "Hermes Agent",
-      "repo": "NousResearch/hermes-agent",
-      "author": "NousResearch",
-      "stars": 105000,
+      "name": "Everything Claude Code",
+      "repo": "affaan-m/everything-claude-code",
+      "author": "affaan-m",
+      "stars": 162206,
       "added_at": "2026-04-21",
-      "desc": "이 에이전트는 사용하면서 스킬을 스스로 만들고 개선하는 Nous Research의 자율형 AI 하네스입니다. 과거 대화와 사용자 모델을 축적하며 시간이 갈수록 똑똑해지기 때문에 장기간 함께 일할 전속 에이전트가 필요할 때 잘 어울립니다.",
+      "desc": "이 스킬은 48개 에이전트·183개 스킬·훅 자동화·언어별 규칙을 한 벌로 묶은 에이전트 하네스 최적화 시스템입니다. 개발 표준과 보안·테스트 규율을 하네스 수준에서 강제하기 때문에 본격적인 AI 개발팀을 꾸리려는 조직에 잘 어울립니다.",
       "tags": [
-        "#self-improving",
-        "#autonomous-agent",
-        "#learning-loop"
+        "#agent-harness",
+        "#performance",
+        "#multi-agent"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Wshobson Agents",
+      "repo": "wshobson/agents",
+      "author": "wshobson",
+      "stars": 33972,
+      "added_at": "2026-04-21",
+      "desc": "이 패키지는 184개 에이전트와 16개 오케스트레이터, 150개 스킬을 25개 도메인(HR·법무·마케팅·재무 등)에 걸쳐 78개 플러그인으로 묶어놓은 프로덕션 세트입니다. 슬래시 명령으로 바로 불러 쓸 수 있기 때문에 도메인별 AI 팀을 빠르게 구성하려는 팀에 좋습니다.",
+      "tags": [
+        "#agent-teams",
+        "#orchestration",
+        "#plugins"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Awesome Claude Code",
+      "repo": "hesreallyhim/awesome-claude-code",
+      "author": "hesreallyhim",
+      "stars": 39926,
+      "added_at": "2026-04-21",
+      "desc": "이 리스트는 Claude Code용 스킬·훅·슬래시 명령·에이전트 오케스트레이터·CLAUDE.md 예시를 8개 섹션으로 선별한 큐레이션 허브입니다. 전체 생태계를 한눈에 훑을 수 있기 때문에 하네스 설계 전 참고 자료 지도로 활용하기 좋습니다.",
+      "tags": [
+        "#curated-list",
+        "#ecosystem",
+        "#awesome"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "RuFlo",
+      "repo": "ruvnet/ruflo",
+      "author": "ruvnet",
+      "stars": 32567,
+      "added_at": "2026-04-21",
+      "desc": "이 플랫폼은 100개 이상의 Claude 에이전트를 스웜 형태로 조율하는 엔터프라이즈 오케스트레이션 시스템입니다. 벡터 메모리·자동 장애 조치·MCP 네이티브 연동을 갖추기 때문에 운영 수준의 자율 에이전트 팀을 구축하려는 조직에 적합합니다.",
+      "tags": [
+        "#swarm",
+        "#orchestration",
+        "#enterprise"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Awesome Claude Code Subagents",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "author": "VoltAgent",
+      "stars": 17824,
+      "added_at": "2026-04-21",
+      "desc": "이 컬렉션은 프론트·백·데이터·보안·법무·영업 등 10개 범주에 걸친 131개 이상의 서브에이전트를 한 곳에 모아놓은 전문가 풀입니다. 원하는 역할만 골라 장착할 수 있기 때문에 특정 도메인 전문가가 필요한 하네스를 빠르게 채우는 데 좋습니다.",
+      "tags": [
+        "#subagents",
+        "#specialists",
+        "#collection"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Awesome Agent Skills",
+      "repo": "VoltAgent/awesome-agent-skills",
+      "author": "VoltAgent",
+      "stars": 16618,
+      "added_at": "2026-04-21",
+      "desc": "이 컬렉션은 Anthropic·Google·Stripe·Vercel 같은 팀이 실제로 쓰는 1100개 이상의 에이전트 스킬을 손수 선별해 모은 저장소입니다. Claude Code·Codex·Gemini CLI·Cursor 등 여러 툴과 호환되기 때문에 하네스에 바로 꽂을 검증된 스킬을 찾을 때 적합합니다.",
+      "tags": [
+        "#agent-skills",
+        "#multi-tool",
+        "#curated"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Citadel",
+      "repo": "SethGammon/Citadel",
+      "author": "SethGammon",
+      "stars": 512,
+      "added_at": "2026-04-21",
+      "desc": "이 하네스는 4단계 라우팅·세션 간 기억·워크트리 병렬 실행·22개 안전 훅을 얹어 Claude Code와 Codex를 자율 엔지니어링 OS로 확장합니다. 라우팅으로 토큰 비용을 실시간 추적·제어하기 때문에 규모 있는 코드베이스에서 AI 에이전트를 운영하는 팀에 잘 어울립니다.",
+      "tags": [
+        "#harness",
+        "#routing",
+        "#parallel-agents"
       ]
     }
   ]

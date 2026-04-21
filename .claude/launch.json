@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "skill-library",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8787"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", ".", "-p", "8787", "-c-1", "--silent"],
       "port": 8787
     }
   ]

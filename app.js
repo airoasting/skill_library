@@ -69,6 +69,7 @@ async function load() {
   renderAll();
   wireTabs();
   wireDrawer();
+  wireAbout();
 }
 
 // ========= Nav =========
@@ -195,6 +196,32 @@ function wireDrawer() {
     if (e.key === 'Escape' && document.getElementById('drawer')?.classList.contains('open')) {
       closeDrawer();
     }
+  });
+}
+
+// ========= About modal =========
+function openAbout() {
+  const b = document.getElementById('aboutBackdrop');
+  if (!b) return;
+  b.hidden = false;
+  requestAnimationFrame(() => b.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+}
+function closeAbout() {
+  const b = document.getElementById('aboutBackdrop');
+  if (!b) return;
+  b.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (!b.classList.contains('open')) b.hidden = true; }, 220);
+}
+function wireAbout() {
+  const b = document.getElementById('aboutBackdrop');
+  document.getElementById('aboutBtn')?.addEventListener('click', openAbout);
+  document.getElementById('aboutLink')?.addEventListener('click', e => { e.preventDefault(); openAbout(); });
+  document.getElementById('aboutClose')?.addEventListener('click', closeAbout);
+  b?.addEventListener('click', e => { if (e.target === b) closeAbout(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && b?.classList.contains('open')) closeAbout();
   });
 }
 
