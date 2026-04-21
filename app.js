@@ -85,14 +85,21 @@ function renderCats() {
        <span>${c.emoji} ${escapeHtml(c.name)}</span>
        <span class="count">${counts[c.id] || 0}</span>
      </a>`;
+  state.collapsed = state.collapsed || {};
   const buildCatsHtml = () => {
     if (metas.length) {
       return metas.map(m => {
         const cats = state.data.categories.filter(c => c.meta === m.id);
         if (!cats.length) return '';
-        return `<div class="meta-group">
-          <div class="meta-group-label">${m.emoji} ${escapeHtml(m.name)}</div>
-          ${cats.map(renderCatLink).join('')}
+        const collapsed = state.collapsed[m.id] ? ' collapsed' : '';
+        return `<div class="meta-group${collapsed}" data-meta="${m.id}">
+          <button type="button" class="meta-group-label" aria-expanded="${state.collapsed[m.id] ? 'false' : 'true'}">
+            <svg class="meta-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            <span>${escapeHtml(m.name)}</span>
+          </button>
+          <div class="meta-group-body">
+            ${cats.map(renderCatLink).join('')}
+          </div>
         </div>`;
       }).join('');
     }
@@ -108,6 +115,21 @@ function renderCats() {
   document.querySelectorAll('#nav-cats a, #drawer-cats a').forEach(a =>
     a.addEventListener('click', () => setCat(a.dataset.cat))
   );
+  // Wire meta-group toggle buttons
+  document.querySelectorAll('.meta-group-label').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.meta-group');
+      const metaId = group?.dataset?.meta;
+      if (!metaId) return;
+      state.collapsed[metaId] = !state.collapsed[metaId];
+      // Toggle all matching groups (sidebar + drawer)
+      document.querySelectorAll(`.meta-group[data-meta="${metaId}"]`).forEach(g => {
+        g.classList.toggle('collapsed', state.collapsed[metaId]);
+        const b = g.querySelector('.meta-group-label');
+        if (b) b.setAttribute('aria-expanded', state.collapsed[metaId] ? 'false' : 'true');
+      });
+    });
+  });
   // Feeds (all/pick) in sidebar + drawer
   document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"], .drawer [data-cat="all"], .drawer [data-cat="pick"]').forEach(a => {
     a.addEventListener('click', () => setCat(a.dataset.cat));
