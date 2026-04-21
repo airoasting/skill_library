@@ -177,30 +177,55 @@
   /* ===== Layout ===== */
   .wrap { display: grid; grid-template-columns: 240px 1fr 320px; gap: 28px; max-width: 1440px; margin: 0 auto; padding: 28px; }
   @media (max-width: 1100px) { .wrap { grid-template-columns: 220px 1fr; } .sidebar-right { display:none; } }
-  /* ===== Mobile category bar ===== */
-  .mobile-cats-bar { display: none; }
+
+  /* ===== Mobile drawer ===== */
+  .hamburger-btn { display: none; }
+  .drawer-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(15, 15, 15, 0.42);
+    z-index: 90; opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: var(--bg);
+    border-left: 1px solid var(--line);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform .26s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column;
+    box-shadow: var(--shadow-lg);
+  }
+  .drawer.open { transform: translateX(0); }
+  .drawer-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .drawer-title {
+    font-weight: 700; font-size: 14px; letter-spacing: 0.01em; color: var(--text);
+  }
+  .drawer-body {
+    flex: 1; overflow-y: auto; padding: 18px 14px 28px;
+  }
+  .drawer-body .nav-section { margin-bottom: 20px; }
+  .drawer-body .meta-group { margin-bottom: 12px; }
+  .drawer-body .meta-group-label {
+    font-size: 11.5px; font-weight: 700; color: var(--text);
+    padding: 6px 12px 8px; letter-spacing: 0.01em;
+    border-top: 1px solid var(--line); margin-top: 10px; padding-top: 14px;
+  }
+  .drawer-body .meta-group:first-child .meta-group-label {
+    border-top: none; margin-top: 0; padding-top: 4px;
+  }
+  .drawer-body .meta-group .nav a { padding-left: 18px; }
+
   @media (max-width: 860px) {
-    /* Mobile category bar */
-    .mobile-cats-bar {
-      display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px;
-      border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 92%, transparent);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      position: sticky; top: 64px; z-index: 40;
-      scrollbar-width: none;
-    }
-    .mobile-cats-bar::-webkit-scrollbar { display: none; }
-    .mobile-cat-btn {
-      flex-shrink: 0; padding: 6px 13px; border-radius: 999px;
-      font-size: 12.5px; font-weight: 600; border: 1px solid var(--line);
-      background: var(--panel); color: var(--text-sub); cursor: pointer;
-      white-space: nowrap; transition: background .15s, color .15s, border-color .15s;
-      font-family: inherit;
-    }
-    .mobile-cat-btn.active {
-      background: var(--accent-soft); color: var(--accent-strong);
-      border-color: var(--accent-soft);
-    }
+    .hamburger-btn { display: grid; }
 
     /* Layout */
     .wrap { grid-template-columns: 1fr; padding: 14px; gap: 14px; }
@@ -319,6 +344,18 @@
     background: var(--panel); padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); font-weight: 600;
   }
   .nav a.active .count { color: var(--accent-strong); background: var(--panel); border-color: var(--accent-soft); }
+  .meta-group { margin-bottom: 16px; }
+  .meta-group:last-child { margin-bottom: 0; }
+  .meta-group-label {
+    font-size: 11.5px; font-weight: 700; color: var(--text);
+    padding: 6px 12px 8px; letter-spacing: 0.01em;
+    border-top: 1px solid var(--line); margin-top: 10px;
+    padding-top: 14px;
+  }
+  .meta-group:first-child .meta-group-label {
+    border-top: none; margin-top: 0; padding-top: 4px;
+  }
+  .meta-group .nav a { padding-left: 18px; }
 
   /* ===== Hero ===== */
   .hero {
@@ -569,12 +606,34 @@
       <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
+    <button class="icon-btn hamburger-btn" id="hamburgerBtn" aria-label="카테고리 메뉴 열기" aria-expanded="false" aria-controls="drawer" title="카테고리">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
  </div>
 </header>
 
-<!-- Mobile category bar -->
-<div class="mobile-cats-bar" id="mobileCatsBar"></div>
+<!-- Mobile drawer -->
+<div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="카테고리 메뉴">
+  <div class="drawer-header">
+    <div class="drawer-title">카테고리</div>
+    <button class="icon-btn" id="drawerClose" aria-label="닫기" title="닫기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <nav class="nav-section nav" aria-label="피드">
+      <div class="nav-label">Feeds</div>
+      <a data-cat="all" tabindex="0" role="button"><span>전체</span><span class="count" data-count="all">0</span></a>
+      <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" data-count="pick">0</span></a>
+    </nav>
+    <nav class="nav-section nav" aria-label="카테고리">
+      <div class="nav-label">Categories</div>
+      <div id="drawer-cats"></div>
+    </nav>
+  </div>
+</aside>
 
 <div class="wrap">
 
@@ -645,9 +704,33 @@
       "linkedin": "https://www.linkedin.com/in/hollobit/"
     }
   },
+  "meta_categories": [
+    {
+      "id": "build",
+      "name": "AI 에이전트팀 구축",
+      "emoji": "🏗",
+      "en": "Build AI Agent Team",
+      "desc": "AI 팀·시스템·파이프라인을 직접 설계하고 운영하는 기반 레이어예요."
+    },
+    {
+      "id": "growth",
+      "name": "비즈니스 성장",
+      "emoji": "📈",
+      "en": "Business Growth",
+      "desc": "매출·고객·자산을 키우는 top-line 임팩트에 직결되는 스킬이에요."
+    },
+    {
+      "id": "execution",
+      "name": "실행력 제고",
+      "emoji": "🎯",
+      "en": "Execution Excellence",
+      "desc": "업무 속도와 산출물 품질을 끌어올리는 실무 레버리지 스킬이에요."
+    }
+  ],
   "categories": [
     {
       "id": "harness",
+      "meta": "build",
       "name": "하네스 · 에이전트 설계",
       "emoji": "🛠",
       "en": "Harness & Agent Design",
@@ -655,66 +738,75 @@
     },
     {
       "id": "workflow",
-      "name": "개발 루프 · 방법론",
+      "meta": "build",
+      "name": "AI와 잘 일하는 법",
       "emoji": "🚀",
-      "en": "Dev Loop & Methodology",
-      "desc": "기획부터 구현, 리뷰까지 Claude가 일하는 방식 자체를 잡아주는 방법론 스킬이에요."
+      "en": "Working with AI",
+      "desc": "브레인스토밍·계획·기억·체크리스트까지, 내가 AI와 더 효율적으로 일하기 위한 협업 방식과 습관을 잡아주는 스킬이에요."
+    },
+    {
+      "id": "token",
+      "meta": "build",
+      "name": "토큰 절약",
+      "emoji": "⚡",
+      "en": "Token Efficiency",
+      "desc": "컨텍스트와 토큰 사용량을 줄여서 비용은 아끼고 응답 속도는 끌어올리는 효율화 스킬들이에요."
     },
     {
       "id": "automation",
+      "meta": "build",
       "name": "외부 연동 · MCP",
       "emoji": "🤖",
       "en": "External Integration & MCP",
       "desc": "브라우저·메신저·이슈 트래커 같은 외부 시스템 자동화부터 MCP 서버·컨텍스트 연결까지, Claude가 바깥 세계와 닿게 해주는 스킬이에요."
     },
     {
-      "id": "design",
-      "name": "디자인 · 창작",
-      "emoji": "🎨",
-      "en": "Design · Creative",
-      "desc": "UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."
-    },
-    {
-      "id": "business",
-      "name": "비즈니스 · 마케팅",
-      "emoji": "💼",
-      "en": "Business · Marketing",
-      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
-    },
-    {
-      "id": "geo",
-      "name": "GEO · AEO",
-      "emoji": "🔎",
-      "en": "GEO · AEO (AI Search)",
-      "desc": "ChatGPT·Perplexity·Claude 같은 생성형 AI 검색에서 내 브랜드·콘텐츠가 인용되도록 최적화하는 GEO(Generative Engine Optimization)·AEO(Answer Engine Optimization) 스킬이에요."
-    },
-    {
-      "id": "finance",
-      "name": "투자 · 금융",
-      "emoji": "💹",
-      "en": "Investment · Finance",
-      "desc": "트레이딩부터 포트폴리오 관리, 리서치까지 투자와 금융 업무에 특화된 스킬들이에요."
-    },
-    {
-      "id": "research",
-      "name": "리서치 · 인사이트",
-      "emoji": "📊",
-      "en": "Research · Insights",
-      "desc": "논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."
-    },
-    {
       "id": "korea",
+      "meta": "build",
       "name": "한국 특화 스킬 · MCP",
       "emoji": "🇰🇷",
       "en": "Korea Skills · MCP",
       "desc": "한글 문서부터 카카오, 토스, 네이버 같은 국내 서비스까지, 한국 환경에 딱 맞춘 스킬과 MCP 모음이에요."
     },
     {
-      "id": "token",
-      "name": "토큰 절약",
-      "emoji": "⚡",
-      "en": "Token Efficiency",
-      "desc": "컨텍스트와 토큰 사용량을 줄여서 비용은 아끼고 응답 속도는 끌어올리는 효율화 스킬들이에요."
+      "id": "business",
+      "meta": "growth",
+      "name": "비즈니스 · 마케팅",
+      "emoji": "💼",
+      "en": "Business · Marketing",
+      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
+    },
+    {
+      "id": "finance",
+      "meta": "growth",
+      "name": "투자 · 금융",
+      "emoji": "💹",
+      "en": "Investment · Finance",
+      "desc": "트레이딩부터 포트폴리오 관리, 리서치까지 투자와 금융 업무에 특화된 스킬들이에요."
+    },
+    {
+      "id": "geo",
+      "meta": "growth",
+      "name": "GEO · AEO",
+      "emoji": "🔎",
+      "en": "GEO · AEO (AI Search)",
+      "desc": "ChatGPT·Perplexity·Claude 같은 생성형 AI 검색에서 내 브랜드·콘텐츠가 인용되도록 최적화하는 GEO(Generative Engine Optimization)·AEO(Answer Engine Optimization) 스킬이에요."
+    },
+    {
+      "id": "research",
+      "meta": "execution",
+      "name": "리서치 · 인사이트",
+      "emoji": "📊",
+      "en": "Research · Insights",
+      "desc": "논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."
+    },
+    {
+      "id": "design",
+      "meta": "execution",
+      "name": "디자인 · 창작",
+      "emoji": "🎨",
+      "en": "Design · Creative",
+      "desc": "UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."
     }
   ],
   "skills": [

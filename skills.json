@@ -5,9 +5,33 @@
       "linkedin": "https://www.linkedin.com/in/hollobit/"
     }
   },
+  "meta_categories": [
+    {
+      "id": "build",
+      "name": "AI 에이전트팀 구축",
+      "emoji": "🏗",
+      "en": "Build AI Agent Team",
+      "desc": "AI 팀·시스템·파이프라인을 직접 설계하고 운영하는 기반 레이어예요."
+    },
+    {
+      "id": "growth",
+      "name": "비즈니스 성장",
+      "emoji": "📈",
+      "en": "Business Growth",
+      "desc": "매출·고객·자산을 키우는 top-line 임팩트에 직결되는 스킬이에요."
+    },
+    {
+      "id": "execution",
+      "name": "실행력 제고",
+      "emoji": "🎯",
+      "en": "Execution Excellence",
+      "desc": "업무 속도와 산출물 품질을 끌어올리는 실무 레버리지 스킬이에요."
+    }
+  ],
   "categories": [
     {
       "id": "harness",
+      "meta": "build",
       "name": "하네스 · 에이전트 설계",
       "emoji": "🛠",
       "en": "Harness & Agent Design",
@@ -15,66 +39,75 @@
     },
     {
       "id": "workflow",
-      "name": "개발 루프 · 방법론",
+      "meta": "build",
+      "name": "AI와 잘 일하는 법",
       "emoji": "🚀",
-      "en": "Dev Loop & Methodology",
-      "desc": "기획부터 구현, 리뷰까지 Claude가 일하는 방식 자체를 잡아주는 방법론 스킬이에요."
+      "en": "Working with AI",
+      "desc": "브레인스토밍·계획·기억·체크리스트까지, 내가 AI와 더 효율적으로 일하기 위한 협업 방식과 습관을 잡아주는 스킬이에요."
+    },
+    {
+      "id": "token",
+      "meta": "build",
+      "name": "토큰 절약",
+      "emoji": "⚡",
+      "en": "Token Efficiency",
+      "desc": "컨텍스트와 토큰 사용량을 줄여서 비용은 아끼고 응답 속도는 끌어올리는 효율화 스킬들이에요."
     },
     {
       "id": "automation",
+      "meta": "build",
       "name": "외부 연동 · MCP",
       "emoji": "🤖",
       "en": "External Integration & MCP",
       "desc": "브라우저·메신저·이슈 트래커 같은 외부 시스템 자동화부터 MCP 서버·컨텍스트 연결까지, Claude가 바깥 세계와 닿게 해주는 스킬이에요."
     },
     {
-      "id": "design",
-      "name": "디자인 · 창작",
-      "emoji": "🎨",
-      "en": "Design · Creative",
-      "desc": "UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."
-    },
-    {
-      "id": "business",
-      "name": "비즈니스 · 마케팅",
-      "emoji": "💼",
-      "en": "Business · Marketing",
-      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
-    },
-    {
-      "id": "geo",
-      "name": "GEO · AEO",
-      "emoji": "🔎",
-      "en": "GEO · AEO (AI Search)",
-      "desc": "ChatGPT·Perplexity·Claude 같은 생성형 AI 검색에서 내 브랜드·콘텐츠가 인용되도록 최적화하는 GEO(Generative Engine Optimization)·AEO(Answer Engine Optimization) 스킬이에요."
-    },
-    {
-      "id": "finance",
-      "name": "투자 · 금융",
-      "emoji": "💹",
-      "en": "Investment · Finance",
-      "desc": "트레이딩부터 포트폴리오 관리, 리서치까지 투자와 금융 업무에 특화된 스킬들이에요."
-    },
-    {
-      "id": "research",
-      "name": "리서치 · 인사이트",
-      "emoji": "📊",
-      "en": "Research · Insights",
-      "desc": "논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."
-    },
-    {
       "id": "korea",
+      "meta": "build",
       "name": "한국 특화 스킬 · MCP",
       "emoji": "🇰🇷",
       "en": "Korea Skills · MCP",
       "desc": "한글 문서부터 카카오, 토스, 네이버 같은 국내 서비스까지, 한국 환경에 딱 맞춘 스킬과 MCP 모음이에요."
     },
     {
-      "id": "token",
-      "name": "토큰 절약",
-      "emoji": "⚡",
-      "en": "Token Efficiency",
-      "desc": "컨텍스트와 토큰 사용량을 줄여서 비용은 아끼고 응답 속도는 끌어올리는 효율화 스킬들이에요."
+      "id": "business",
+      "meta": "growth",
+      "name": "비즈니스 · 마케팅",
+      "emoji": "💼",
+      "en": "Business · Marketing",
+      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
+    },
+    {
+      "id": "finance",
+      "meta": "growth",
+      "name": "투자 · 금융",
+      "emoji": "💹",
+      "en": "Investment · Finance",
+      "desc": "트레이딩부터 포트폴리오 관리, 리서치까지 투자와 금융 업무에 특화된 스킬들이에요."
+    },
+    {
+      "id": "geo",
+      "meta": "growth",
+      "name": "GEO · AEO",
+      "emoji": "🔎",
+      "en": "GEO · AEO (AI Search)",
+      "desc": "ChatGPT·Perplexity·Claude 같은 생성형 AI 검색에서 내 브랜드·콘텐츠가 인용되도록 최적화하는 GEO(Generative Engine Optimization)·AEO(Answer Engine Optimization) 스킬이에요."
+    },
+    {
+      "id": "research",
+      "meta": "execution",
+      "name": "리서치 · 인사이트",
+      "emoji": "📊",
+      "en": "Research · Insights",
+      "desc": "논문 분석, 지식 그래프, 딥 리서치처럼 깊이 있는 조사와 인사이트 도출이 필요할 때 쓰는 스킬들이에요."
+    },
+    {
+      "id": "design",
+      "meta": "execution",
+      "name": "디자인 · 창작",
+      "emoji": "🎨",
+      "en": "Design · Creative",
+      "desc": "UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."
     }
   ],
   "skills": [
