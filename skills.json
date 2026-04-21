@@ -1569,6 +1569,146 @@
         "#routing",
         "#parallel-agents"
       ]
+    },
+    {
+      "category": "korea",
+      "name": "Naver Search MCP",
+      "repo": "isnow890/naver-search-mcp",
+      "author": "isnow890",
+      "stars": 63,
+      "added_at": "2026-04-21",
+      "desc": "이 MCP 서버는 네이버의 웹·뉴스·블로그·쇼핑 검색과 DataLab 트렌드 분석을 Claude에서 바로 쓸 수 있게 해줍니다. 국내 검색 결과와 소비 트렌드를 한국어 그대로 가져오기 때문에, 국내 시장을 다루는 마케팅·리서치 담당자에게 잘 어울립니다.",
+      "tags": [
+        "#naver",
+        "#search",
+        "#datalab"
+      ]
+    },
+    {
+      "category": "korea",
+      "name": "Naver Maps MCP",
+      "repo": "yunkee-lee/mcp-naver-maps",
+      "author": "yunkee-lee",
+      "stars": 1,
+      "desc": "이 MCP 서버는 네이버 지도 API와 로컬 검색 API를 묶어 지오코딩과 주변 장소 탐색을 에이전트에게 맡길 수 있게 해줍니다. 구글 지도로는 정확도가 떨어지는 국내 주소·상권 데이터를 보완하기 때문에, 오프라인 매장 분석이나 출장 플래닝을 자동화하려는 팀에 적합합니다.",
+      "tags": [
+        "#naver-maps",
+        "#geocoding",
+        "#local-search"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "KiMCP",
+      "repo": "zeikar/kimcp",
+      "author": "zeikar",
+      "stars": 8,
+      "desc": "이 MCP 서버는 네이버·카카오·TMAP 같은 국내 대표 API를 한 번에 묶어 블로그·뉴스·로컬·쇼핑·길찾기 기능을 제공합니다. 서비스별로 MCP를 따로 붙이지 않아도 되기 때문에, 여러 국내 API를 옮겨다니며 쓰는 기획자·운영 담당자에게 편리합니다.",
+      "tags": [
+        "#naver",
+        "#kakao",
+        "#tmap"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Data.go.kr MCP Servers",
+      "repo": "Koomook/data-go-mcp-servers",
+      "author": "Koomook",
+      "stars": 249,
+      "desc": "이 모음은 공공데이터포털(data.go.kr) API를 도구별 MCP 서버로 쪼개 제공해 기업 조회, 조달, 연금, 안전 정보 등을 표준 인터페이스로 끌어옵니다. 필요한 데이터 소스만 골라 붙일 수 있기 때문에, 국내 공공데이터로 리서치·정책 보고서를 만드는 팀이 빠르게 실험할 수 있습니다.",
+      "tags": [
+        "#public-data",
+        "#mcp",
+        "#data-go-kr"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Korea Public Data MCP",
+      "repo": "hjsh200219/korea-public-data-mcp",
+      "author": "hjsh200219",
+      "stars": 3,
+      "desc": "이 MCP 서버는 법제처 국가법령정보, DART 전자공시, 공공데이터포털 세 축을 하나로 묶어 법령·판례·기업 공시·생활 정보를 한 번에 조회합니다. 서비스별 API를 따로 다룰 필요가 없기 때문에, 법무·리서치·투자 실무자가 근거 자료를 교차 확인할 때 유용합니다.",
+      "tags": [
+        "#law",
+        "#dart",
+        "#public-data"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Seoul Data MCP",
+      "repo": "pinnaclesoft-ko/be-node-seoul-data-mcp",
+      "author": "pinnaclesoft-ko",
+      "stars": 1,
+      "desc": "이 MCP 서버는 서울시 공공데이터 API를 감싸 지하철 노선·역별 승객 통계, 문화 행사 정보 같은 도시 데이터를 에이전트가 조회할 수 있게 해줍니다. 서울 기반 리테일·행사 기획에 바로 쓰이는 지표만 선별돼 있어, 오프라인 전략을 짜는 로컬 비즈니스 팀에 적합합니다.",
+      "tags": [
+        "#seoul",
+        "#public-data",
+        "#mcp"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Korea Stock Analyzer MCP",
+      "repo": "Mrbaeksang/korea-stock-analyzer-mcp",
+      "author": "Mrbaeksang",
+      "stars": 13,
+      "desc": "이 MCP 서버는 버핏·린치 등 6대 투자 대가의 전략 프레임으로 KOSPI·KOSDAQ 종목을 분석해 실시간 시세, 기술 지표, DCF 밸류에이션, 동종 비교까지 한 번에 내놓습니다. 한국 주식에 맞춘 관점으로 결과를 정리해주기 때문에, 국내 투자 아이디어를 빠르게 검증하려는 개인 투자자나 리서치 팀에게 잘 어울립니다.",
+      "tags": [
+        "#korean-stocks",
+        "#investing",
+        "#valuation"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Naver Finance Crawl MCP",
+      "repo": "greatSumini/naver-finance-crawl-mcp",
+      "author": "greatSumini",
+      "stars": 3,
+      "desc": "이 MCP 서버는 네이버 금융 페이지를 크롤링해 인기 검색 종목과 6자리 코드 기반 종목 상세 정보를 끌어와 줍니다. 별도 유료 데이터 없이도 국내 증시 스냅샷을 확보할 수 있기 때문에, 간단한 종목 스크리닝이나 시장 모니터링이 필요한 팀에게 쓸만합니다.",
+      "tags": [
+        "#naver-finance",
+        "#korean-stocks",
+        "#mcp"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Awesome MCP Korea",
+      "repo": "darjeeling/awesome-mcp-korea",
+      "author": "darjeeling",
+      "stars": 149,
+      "desc": "이 큐레이션은 한국 시장에 특화된 MCP 서버 50여 종을 법률·커머스·공공데이터·부동산·지도·한국어 NLP 카테고리로 정리한 목록입니다. 국내에 어떤 MCP가 있는지 한 번에 훑을 수 있기 때문에, 한국용 AI 도구 스택을 설계하는 팀의 출발점으로 잘 어울립니다.",
+      "tags": [
+        "#awesome-list",
+        "#mcp",
+        "#korea"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "korea",
+      "name": "Public APIs 4 Kr",
+      "repo": "yybmion/public-apis-4Kr",
+      "author": "yybmion",
+      "stars": 2500,
+      "desc": "이 저장소는 정부·금융·교통·날씨·헬스케어 등 한국 서비스에서 쓸 수 있는 공개 API 260여 개를 카테고리별로 정리한 레퍼런스입니다. 국내 데이터 소스를 빠르게 찾을 수 있기 때문에, 신사업 기획이나 데이터 기반 리서치를 준비하는 팀이 초기 조사에 활용하기 좋습니다.",
+      "tags": [
+        "#public-api",
+        "#korea",
+        "#directory"
+      ],
+      "added_at": "2026-04-21"
     }
   ]
 }

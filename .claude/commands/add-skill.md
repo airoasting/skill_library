@@ -1,7 +1,7 @@
 ---
 description: GitHub 주소와 카테고리를 받아 skills.json에 새 카드 추가
 argument-hint: <github-url> [category-id] [--fb <url>] [--li <url>] [--x <url>]
-allowed-tools: Bash(gh:*), Bash(date:*), WebFetch, Read, Edit
+allowed-tools: Bash(gh:*), Bash(date:*), Bash(python3:*), WebFetch, Read, Edit, Grep
 ---
 
 사용자가 제공한 인자: `$ARGUMENTS`
@@ -194,7 +194,51 @@ new_string:
 
 삽입 후 반드시 다시 Read로 열어 JSON 문법(쉼표·괄호·따옴표) 확인.
 
+## 3.5. index.html 인라인 블록 동기화 (필수)
+
+`index.html` 내부 `<script type="application/json" id="skills-data">…</script>` 블록에도 **`skills.json`과 동일한 JSON이 인라인으로 임베드**돼 있다. `file://`로 직접 열리는 경우 페이지는 `skills.json` fetch 실패 후 이 인라인 블록을 폴백으로 읽기 때문에([app.js:50-60](app.js:50)), 두 곳을 같이 업데이트하지 않으면 로컬 `index.html` 프리뷰에 변경이 반영되지 않는다.
+
+절차:
+
+1. `index.html`에서 `id="skills-data"` 블록 범위를 확인 (열기 태그와 닫기 `</script>` 위치).
+2. 3단계에서 `skills.json`에 삽입한 것과 **완전히 동일한 카드 객체**를 이 블록 안의 `skills` 배열 끝에도 append.
+3. `skills.json`에서 썼던 Edit 패턴(직전 마지막 객체 + 배열 종료 괄호를 `old_string`으로 잡기)을 그대로 적용.
+4. 2.5의 `authors` 맵 변경이 있었다면 인라인 블록 최상위 `authors`에도 동일 변경을 반영.
+
+검증 (둘 다 통과해야 4단계로):
+
+```bash
+# skills.json 유효성
+python3 -c "import json; json.load(open('skills.json'))"
+
+# 인라인 블록 유효성 (script 태그 내부만 추출해 파싱)
+python3 - <<'PY'
+import re, json, pathlib
+html = pathlib.Path('index.html').read_text()
+m = re.search(r'<script type="application/json" id="skills-data">(.*?)</script>', html, re.DOTALL)
+assert m, 'inline block not found'
+json.loads(m.group(1))
+print('inline OK')
+PY
+```
+
+추가로 `skills.json`과 인라인 블록의 `skills` 배열 길이가 같은지도 간단히 대조:
+
+```bash
+python3 - <<'PY'
+import re, json, pathlib
+j = json.load(open('skills.json'))
+html = pathlib.Path('index.html').read_text()
+inline = json.loads(re.search(r'id="skills-data">(.*?)</script>', html, re.DOTALL).group(1))
+assert len(j['skills']) == len(inline['skills']), f"mismatch: json={len(j['skills'])} inline={len(inline['skills'])}"
+print('count OK:', len(j['skills']))
+PY
+```
+
+불일치가 나면 어디서 누락됐는지 찾아 고친 뒤 다시 검증하고 4단계로.
+
 ## 4. 보고
 
 - 총 개수 변화를 알려줘: `N → N+1` (카테고리별/전체 집계는 [app.js:75-94](app.js:75)에서 자동 수행되므로 수동 수정 불필요).
 - 추가된 카드를 한 줄로 요약: `[<category>] <name> — <owner>/<repo> · ★<stars>`.
+- `skills.json`과 `index.html` 인라인 블록 **둘 다** 업데이트됐음을 명시.
