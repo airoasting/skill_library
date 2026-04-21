@@ -14,7 +14,9 @@ const CAT_RULES = [
   { cat: 'research',   kws: ['research', 'paper', 'academic', 'notebooklm', 'knowledge', 'graph', 'scientific', 'deep-research'] },
   { cat: 'design',     kws: ['design', ' ui', 'ux', 'slide', 'presentation', 'novel', 'writing', 'humaniz', 'creative'] },
   { cat: 'automation', kws: ['playwright', 'browser', 'automation', 'ccpm', 'spec', 'harness', 'jira', 'slack', 'lark'] },
-  { cat: 'business',   kws: ['business', 'marketing', 'seo', 'geo', 'ceo', 'career', 'legal', 'sales', 'cro', 'exec', 'startup'] },
+  { cat: 'legal',      kws: ['legal', 'compliance', 'contract', 'nda', 'law'] },
+  { cat: 'career',     kws: ['career', 'resume', 'job-search', 'interview', 'hr'] },
+  { cat: 'business',   kws: ['business', 'marketing', 'seo', 'geo', 'ceo', 'sales', 'cro', 'exec', 'startup'] },
   { cat: 'workflow',   kws: ['workflow', 'superpower', 'planning', 'memory', 'mem', 'agent', 'skill', 'plugin', 'tdd'] }
 ];
 function classify(meta) {

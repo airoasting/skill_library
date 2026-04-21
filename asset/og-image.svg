@@ -31,7 +31,7 @@
     </filter>
 
     <clipPath id="cardClip">
-      <rect x="72" y="64" width="1056" height="502" rx="40"/>
+      <rect x="0" y="0" width="1200" height="630" rx="0"/>
     </clipPath>
   </defs>
 
@@ -39,13 +39,13 @@
   <rect width="1200" height="630" fill="url(#outerBg)"/>
 
   <!-- Card base -->
-  <rect x="72" y="64" width="1056" height="502" rx="40" fill="url(#cardBg)" filter="url(#cardShadow)"/>
+  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardBg)" filter="url(#cardShadow)"/>
 
   <!-- Glow overlay -->
-  <rect x="72" y="64" width="1056" height="502" rx="40" fill="url(#cardGlow)" clip-path="url(#cardClip)"/>
+  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardGlow)" clip-path="url(#cardClip)"/>
 
   <!-- Dark vignette overlay -->
-  <rect x="72" y="64" width="1056" height="502" rx="40" fill="url(#cardVignette)" clip-path="url(#cardClip)"/>
+  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardVignette)" clip-path="url(#cardClip)"/>
 
   <!-- Top accent line -->
   <rect x="72" y="64" width="1056" height="3" rx="2" fill="#f8b080" opacity="0.5" clip-path="url(#cardClip)"/>
@@ -106,11 +106,11 @@
     text-anchor="middle"
   >검증된 실무 스킬만 선별합니다  ·  매주 토요일 업데이트</text>
 
-  <!-- 89 SKILLS badge -->
-  <rect x="120" y="108" width="126" height="38" rx="19" fill="#ffffff" opacity="0.13"/>
-  <rect x="120" y="108" width="126" height="38" rx="19" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.22"/>
+  <!-- 100+ SKILLS badge -->
+  <rect x="120" y="108" width="138" height="38" rx="19" fill="#ffffff" opacity="0.13"/>
+  <rect x="120" y="108" width="138" height="38" rx="19" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.22"/>
   <text
-    x="183" y="133"
+    x="189" y="133"
     font-family="'Helvetica Neue', Arial, sans-serif"
     font-size="13.5"
     font-weight="700"
@@ -118,7 +118,7 @@
     opacity="0.9"
     text-anchor="middle"
     letter-spacing="1.5"
-  >89 SKILLS</text>
+  >100+ SKILLS</text>
 
   <!-- AX watermark bottom-right -->
   <text

@@ -40,7 +40,7 @@
     {
       "id": "workflow",
       "meta": "build",
-      "name": "AI와 잘 일하는 법",
+      "name": "AI와 일 잘하는 법",
       "emoji": "🚀",
       "en": "Working with AI",
       "desc": "브레인스토밍·계획·기억·체크리스트까지, 내가 AI와 더 효율적으로 일하기 위한 협업 방식과 습관을 잡아주는 스킬이에요."
@@ -72,10 +72,10 @@
     {
       "id": "business",
       "meta": "growth",
-      "name": "비즈니스 · 마케팅",
+      "name": "그로스 · 마케팅",
       "emoji": "💼",
-      "en": "Business · Marketing",
-      "desc": "마케팅, 세일즈, 커리어, 법무까지 실무에서 바로 써먹는 비즈니스·마케팅 의사결정을 돕는 스킬들이에요."
+      "en": "Growth · Marketing",
+      "desc": "CRO, 카피, SEO, 멀티채널 캠페인까지 매출·고객 그로스 실험을 빠르게 돌릴 수 있게 돕는 스킬들이에요."
     },
     {
       "id": "finance",
@@ -104,10 +104,26 @@
     {
       "id": "design",
       "meta": "execution",
-      "name": "디자인 · 창작",
+      "name": "디자인 · 글쓰기",
       "emoji": "🎨",
-      "en": "Design · Creative",
-      "desc": "UI, 슬라이드, 글쓰기처럼 시각적이고 창의적인 결과물을 만들어낼 때 쓰기 좋은 스킬들이에요."
+      "en": "Design · Writing",
+      "desc": "UI·슬라이드 같은 시각 결과물부터 블로그·소설·에디팅까지, 디자인과 글쓰기 산출물을 만들 때 쓰기 좋은 스킬들이에요."
+    },
+    {
+      "id": "legal",
+      "meta": "execution",
+      "name": "법무 · 컴플라이언스",
+      "emoji": "⚖️",
+      "en": "Legal · Compliance",
+      "desc": "계약서 검토, NDA 초안, 컴플라이언스 체크처럼 법무 리스크를 빠르게 1차 스크리닝할 때 쓰는 스킬들이에요."
+    },
+    {
+      "id": "career",
+      "meta": "execution",
+      "name": "커리어 · 이직",
+      "emoji": "🧭",
+      "en": "Career · Job Search",
+      "desc": "이력서, 자기소개서, 면접 준비, 지원 현황 추적까지 커리어 전환을 체계적으로 준비하게 돕는 스킬들이에요."
     }
   ],
   "skills": [
@@ -398,7 +414,7 @@
       "editors_pick": true
     },
     {
-      "category": "business",
+      "category": "career",
       "name": "Career Ops",
       "repo": "santifer/career-ops",
       "author": "santifer",
@@ -488,7 +504,7 @@
       "added_at": "2025-12-18"
     },
     {
-      "category": "business",
+      "category": "legal",
       "name": "AI Legal Claude",
       "repo": "zubair-trabzada/ai-legal-claude",
       "author": "zubair-trabzada",
@@ -730,21 +746,6 @@
     },
     {
       "category": "finance",
-      "name": "TradingAgents AShare",
-      "repo": "KylinMountain/TradingAgents-AShare",
-      "author": "KylinMountain",
-      "stars": 187,
-      "desc": "이 시스템은 A주(중국 주식) 전문 에이전트 15명이 기관 투자팀처럼 협업하는 멀티에이전트 구성입니다. 뉴스, 기술분석, 펀더멘털 에이전트가 동시에 분석해 합의된 거래 신호를 만들어주기 때문에, 감정에 휘둘리지 않는 데이터 기반 판단이 필요한 A주 투자자에게 유용합니다.",
-      "tags": [
-        "#trading",
-        "#multi-agent",
-        "#a-share"
-      ],
-      "lang": "Python",
-      "added_at": "2026-03-02"
-    },
-    {
-      "category": "finance",
       "name": "MAIA Skill",
       "repo": "Hainrixz/maia-skill",
       "author": "Hainrixz",
@@ -757,21 +758,6 @@
       ],
       "lang": "TypeScript",
       "added_at": "2026-03-14"
-    },
-    {
-      "category": "finance",
-      "name": "Finance Skills",
-      "repo": "JoelLewis/finance_skills",
-      "author": "JoelLewis",
-      "stars": 46,
-      "desc": "이 모음은 투자 위험 평가, 컴플라이언스 체크, 거래 실행, 포트폴리오 리포트까지 금융사 업무에 특화된 스킬 81개를 담고 있습니다. 스킬을 따로 쓰거나 파이프라인으로 엮을 수 있기 때문에, 핀테크 스타트업이나 금융 서비스 팀이 AI 기반 운영을 빠르게 구축하기에 좋습니다.",
-      "tags": [
-        "#compliance",
-        "#trading",
-        "#fintech"
-      ],
-      "lang": "Python",
-      "added_at": "2026-02-15"
     },
     {
       "category": "finance",
@@ -1002,21 +988,6 @@
     },
     {
       "category": "design",
-      "name": "Avoid AI Writing",
-      "repo": "conorbronsdon/avoid-ai-writing",
-      "author": "conorbronsdon",
-      "stars": 994,
-      "desc": "이 스킬은 과도한 형용사, 반복되는 구조, 기계적 나열 같은 AI 글쓰기 패턴을 찾아내 제거하고 사람 문체로 바꿔줍니다. 어떤 AI 모델이 쓴 글이든 자연스럽게 다듬어주기 때문에, 고객사·임원·대중용 커뮤니케이션에서 AI 작성 흔적을 지울 때 유용합니다.",
-      "tags": [
-        "#writing",
-        "#humanize",
-        "#style"
-      ],
-      "lang": "Shell",
-      "added_at": "2026-04-19"
-    },
-    {
-      "category": "design",
       "name": "Awesome Novel Studio",
       "repo": "MJbae/awesome-novel-studio",
       "author": "MJbae",
@@ -1057,20 +1028,6 @@
         "#context-eng"
       ],
       "lang": "Shell",
-      "added_at": "2026-04-19"
-    },
-    {
-      "category": "design",
-      "name": "Claude Novel Skill",
-      "repo": "mane23-ai/claude-novel-skill",
-      "author": "mane23-ai",
-      "stars": 7,
-      "desc": "이 스킬은 플롯 설계, 문체 설정, 대화 작성, 장면 묘사를 단계별 지시로 나눠 진행하는 소설 창작 협업 도구입니다. 각 요소를 따로 수정할 수 있기 때문에 특정 챕터만 다시 쓰거나 문체만 바꾸는 작업도 쉬워서, 단편·장편 소설을 혼자 쓰는 작가에게 좋은 AI 파트너가 됩니다.",
-      "tags": [
-        "#novel",
-        "#storytelling",
-        "#writing"
-      ],
       "added_at": "2026-04-19"
     },
     {
@@ -1432,20 +1389,6 @@
       ]
     },
     {
-      "category": "research",
-      "name": "CL4R1T4S",
-      "repo": "elder-plinius/CL4R1T4S",
-      "author": "elder-plinius",
-      "stars": 16300,
-      "added_at": "2026-04-20",
-      "desc": "이 컬렉션은 ChatGPT, Gemini, Claude, Grok 등 주요 AI 모델의 시스템 프롬프트를 수집·공개하는 투명성 아카이브입니다. AI 내부 지시문과 행동 프레임워크를 연구하려는 프롬프트 엔지니어와 AI 거버넌스 연구자에게 적합합니다.",
-      "tags": [
-        "#system-prompts",
-        "#ai-transparency",
-        "#red-teaming"
-      ]
-    },
-    {
       "category": "workflow",
       "name": "Agent Skills",
       "repo": "addyosmani/agent-skills",
@@ -1712,6 +1655,321 @@
         "#korea",
         "#directory"
       ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "business",
+      "name": "Claude SEO",
+      "repo": "AgriciDaniel/claude-seo",
+      "author": "AgriciDaniel",
+      "stars": 5214,
+      "desc": "이 스킬은 19개 서브 스킬과 12개 서브에이전트로 기술 SEO·E-E-A-T·스키마·GEO/AEO·백링크·로컬 SEO까지 한 번에 다루는 SEO 풀세트입니다. DataForSEO·Firecrawl 연동으로 실제 순위와 크롤 데이터를 가져와 PDF·엑셀 리포트까지 뽑아주기 때문에, 에이전시 없이 SEO를 직접 운영해야 하는 인하우스 마케터에게 잘 어울립니다.",
+      "tags": [
+        "#seo",
+        "#geo",
+        "#marketing-automation"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21",
+      "editors_pick": true
+    },
+    {
+      "category": "business",
+      "name": "Entrepreneur Claude Skills",
+      "repo": "mfwarren/entrepreneur-claude-skills",
+      "author": "mfwarren",
+      "stars": 16,
+      "desc": "이 컬렉션은 한 창업자가 실제 업무에 쓰며 만든 24개 스킬을 마케팅·세일즈·운영·재무·리더십 영역으로 묶어 제공합니다. PAS·AIDA·BAB 같은 카피 프레임워크와 Meta·Google Ads 크리에이티브까지 실전 포맷 그대로 담겨 있어, 마케팅팀 없이 회사를 키우는 1인 창업자에게 쓸모 있습니다.",
+      "tags": [
+        "#founder",
+        "#startup",
+        "#sales"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "business",
+      "name": "Claude Ads",
+      "repo": "AgriciDaniel/claude-ads",
+      "author": "AgriciDaniel",
+      "stars": 2789,
+      "desc": "이 스킬은 Google·Meta·YouTube·LinkedIn·TikTok·Microsoft·Apple Ads 계정을 250개 이상 체크포인트로 감사하고 가중치 스코어로 리포팅해줍니다. 병렬 에이전트, 산업별 템플릿, AI 크리에이티브 생성까지 한 번에 돌기 때문에, 대행사 없이 퍼포먼스 마케팅을 운영하는 팀에 적합합니다.",
+      "tags": [
+        "#paid-ads",
+        "#performance",
+        "#marketing-automation"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21",
+      "editors_pick": true
+    },
+    {
+      "category": "legal",
+      "name": "Claude Skills GRC",
+      "repo": "Sushegaad/Claude-Skills-Governance-Risk-and-Compliance",
+      "author": "Sushegaad",
+      "stars": 325,
+      "desc": "이 패키지는 ISO 27001·SOC 2·FedRAMP·GDPR·HIPAA·NIST CSF·PCI DSS·ISO 42001·DORA 등 주요 규제 프레임워크를 전담하는 GRC 스킬 모음입니다. 벤치마크 정확도 94%로 규제 조항 인용까지 정밀하게 짚어주기 때문에, SOC2·ISO 인증을 준비하는 스타트업 CTO·컴플라이언스 담당에게 유용합니다.",
+      "tags": [
+        "#grc",
+        "#compliance",
+        "#regulatory"
+      ],
+      "added_at": "2026-04-21",
+      "editors_pick": true
+    },
+    {
+      "category": "legal",
+      "name": "Claude Legal Skill",
+      "repo": "evolsb/claude-legal-skill",
+      "author": "evolsb",
+      "stars": 204,
+      "desc": "이 스킬은 CUAD 기반 리스크 탐지와 시장 벤치마크 비교로 계약서를 분석해 변호사가 바로 검토 가능한 레드라인을 만들어줍니다. F1 벤치마크까지 공개해 한계를 투명하게 밝히기 때문에, M&A·벤더 계약 1차 스크리닝 후 변호사에게 넘기는 워크플로에 잘 맞습니다.",
+      "tags": [
+        "#contract-review",
+        "#nda",
+        "#legal-tech"
+      ],
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "career",
+      "name": "JobPilot",
+      "repo": "suxrobGM/jobpilot",
+      "author": "suxrobGM",
+      "stars": 13,
+      "desc": "이 플러그인은 잡보드 탐색부터 지원서 자동제출·커버레터 생성·Upwork 제안·면접 준비까지 이력서 한 개로 구직 전 과정을 자동화해줍니다. Playwright로 실제 브라우저 지원 단계까지 대신 눌러주기 때문에, 동시에 수십 개 포지션을 돌리는 적극 구직자에게 효율적입니다.",
+      "tags": [
+        "#job-search",
+        "#automation",
+        "#playwright"
+      ],
+      "lang": "Shell",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "career",
+      "name": "Claude Code Job Tailor",
+      "repo": "javiera-vasquez/claude-code-job-tailor",
+      "author": "javiera-vasquez",
+      "stars": 125,
+      "desc": "이 시스템은 한 번 YAML로 경력을 정리해두면 공고별 요구사항을 우선순위별로 분석해 가장 적합한 성과를 골라 60초 이내에 PDF 이력서로 뽑아줍니다. ATS 친화 포맷과 JD 매칭 로직이 붙어 있어, 공고를 자주 갈아타며 이력서를 수십 장 관리해야 하는 구직자에게 잘 맞습니다.",
+      "tags": [
+        "#resume",
+        "#ats",
+        "#pdf"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Financial Datasets MCP",
+      "repo": "financial-datasets/mcp-server",
+      "author": "financial-datasets",
+      "stars": 2000,
+      "desc": "이 MCP 서버는 Financial Datasets API를 Claude에 붙여 상장사 재무제표, 실시간·과거 주가, 암호화폐 시세, 시장 뉴스를 한 번에 끌어오는 도구입니다. 애널리스트급 금융 데이터를 자연어로 조회할 수 있어, 종목 리서치나 투자 브리핑 자료가 필요한 개인 투자자와 리서치 팀에 잘 맞습니다.",
+      "tags": [
+        "#finance-data",
+        "#stocks",
+        "#research"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Alpaca MCP",
+      "repo": "alpacahq/alpaca-mcp-server",
+      "author": "alpacahq",
+      "stars": 671,
+      "desc": "이 MCP 서버는 Alpaca 공식 연동으로 주식, ETF, 옵션, 암호화폐 거래와 데이터 분석을 자연어로 지시할 수 있게 해줍니다. 주문 실행부터 포트폴리오 조회·전략 시뮬레이션까지 LLM 안에서 처리되기 때문에, 자동매매를 실전에 붙이려는 개인 퀀트 투자자에게 적합합니다.",
+      "tags": [
+        "#trading",
+        "#alpaca",
+        "#options"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "SEC EDGAR MCP",
+      "repo": "stefanoamorelli/sec-edgar-mcp",
+      "author": "stefanoamorelli",
+      "stars": 253,
+      "desc": "이 MCP 서버는 SEC EDGAR 공시 데이터를 Claude에 붙여 10-K·10-Q·8-K 원문, XBRL 재무제표, 내부자 거래 내역을 정확한 숫자로 조회합니다. 원문에서 바로 근거를 뽑아 리포트로 정리할 수 있기 때문에, 미국 주식 딥리서치나 밸류에이션 분석이 필요한 애널리스트에게 잘 맞습니다.",
+      "tags": [
+        "#sec-edgar",
+        "#filings",
+        "#research"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "DexPaprika MCP",
+      "repo": "coinpaprika/dexpaprika-mcp",
+      "author": "coinpaprika",
+      "stars": 41,
+      "desc": "이 MCP 서버는 33개 블록체인의 DEX 거래량, 유동성 풀, 토큰 OHLCV 데이터를 API 키 없이 14개 툴로 제공하는 온체인 분석 도구입니다. 크로스체인 유동성과 토큰 움직임을 LLM 안에서 바로 비교할 수 있기 때문에, DeFi 포트폴리오를 굴리는 크립토 투자자에게 유용합니다.",
+      "tags": [
+        "#defi",
+        "#dex",
+        "#crypto"
+      ],
+      "lang": "JavaScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "YNAB MCP",
+      "repo": "Jtewen/ynab-mcp",
+      "author": "Jtewen",
+      "stars": 10,
+      "desc": "이 MCP 서버는 예산 앱 YNAB을 Claude와 연결해 계좌·거래·카테고리 지출 추적과 페이어 정리까지 자연어로 다룰 수 있게 해줍니다. 다중 예산과 읽기 전용 안전 모드를 지원하기 때문에, 가계부와 현금 흐름을 AI로 관리하려는 개인 재무 사용자에게 쓸만합니다.",
+      "tags": [
+        "#budget",
+        "#personal-finance",
+        "#ynab"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Norman Finance MCP",
+      "repo": "norman-finance/norman-mcp-server",
+      "author": "norman-finance",
+      "stars": 41,
+      "desc": "이 MCP 서버는 Norman의 AI 회계·세무 플랫폼을 Claude에 연결해 인보이스 발행, 거래 분류, 고객 관리, 유럽 VAT 신고까지 자동화해줍니다. 프리셋 스킬로 월별 결산과 영수증 관리가 바로 돌아가기 때문에, 유럽에서 사업 중인 1인 기업가나 프리랜서의 경리 업무에 잘 맞습니다.",
+      "tags": [
+        "#bookkeeping",
+        "#tax",
+        "#invoicing"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Maverick MCP",
+      "repo": "wshobson/maverick-mcp",
+      "author": "wshobson",
+      "stars": 496,
+      "desc": "이 MCP 서버는 S&P500 520종목을 미리 적재해두고 기술 지표, 스크리너, VectorBT 백테스트, 리서치 에이전트까지 39개 이상의 툴을 Claude Desktop에 붙여주는 개인 투자자용 분석 스위트입니다. 별도 인증 없이 로컬에서 돌아가기 때문에, 직접 종목을 파고드는 개인 트레이더에게 적합합니다.",
+      "tags": [
+        "#stocks",
+        "#backtesting",
+        "#technical-analysis"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Octagon Market Intelligence MCP",
+      "repo": "OctagonAI/octagon-mcp-server",
+      "author": "OctagonAI",
+      "stars": 116,
+      "desc": "이 MCP 서버는 SEC 공시, 실적 콜 스크립트, 주가, 비상장 시장, 예측시장 데이터까지 마켓 인텔리전스 소스를 하나로 묶어 Claude에 붙여줍니다. 공개·비공개 시장을 한 번에 훑을 수 있기 때문에, 상장 전 기업과 상장사를 동시에 커버해야 하는 리서치 팀이나 VC에게 잘 맞습니다.",
+      "tags": [
+        "#market-intel",
+        "#sec",
+        "#private-markets"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "finance",
+      "name": "Hive Crypto MCP",
+      "repo": "hive-intel/hive-crypto-mcp",
+      "author": "hive-intel",
+      "stars": 17,
+      "desc": "이 MCP 서버는 CoinGecko, DefiLlama, Moralis 등 여러 크립토 데이터 소스를 묶어 DeFi 프로토콜, 온체인 분석, NFT, 지갑 포트폴리오까지 14개 카테고리 389개 툴로 제공합니다. 흩어진 크립토 소스를 한 서버로 통합해주기 때문에, 온체인부터 시장 분석까지 폭넓게 다뤄야 하는 크립토 리서처에게 유용합니다.",
+      "tags": [
+        "#crypto",
+        "#on-chain",
+        "#defi"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "design",
+      "name": "Figma Context MCP",
+      "repo": "GLips/Figma-Context-MCP",
+      "author": "GLips",
+      "stars": 14400,
+      "desc": "이 MCP 서버는 Figma 파일 링크만 붙여넣으면 Claude가 레이아웃, 컴포넌트, 스타일을 그대로 읽어 코드로 옮겨주는 디자인-투-코드 도구입니다. 디자인 시안을 실제 UI 구현으로 연결해주기 때문에, 디자이너와 협업하는 기획자·프론트엔드 실무자에게 잘 맞습니다.",
+      "tags": [
+        "#figma",
+        "#design-to-code",
+        "#mcp"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "design",
+      "name": "Claude Office Skills",
+      "repo": "tfriedel/claude-office-skills",
+      "author": "tfriedel",
+      "stars": 533,
+      "desc": "이 패키지는 Anthropic 공식 Office 스킬(PPTX·DOCX·XLSX·PDF)을 Claude Code CLI에서 바로 쓸 수 있게 묶어놓은 모음입니다. 보고서, 제안서, 엑셀 리포트를 자연어로 생성하고 배치 처리할 수 있기 때문에, 문서 작업이 많은 비즈니스 실무자에게 잘 맞습니다.",
+      "tags": [
+        "#office",
+        "#pptx",
+        "#docx"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "research",
+      "name": "arXiv MCP Server",
+      "repo": "blazickjp/arxiv-mcp-server",
+      "author": "blazickjp",
+      "stars": 2600,
+      "desc": "이 MCP 서버는 arXiv에서 논문 검색·다운로드·전문 읽기·키워드 분석을 Claude에 붙여주는 학술 리서치 도구입니다. 최신 논문 PDF까지 바로 파싱해주기 때문에, 문헌 조사와 선행 연구 정리가 필요한 연구자와 R&D 팀에게 잘 맞습니다.",
+      "tags": [
+        "#arxiv",
+        "#papers",
+        "#academic"
+      ],
+      "lang": "Python",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "research",
+      "name": "Notion MCP",
+      "repo": "makenotion/notion-mcp-server",
+      "author": "makenotion",
+      "stars": 4200,
+      "desc": "이 MCP 서버는 Notion 공식 연동으로 페이지 검색·생성·갱신과 데이터베이스 쿼리를 자연어로 다룰 수 있게 해줍니다. 리서치 노트와 회의록이 Notion에 쌓인 팀이 AI로 지식 베이스를 검색·보강할 수 있기 때문에, Notion 중심으로 지식 관리를 운영하는 비즈니스 팀에 잘 맞습니다.",
+      "tags": [
+        "#notion",
+        "#knowledge-base",
+        "#notes"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-04-21"
+    },
+    {
+      "category": "research",
+      "name": "Exa MCP",
+      "repo": "exa-labs/exa-mcp-server",
+      "author": "exa-labs",
+      "stars": 4100,
+      "desc": "이 MCP 서버는 AI용 시맨틱 검색 엔진 Exa를 Claude에 연결해 웹 검색, 출처가 붙은 답변, 비동기 딥 리서치 에이전트를 함께 제공합니다. 단순 키워드가 아닌 의미 기반으로 자료를 끌어오기 때문에, 근거 있는 리서치 리포트가 필요한 애널리스트와 기획자에게 유용합니다.",
+      "tags": [
+        "#web-search",
+        "#semantic",
+        "#research"
+      ],
+      "lang": "TypeScript",
       "added_at": "2026-04-21"
     }
   ]
