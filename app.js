@@ -68,55 +68,111 @@ async function load() {
   renderCats();
   renderAll();
   wireTabs();
+  wireDrawer();
 }
 
 // ========= Nav =========
 function renderCats() {
-  const host = document.getElementById('nav-cats');
   const counts = { all: state.data.skills.length, pick: 0 };
   for (const c of state.data.categories) counts[c.id] = 0;
   for (const s of state.data.skills) {
     counts[s.category] = (counts[s.category] || 0) + 1;
     if (s.editors_pick) counts.pick++;
   }
-  host.innerHTML = state.data.categories.map(c =>
+  const metas = state.data.meta_categories || [];
+  const renderCatLink = c =>
     `<a data-cat="${c.id}" tabindex="0" role="button">
        <span>${c.emoji} ${escapeHtml(c.name)}</span>
        <span class="count">${counts[c.id] || 0}</span>
-     </a>`).join('');
-  host.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setCat(a.dataset.cat)));
+     </a>`;
+  const buildCatsHtml = () => {
+    if (metas.length) {
+      return metas.map(m => {
+        const cats = state.data.categories.filter(c => c.meta === m.id);
+        if (!cats.length) return '';
+        return `<div class="meta-group">
+          <div class="meta-group-label">${m.emoji} ${escapeHtml(m.name)}</div>
+          ${cats.map(renderCatLink).join('')}
+        </div>`;
+      }).join('');
+    }
+    return state.data.categories.map(renderCatLink).join('');
+  };
+  const catsHtml = buildCatsHtml();
+  ['nav-cats', 'drawer-cats'].forEach(id => {
+    const host = document.getElementById(id);
+    if (host) host.innerHTML = catsHtml;
+  });
 
-  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"]').forEach(a => {
+  // Wire clicks on every category link (sidebar + drawer)
+  document.querySelectorAll('#nav-cats a, #drawer-cats a').forEach(a =>
+    a.addEventListener('click', () => setCat(a.dataset.cat))
+  );
+  // Feeds (all/pick) in sidebar + drawer
+  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"], .drawer [data-cat="all"], .drawer [data-cat="pick"]').forEach(a => {
     a.addEventListener('click', () => setCat(a.dataset.cat));
   });
 
-  document.getElementById('count-all').textContent = counts.all;
-  document.getElementById('count-pick').textContent = counts.pick;
+  // Update counts in any location (IDs for sidebar legacy, data-count for drawer)
+  const setCount = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+  setCount('count-all', counts.all);
+  setCount('count-pick', counts.pick);
+  document.querySelectorAll('[data-count="all"]').forEach(el => el.textContent = counts.all);
+  document.querySelectorAll('[data-count="pick"]').forEach(el => el.textContent = counts.pick);
   document.getElementById('totalNum').textContent = counts.all;
-  renderMobileCats(counts);
   highlightActiveCat();
 }
 
-function renderMobileCats(counts) {
-  const bar = document.getElementById('mobileCatsBar');
-  if (!bar) return;
-  const cats = [
-    { id: 'all', label: '전체' },
-    { id: 'pick', label: '✦ Pick' },
-    ...state.data.categories.map(c => ({ id: c.id, label: `${c.emoji} ${c.name}` }))
-  ];
-  bar.innerHTML = cats.map(c =>
-    `<button class="mobile-cat-btn${state.activeCat === c.id ? ' active' : ''}" data-cat="${c.id}">${escapeHtml(c.label)}</button>`
-  ).join('');
-  bar.querySelectorAll('.mobile-cat-btn').forEach(btn =>
-    btn.addEventListener('click', () => setCat(btn.dataset.cat))
-  );
+function setCat(id) {
+  state.activeCat = id;
+  highlightActiveCat();
+  renderAll();
+  closeDrawer();
+}
+function highlightActiveCat() {
+  document.querySelectorAll('.sidebar-left .nav a, .drawer .nav a').forEach(a => {
+    a.classList.toggle('active', a.dataset.cat === state.activeCat);
+  });
 }
 
-function setCat(id) { state.activeCat = id; highlightActiveCat(); renderAll(); }
-function highlightActiveCat() {
-  document.querySelectorAll('.sidebar-left .nav a, .mobile-cat-btn').forEach(a => {
-    a.classList.toggle('active', a.dataset.cat === state.activeCat);
+// ========= Drawer =========
+function openDrawer() {
+  const d = document.getElementById('drawer');
+  const b = document.getElementById('drawerBackdrop');
+  const btn = document.getElementById('hamburgerBtn');
+  if (!d || !b) return;
+  b.hidden = false;
+  requestAnimationFrame(() => {
+    d.classList.add('open');
+    b.classList.add('open');
+  });
+  d.setAttribute('aria-hidden', 'false');
+  btn?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  const d = document.getElementById('drawer');
+  const b = document.getElementById('drawerBackdrop');
+  const btn = document.getElementById('hamburgerBtn');
+  if (!d || !b) return;
+  d.classList.remove('open');
+  b.classList.remove('open');
+  d.setAttribute('aria-hidden', 'true');
+  btn?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (!d.classList.contains('open')) b.hidden = true; }, 260);
+}
+function wireDrawer() {
+  document.getElementById('hamburgerBtn')?.addEventListener('click', openDrawer);
+  document.getElementById('drawerClose')?.addEventListener('click', closeDrawer);
+  document.getElementById('drawerBackdrop')?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && document.getElementById('drawer')?.classList.contains('open')) {
+      closeDrawer();
+    }
   });
 }
 
