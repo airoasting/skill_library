@@ -120,14 +120,16 @@
     letter-spacing="1.5"
   >100+ SKILLS</text>
 
+
   <!-- AX watermark bottom-right -->
   <text
-    x="1090" y="545"
+    x="1200" y="545"
     font-family="'Helvetica Neue', Arial, sans-serif"
     font-size="150"
     font-weight="900"
+    font-style="italic"
     fill="#ffffff"
-    opacity="0.08"
+    opacity="0.04"
     text-anchor="end"
     letter-spacing="-8"
   >AX</text>
