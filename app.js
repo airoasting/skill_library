@@ -326,6 +326,9 @@ function renderFeatured(s) {
       <div class="stars">
         <strong>${fmt(s.stars)}</strong><span>stars</span>
       </div>
+      <div class="forks">
+        <strong>${fmt(s.forks)}</strong><span>forks</span>
+      </div>
     </a>`;
 }
 
@@ -356,6 +359,7 @@ function card(s, rank) {
         <div class="tags">${tags}</div>
       </div>
       <div class="stars"><strong>${fmt(s.stars)}</strong>stars</div>
+      <div class="forks"><strong>${fmt(s.forks)}</strong>forks</div>
     </a>`;
 }
 
@@ -370,7 +374,7 @@ function renderRank() {
         <div class="name">${escapeHtml(s.name)}</div>
         <div class="author">${escapeHtml(s.author || '')}</div>
       </div>
-      <div class="star">★${fmt(s.stars)}</div>
+      <div class="star">★${fmt(s.stars)}<span class="fork-mini"> · ⑂${fmt(s.forks)}</span></div>
     </a>`).join('');
 }
 
