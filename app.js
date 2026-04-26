@@ -234,7 +234,7 @@ function wireTabs() {
       document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       state.sort = tab.dataset.sort;
-      const hint = { stars: '★ 스타순', name: 'A-Z' };
+      const hint = { stars: '★ 스타순', forks: '⑂ 포크순', name: 'A-Z' };
       document.getElementById('sortHint').textContent = hint[state.sort] || '';
       renderAll();
     });
@@ -256,6 +256,7 @@ function filtered() {
   );
   const sorter = {
     stars: (a,b) => (b.stars||0) - (a.stars||0),
+    forks: (a,b) => (b.forks||0) - (a.forks||0),
     name:  (a,b) => a.name.localeCompare(b.name, 'ko')
   }[state.sort] || ((a,b) => (b.stars||0) - (a.stars||0));
   items.sort(sorter);
