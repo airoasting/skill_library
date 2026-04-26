@@ -3,7 +3,8 @@ const state = {
   data: { categories: [], skills: [] },
   activeCat: 'all',
   query: '',
-  sort: 'stars',   // 'stars' | 'name' | 'new'
+  sort: 'stars',   // 'stars' | 'forks' | 'name' | 'new'
+  rankSort: 'stars', // Top 5 panel: 'stars' | 'forks'
   catMap: {}
 };
 
@@ -239,6 +240,12 @@ function wireTabs() {
       renderAll();
     });
   });
+  document.querySelectorAll('.rank-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      state.rankSort = pill.dataset.rank;
+      renderRank();
+    });
+  });
 }
 
 // ========= Filter & Sort =========
@@ -366,7 +373,8 @@ function card(s, rank) {
 
 function renderRank() {
   const host = document.getElementById('topRank');
-  const top = state.data.skills.slice().sort((a,b) => (b.stars||0) - (a.stars||0)).slice(0, 5);
+  const key = state.rankSort === 'forks' ? 'forks' : 'stars';
+  const top = state.data.skills.slice().sort((a,b) => (b[key]||0) - (a[key]||0)).slice(0, 5);
   host.innerHTML = top.map((s, i) => `
     <a class="rank-row" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="r-num">${String(i+1).padStart(2,'0')}</div>
@@ -375,8 +383,11 @@ function renderRank() {
         <div class="name">${escapeHtml(s.name)}</div>
         <div class="author">${escapeHtml(s.author || '')}</div>
       </div>
-      <div class="star">★${fmt(s.stars)}<span class="fork-mini"> · ⑂${fmt(s.forks)}</span></div>
+      <div class="star">${key === 'forks' ? `⑂${fmt(s.forks)}<span class="fork-mini"> · ★${fmt(s.stars)}</span>` : `★${fmt(s.stars)}<span class="fork-mini"> · ⑂${fmt(s.forks)}</span>`}</div>
     </a>`).join('');
+  document.querySelectorAll('.rank-pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.rank === key);
+  });
 }
 
 

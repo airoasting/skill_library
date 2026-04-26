@@ -823,6 +823,10 @@
   }
   .panel-card h4 { margin: 0 0 14px; font-size: 10.5px; color: var(--text-dim); font-weight:700; letter-spacing: 0.18em; text-transform: uppercase; display:flex; justify-content:space-between; align-items:center; }
   .panel-card h4 .tag-count { color: var(--text-sub); font-size: 11px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+  .rank-pills { display: inline-flex; gap: 4px; }
+  .rank-pill { background: transparent; border: 1px solid var(--line); color: var(--text-dim); font-size: 10.5px; letter-spacing: 0.04em; text-transform: none; font-weight: 600; padding: 3px 9px; border-radius: 999px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .rank-pill:hover { color: var(--text); border-color: var(--line-2); }
+  .rank-pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 
   .brief { display:flex; flex-direction:column; gap:12px; }
   .brief .item { display:flex; gap:10px; align-items:flex-start; }
@@ -1020,7 +1024,10 @@
   <!-- RIGHT -->
   <aside class="sidebar-right">
     <div class="panel-card">
-      <h4>Top 5 <span class="tag-count">by stars</span></h4>
+      <h4>Top 5 <span class="rank-pills" role="tablist">
+        <button class="rank-pill active" data-rank="stars" type="button">by stars</button>
+        <button class="rank-pill" data-rank="forks" type="button">by forks</button>
+      </span></h4>
       <div id="topRank"></div>
     </div>
 
