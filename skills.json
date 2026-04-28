@@ -191,8 +191,7 @@
         "#collection"
       ],
       "lang": "Python",
-      "added_at": "2025-10-19",
-      "editors_pick": true
+      "added_at": "2025-10-19"
     },
     {
       "category": "workflow",
@@ -1549,8 +1548,7 @@
         "#curated-list",
         "#ecosystem",
         "#awesome"
-      ],
-      "editors_pick": true
+      ]
     },
     {
       "category": "harness",
@@ -2171,6 +2169,82 @@
         "#dataset",
         "#persona",
         "#llm-finetuning"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Claude Plugins Official",
+      "repo": "anthropics/claude-plugins-official",
+      "author": "anthropics",
+      "stars": 18095,
+      "forks": 2181,
+      "added_at": "2026-04-29",
+      "desc": "이 디렉터리는 Anthropic이 직접 관리하는 Claude Code용 공식 플러그인 카탈로그입니다. 검증된 출처에서 안전하게 골라 쓸 수 있기 때문에 처음 하네스를 꾸리는 팀의 출발점으로 적합합니다.",
+      "tags": [
+        "#official",
+        "#plugins",
+        "#directory"
+      ],
+      "editors_pick": true
+    },
+    {
+      "category": "harness",
+      "name": "Antigravity Awesome Skills",
+      "repo": "sickn33/antigravity-awesome-skills",
+      "author": "sickn33",
+      "stars": 35498,
+      "forks": 5831,
+      "added_at": "2026-04-29",
+      "desc": "이 라이브러리는 1,400개 이상의 에이전틱 스킬을 installer CLI로 묶어둔 대규모 컬렉션입니다. Claude Code·Cursor·Codex·Gemini CLI에 한 번에 설치할 수 있어 스킬 풀을 빠르게 채우려는 팀에 적합합니다.",
+      "tags": [
+        "#skill-library",
+        "#installer",
+        "#multi-tool"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Awesome Claude Skills",
+      "repo": "travisvn/awesome-claude-skills",
+      "author": "travisvn",
+      "stars": 11889,
+      "forks": 1250,
+      "added_at": "2026-04-29",
+      "desc": "이 리스트는 Claude Skills와 관련 리소스·툴을 한 곳에 큐레이션한 어썸 모음집입니다. Claude Code 워크플로우를 커스터마이즈할 자료를 한눈에 둘러볼 수 있어 하네스 설계 전 참고 지도로 좋습니다.",
+      "tags": [
+        "#awesome-list",
+        "#curation",
+        "#resources"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Claude Code Infrastructure Showcase",
+      "repo": "diet103/claude-code-infrastructure-showcase",
+      "author": "diet103",
+      "stars": 9582,
+      "forks": 1218,
+      "added_at": "2026-04-29",
+      "desc": "이 쇼케이스는 스킬 자동 활성화·훅·에이전트가 결합된 Claude Code 인프라 구성 예시를 모아둔 저장소입니다. 다른 팀이 어떻게 하네스를 짜는지 살펴보고 따라 만들고 싶을 때 참고하기 좋습니다.",
+      "tags": [
+        "#showcase",
+        "#infrastructure",
+        "#example"
+      ]
+    },
+    {
+      "category": "harness",
+      "name": "Claude Code Showcase",
+      "repo": "ChrisWiles/claude-code-showcase",
+      "author": "ChrisWiles",
+      "stars": 5850,
+      "forks": 543,
+      "added_at": "2026-04-29",
+      "desc": "이 저장소는 훅·스킬·에이전트·커맨드·GitHub Actions 워크플로우를 한 벌로 묶은 Claude Code 프로젝트 설정 종합 예시입니다. 하네스 전체 구성을 통째로 보고 따라 꾸리고 싶을 때 적합합니다.",
+      "tags": [
+        "#showcase",
+        "#configuration",
+        "#example"
       ]
     }
   ]
