@@ -1,61 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <!-- Outer bg: deep espresso -->
-    <radialGradient id="outerBg" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" style="stop-color:#1e0d05"/>
-      <stop offset="100%" style="stop-color:#060200"/>
+    <!-- Background: brighter site warm-paper gradient (center→edge) -->
+    <radialGradient id="paperBg" cx="38%" cy="32%" r="92%">
+      <stop offset="0%" style="stop-color:#fffdf7"/>
+      <stop offset="45%" style="stop-color:#f8f4ea"/>
+      <stop offset="100%" style="stop-color:#e3dccb"/>
     </radialGradient>
 
-    <!-- Card: logo-matched terracotta gradient (orange → dark brown) -->
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d45520"/>
-      <stop offset="50%" style="stop-color:#b03e10"/>
-      <stop offset="100%" style="stop-color:#6e1e04"/>
-    </linearGradient>
-
-    <!-- Card radial highlight (top-left glow matching logo bright spot) -->
-    <radialGradient id="cardGlow" cx="20%" cy="18%" r="55%">
-      <stop offset="0%" style="stop-color:#f07830;stop-opacity:0.45"/>
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    <!-- Strong bright highlight, top-left -->
+    <radialGradient id="paperHighlight" cx="22%" cy="18%" r="65%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.85"/>
+      <stop offset="55%" style="stop-color:#ffffff;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
     </radialGradient>
 
-    <!-- Bottom-right dark vignette -->
-    <radialGradient id="cardVignette" cx="85%" cy="88%" r="50%">
-      <stop offset="0%" style="stop-color:#3a0e02;stop-opacity:0.6"/>
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    <!-- Soft warm secondary highlight, mid-right -->
+    <radialGradient id="paperHighlight2" cx="78%" cy="42%" r="55%">
+      <stop offset="0%" style="stop-color:#fff8e8;stop-opacity:0.55"/>
+      <stop offset="100%" style="stop-color:#fff8e8;stop-opacity:0"/>
     </radialGradient>
 
-    <!-- Card shadow -->
-    <filter id="cardShadow" x="-8%" y="-12%" width="116%" height="136%">
-      <feDropShadow dx="0" dy="24" stdDeviation="44" flood-color="#000000" flood-opacity="0.60"/>
-    </filter>
+    <!-- Very light beige edge tint, bottom-right (kept gentle so it stays bright) -->
+    <radialGradient id="paperVignette" cx="92%" cy="95%" r="48%">
+      <stop offset="0%" style="stop-color:#d4ccb8;stop-opacity:0.30"/>
+      <stop offset="100%" style="stop-color:#d4ccb8;stop-opacity:0"/>
+    </radialGradient>
 
     <clipPath id="cardClip">
       <rect x="0" y="0" width="1200" height="630" rx="0"/>
     </clipPath>
   </defs>
 
-  <!-- Outer background -->
-  <rect width="1200" height="630" fill="url(#outerBg)"/>
-
-  <!-- Card base -->
-  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardBg)" filter="url(#cardShadow)"/>
-
-  <!-- Glow overlay -->
-  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardGlow)" clip-path="url(#cardClip)"/>
-
-  <!-- Dark vignette overlay -->
-  <rect x="0" y="0" width="1200" height="630" rx="0" fill="url(#cardVignette)" clip-path="url(#cardClip)"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#paperBg)"/>
+  <rect width="1200" height="630" fill="url(#paperHighlight)" clip-path="url(#cardClip)"/>
+  <rect width="1200" height="630" fill="url(#paperHighlight2)" clip-path="url(#cardClip)"/>
+  <rect width="1200" height="630" fill="url(#paperVignette)" clip-path="url(#cardClip)"/>
 
   <!-- Top accent line -->
-  <rect x="72" y="64" width="1056" height="3" rx="2" fill="#f8b080" opacity="0.5" clip-path="url(#cardClip)"/>
+  <rect x="72" y="64" width="1056" height="3" rx="2" fill="#8a6a3a" opacity="0.35" clip-path="url(#cardClip)"/>
 
   <!-- Subtle texture lines -->
-  <g clip-path="url(#cardClip)" opacity="0.05">
-    <line x1="72" y1="190" x2="1128" y2="190" stroke="#ffffff" stroke-width="1"/>
-    <line x1="72" y1="310" x2="1128" y2="310" stroke="#ffffff" stroke-width="1"/>
-    <line x1="72" y1="430" x2="1128" y2="430" stroke="#ffffff" stroke-width="1"/>
-    <line x1="72" y1="540" x2="1128" y2="540" stroke="#ffffff" stroke-width="1"/>
+  <g clip-path="url(#cardClip)" opacity="0.06">
+    <line x1="72" y1="190" x2="1128" y2="190" stroke="#1a1a1a" stroke-width="1"/>
+    <line x1="72" y1="310" x2="1128" y2="310" stroke="#1a1a1a" stroke-width="1"/>
+    <line x1="72" y1="430" x2="1128" y2="430" stroke="#1a1a1a" stroke-width="1"/>
+    <line x1="72" y1="540" x2="1128" y2="540" stroke="#1a1a1a" stroke-width="1"/>
   </g>
 
   <!-- Brand label -->
@@ -64,8 +54,8 @@
     font-family="'Helvetica Neue', Arial, sans-serif"
     font-size="16"
     font-weight="700"
-    fill="#ffffff"
-    opacity="0.55"
+    fill="#5a5a58"
+    opacity="0.85"
     text-anchor="middle"
     letter-spacing="7"
   >AI ROASTING · SKILL LIBRARY</text>
@@ -76,7 +66,7 @@
     font-family="'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif"
     font-size="88"
     font-weight="800"
-    fill="#ffffff"
+    fill="#1a1a1a"
     text-anchor="middle"
     letter-spacing="-2"
   >비즈니스 리더를 위해</text>
@@ -87,13 +77,13 @@
     font-family="'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif"
     font-size="88"
     font-weight="800"
-    fill="#ffffff"
+    fill="#1a1a1a"
     text-anchor="middle"
     letter-spacing="-2"
   >엄선한 AI 스킬</text>
 
   <!-- Divider -->
-  <rect x="490" y="434" width="220" height="1.5" rx="1" fill="#ffffff" opacity="0.25"/>
+  <rect x="490" y="434" width="220" height="1.5" rx="1" fill="#1a1a1a" opacity="0.18"/>
 
   <!-- Subtitle -->
   <text
@@ -101,25 +91,23 @@
     font-family="'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif"
     font-size="23"
     font-weight="400"
-    fill="#ffffff"
-    opacity="0.68"
+    fill="#5a5a58"
     text-anchor="middle"
   >검증된 실무 스킬만 선별합니다  ·  매주 토요일 업데이트</text>
 
   <!-- 100+ SKILLS badge -->
-  <rect x="120" y="108" width="138" height="38" rx="19" fill="#ffffff" opacity="0.13"/>
-  <rect x="120" y="108" width="138" height="38" rx="19" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.22"/>
+  <rect x="120" y="108" width="138" height="38" rx="19" fill="#1a1a1a" opacity="0.06"/>
+  <rect x="120" y="108" width="138" height="38" rx="19" fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.18"/>
   <text
     x="189" y="133"
     font-family="'Helvetica Neue', Arial, sans-serif"
     font-size="13.5"
     font-weight="700"
-    fill="#ffffff"
-    opacity="0.9"
+    fill="#1a1a1a"
+    opacity="0.78"
     text-anchor="middle"
     letter-spacing="1.5"
   >100+ SKILLS</text>
-
 
   <!-- AX watermark bottom-right -->
   <text
@@ -128,8 +116,8 @@
     font-size="150"
     font-weight="900"
     font-style="italic"
-    fill="#ffffff"
-    opacity="0.04"
+    fill="#1a1a1a"
+    opacity="0.05"
     text-anchor="end"
     letter-spacing="-8"
   >AX</text>
