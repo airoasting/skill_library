@@ -329,8 +329,8 @@ function renderFeatured(s) {
   if (!s) { host.innerHTML = ''; return; }
   const cat = state.catMap[s.category];
   host.innerHTML = `
-    <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
-      <div class="avatar">${avatarImg(s)}</div>
+    <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}${s.author === 'airoasting' ? ' featured-airoasting' : ''}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
+      <div class="avatar${s.author === 'airoasting' ? ' avatar-airoasting' : ''}">${avatarImg(s)}</div>
       <div>
         <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''}${s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
         <div class="author">
@@ -364,9 +364,9 @@ function card(s, rank) {
     + (s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : '');
   const repoUrl = s.repo ? `https://github.com/${s.repo}` : '#';
   return `
-    <a class="card${s.editors_pick ? ' card-pick' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
+    <a class="card${s.editors_pick ? ' card-pick' : ''}${s.author === 'airoasting' ? ' card-airoasting' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="rank">${String(rank).padStart(2,'0')}</div>
-      <div class="avatar">${avatarImg(s)}</div>
+      <div class="avatar${s.author === 'airoasting' ? ' avatar-airoasting' : ''}">${avatarImg(s)}</div>
       <div class="body">
         <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h3>
         <div class="meta-row">
@@ -449,6 +449,9 @@ function authorBadges(author) {
 function avatarImg(s) {
   const owner = (s.repo || '').split('/')[0];
   if (!owner) return '';
+  if (owner === 'airoasting') {
+    return `<img src="asset/logo1-transparent.png" alt="" loading="lazy" onerror="this.style.display='none'" />`;
+  }
   const url = `https://github.com/${owner}.png?size=88`;
   return `<img src="${url}" alt="" loading="lazy" onerror="this.style.display='none'" />`;
 }

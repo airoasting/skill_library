@@ -124,6 +124,38 @@
     background: transparent;
   }
   .brand .mark img { width:100%; height:100%; object-fit: cover; display:block; }
+  :root[data-theme="dark"] .brand .mark,
+  :root[data-theme="dark"] .featured .avatar,
+  :root[data-theme="dark"] .card .avatar { background: #ffffff !important; }
+  /* Airoasting logo plate: small white circle behind, logo on top (smaller than circle) */
+  .brand .mark,
+  .card .avatar.avatar-airoasting,
+  .featured .avatar.avatar-airoasting {
+    background: transparent !important;
+    border-radius: 50% !important;
+    position: relative;
+    overflow: visible;
+  }
+  .brand .mark::before,
+  .card .avatar.avatar-airoasting::before,
+  .featured .avatar.avatar-airoasting::before {
+    content: '';
+    position: absolute;
+    inset: 4%;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .brand .mark img,
+  .card .avatar.avatar-airoasting img,
+  .featured .avatar.avatar-airoasting img {
+    position: relative;
+    z-index: 1;
+    padding: 8%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    object-fit: contain;
+  }
   .brand .wordmark { display:flex; flex-direction:column; line-height:1.05; }
   .brand .wordmark .n {
     font-family: var(--serif);
@@ -513,6 +545,8 @@
 
     /* Cards - flex column stack */
     .card.card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%) !important; border-color: #d4a017 !important; }
+    .card.card-airoasting { background: linear-gradient(135deg, #fdf2ea 0%, #f9e0ce 100%) !important; border-color: #d96a30 !important; }
+    .card.card-airoasting.card-pick { background: linear-gradient(135deg, #fdf2ea 0%, #f9e0ce 100%) !important; border-color: #d96a30 !important; }
     .card {
       display: flex !important;
       flex-direction: column !important;
@@ -690,16 +724,16 @@
   }
   .cat-intro.cat-intro-long p.pick-lede strong { color: var(--text); font-weight: 700; }
 
-  /* AI Roasting Lab intro — warm latte tone */
+  /* AI Roasting Lab intro — Claude coral tone */
   .cat-intro.cat-intro-lab {
-    background: linear-gradient(135deg, #f8f0dd 0%, #f1e6cf 100%);
-    border-color: #d8c29a;
-    border-left: 3px solid #a78656;
+    background: linear-gradient(135deg, #fdf2ea 0%, #f9e0ce 100%);
+    border-color: #d96a30;
+    border-left: 3px solid #c0683e;
   }
   :root[data-theme="dark"] .cat-intro.cat-intro-lab {
-    background: linear-gradient(135deg, #2a221a 0%, #332821 100%);
-    border-color: #5a4634;
-    border-left: 3px solid #c9a673;
+    background: linear-gradient(135deg, #2a1c14 0%, #36241a 100%);
+    border-color: #c0683e;
+    border-left: 3px solid #d96a30;
   }
 
   /* ===== Featured ===== */
@@ -755,6 +789,10 @@
   /* ===== Feed / Card ===== */
   .feed { display:flex; flex-direction:column; gap: 10px; }
   .card.card-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%) !important; border-color: #d4a017 !important; }
+  .card.card-airoasting,
+  .featured.featured-airoasting { background: linear-gradient(135deg, #fdf2ea 0%, #f9e0ce 100%) !important; border-color: #d96a30 !important; }
+  .card.card-airoasting.card-pick,
+  .featured.featured-airoasting.featured-pick { background: linear-gradient(135deg, #fdf2ea 0%, #f9e0ce 100%) !important; border-color: #d96a30 !important; }
   .card {
     background: var(--panel);
     border: 1px solid var(--line);
@@ -785,6 +823,13 @@
   :root[data-theme="dark"] .featured-pick {
     background: linear-gradient(135deg, #2a2410 0%, #342b14 100%) !important;
     border-color: #8a6a1f !important;
+  }
+  :root[data-theme="dark"] .card.card-airoasting,
+  :root[data-theme="dark"] .featured.featured-airoasting,
+  :root[data-theme="dark"] .card.card-airoasting.card-pick,
+  :root[data-theme="dark"] .featured.featured-airoasting.featured-pick {
+    background: linear-gradient(135deg, #2a1c14 0%, #36241a 100%) !important;
+    border-color: #c0683e !important;
   }
   :root[data-theme="dark"] .badge-pick {
     color: #e8c970; border-color: #8a6a1f; background: rgba(212, 160, 23, 0.15);
@@ -895,7 +940,7 @@
 <header class="topbar">
  <div class="topbar-inner">
   <a class="brand" href="javascript:location.reload()" aria-label="AI ROASTING 홈">
-    <div class="mark" aria-hidden="true"><img src="asset/logo1.png" alt="" onerror="this.style.display='none'"/></div>
+    <div class="mark" aria-hidden="true"><img src="asset/logo1-transparent.png" alt="" onerror="this.style.display='none'"/></div>
     <div class="wordmark">
       <span class="n">AI <strong>Roasting</strong></span>
       <span class="sub">Skill Library</span>
@@ -3329,7 +3374,7 @@
       "added_at": "2026-05-02",
       "desc": "이 스킬은 이메일·보고서·PPT 같은 화이트칼라 영역을 한 단어 언급하면 5인 페르소나 system instruction을 즉시 만들어 주는 Claude Code 스킬입니다. Claude·ChatGPT 프로젝트에 그대로 붙여 쓸 수 있어 비즈니스 글쓰기 품질을 빠르게 끌어올리고 싶을 때 적합합니다.",
       "tags": [
-        "#korean",
+        "#harness",
         "#system-instruction",
         "#multi-persona"
       ],
