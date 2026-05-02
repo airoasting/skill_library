@@ -494,11 +494,14 @@
     .featured h2 .author-pill { display: inline-flex; margin-left: 4px; font-size: 11px; padding: 2px 8px; }
     .featured, .card { position: relative; }
     .featured h2 .badge-pick,
-    .card .body h3 .badge-pick {
+    .featured h2 .badge-lab,
+    .card .body h3 .badge-pick,
+    .card .body h3 .badge-lab {
       position: absolute; top: 18px; right: 16px; margin: 0;
       font-size: 10px;
     }
-    .card .body h3 .badge-pick { top: 14px; right: 14px; }
+    .card .body h3 .badge-pick,
+    .card .body h3 .badge-lab { top: 14px; right: 14px; }
     .featured .author { font-size: 12px; margin-bottom: 4px; }
     .featured p { font-size: 13px; line-height: 1.55; margin: 0; word-break: keep-all; overflow-wrap: break-word; }
     .featured .stars { text-align: left !important; padding-top: 10px; border-top: 1px dashed var(--line); display: flex; align-items: baseline; gap: 10px; }
@@ -523,6 +526,7 @@
     .card .body h3 { display: block; font-size: 15px; margin: 0 0 4px; word-break: keep-all; }
     .card .body h3 .author-pill,
     .card .body h3 .badge-pick,
+    .card .body h3 .badge-lab,
     .card .body h3 .badge-new { display: inline-flex; margin-left: 4px; vertical-align: middle; font-size: 10.5px; padding: 1px 7px; }
     .card .meta-row { font-size: 11.5px; margin-bottom: 4px; flex-wrap: wrap; gap: 4px; }
     .card .desc { font-size: 12.5px; margin: 0 0 4px; line-height: 1.55; word-break: keep-all; overflow-wrap: break-word; }
@@ -686,6 +690,18 @@
   }
   .cat-intro.cat-intro-long p.pick-lede strong { color: var(--text); font-weight: 700; }
 
+  /* AI Roasting Lab intro — warm latte tone */
+  .cat-intro.cat-intro-lab {
+    background: linear-gradient(135deg, #f8f0dd 0%, #f1e6cf 100%);
+    border-color: #d8c29a;
+    border-left: 3px solid #a78656;
+  }
+  :root[data-theme="dark"] .cat-intro.cat-intro-lab {
+    background: linear-gradient(135deg, #2a221a 0%, #332821 100%);
+    border-color: #5a4634;
+    border-left: 3px solid #c9a673;
+  }
+
   /* ===== Featured ===== */
   .featured {
     background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
@@ -764,6 +780,7 @@
   .card .desc { word-break: keep-all; overflow-wrap: break-word; }
   .card .badge-new { color: var(--accent); font-size:10px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:0.08em; border: 1px solid var(--accent); background: var(--accent-soft); }
   .badge-pick { display: inline-flex; align-items: center; color: #b8860b; font-size:10px; font-weight:800; padding:3px 10px; border-radius:999px; letter-spacing:0.08em; border: 1px solid #d4a017; background: #fff8e1; white-space: nowrap; vertical-align: middle; }
+  .badge-lab { display: inline-flex; align-items: center; color: #b8520f; font-size:10px; font-weight:800; padding:3px 10px; border-radius:999px; letter-spacing:0.04em; border: 1px solid #d96a30; background: #fdeede; white-space: nowrap; vertical-align: middle; }
   :root[data-theme="dark"] .card.card-pick,
   :root[data-theme="dark"] .featured-pick {
     background: linear-gradient(135deg, #2a2410 0%, #342b14 100%) !important;
@@ -771,6 +788,9 @@
   }
   :root[data-theme="dark"] .badge-pick {
     color: #e8c970; border-color: #8a6a1f; background: rgba(212, 160, 23, 0.15);
+  }
+  :root[data-theme="dark"] .badge-lab {
+    color: #f0b486; border-color: #c0683e; background: rgba(217, 106, 48, 0.16);
   }
   .card .meta-row { color: var(--text-sub); font-size: 12.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .cat-pill {
@@ -913,6 +933,7 @@
       <div class="nav-label">Feeds</div>
       <a data-cat="all" tabindex="0" role="button"><span>전체</span><span class="count" data-count="all">0</span></a>
       <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" data-count="pick">0</span></a>
+      <a data-cat="lab" tabindex="0" role="button"><span>☕ AI Roasting Lab</span><span class="count" data-count="lab">0</span></a>
     </nav>
     <nav class="nav-section nav" aria-label="카테고리">
       <div class="nav-label">Categories</div>
@@ -990,6 +1011,7 @@
       <div class="nav-label">Feeds</div>
       <a data-cat="all" class="active" tabindex="0" role="button"><span>전체</span><span class="count" id="count-all">0</span></a>
       <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" id="count-pick">0</span></a>
+      <a data-cat="lab" tabindex="0" role="button"><span>☕ AI Roasting Lab</span><span class="count" id="count-lab">0</span></a>
     </nav>
     <nav class="nav-section nav" id="nav-cats-wrap" aria-label="카테고리">
       <div class="nav-label">Categories</div>
@@ -3296,6 +3318,38 @@
         "#configuration",
         "#example"
       ]
+    },
+    {
+      "category": "workflow",
+      "name": "Multi-Persona Generator",
+      "repo": "airoasting/multi-persona-generator",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 이메일·보고서·PPT 같은 화이트칼라 영역을 한 단어 언급하면 5인 페르소나 system instruction을 즉시 만들어 주는 Claude Code 스킬입니다. Claude·ChatGPT 프로젝트에 그대로 붙여 쓸 수 있어 비즈니스 글쓰기 품질을 빠르게 끌어올리고 싶을 때 적합합니다.",
+      "tags": [
+        "#korean",
+        "#system-instruction",
+        "#multi-persona"
+      ],
+      "airoasting_lab": true
+    },
+    {
+      "category": "harness",
+      "name": "Book Publishing",
+      "repo": "airoasting/book_publishing",
+      "author": "airoasting",
+      "stars": 25,
+      "forks": 14,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 리서치·집필·리뷰·출판까지 책 한 권 전 과정을 5단계 명령어로 자동화해 주는 AI 에이전트 하네스입니다. 목차 파일 하나로 240쪽 분량 원고를 .docx로 뽑아낼 수 있어 본인 책을 빠르게 써내려야 하는 임원·전문가에게 잘 어울립니다.",
+      "tags": [
+        "#book-publishing",
+        "#harness",
+        "#ai-agent-team"
+      ],
+      "airoasting_lab": true
     }
   ]
 }

@@ -2246,6 +2246,38 @@
         "#configuration",
         "#example"
       ]
+    },
+    {
+      "category": "workflow",
+      "name": "Multi-Persona Generator",
+      "repo": "airoasting/multi-persona-generator",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 이메일·보고서·PPT 같은 화이트칼라 영역을 한 단어 언급하면 5인 페르소나 system instruction을 즉시 만들어 주는 Claude Code 스킬입니다. Claude·ChatGPT 프로젝트에 그대로 붙여 쓸 수 있어 비즈니스 글쓰기 품질을 빠르게 끌어올리고 싶을 때 적합합니다.",
+      "tags": [
+        "#korean",
+        "#system-instruction",
+        "#multi-persona"
+      ],
+      "airoasting_lab": true
+    },
+    {
+      "category": "harness",
+      "name": "Book Publishing",
+      "repo": "airoasting/book_publishing",
+      "author": "airoasting",
+      "stars": 25,
+      "forks": 14,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 리서치·집필·리뷰·출판까지 책 한 권 전 과정을 5단계 명령어로 자동화해 주는 AI 에이전트 하네스입니다. 목차 파일 하나로 240쪽 분량 원고를 .docx로 뽑아낼 수 있어 본인 책을 빠르게 써내려야 하는 임원·전문가에게 잘 어울립니다.",
+      "tags": [
+        "#book-publishing",
+        "#harness",
+        "#ai-agent-team"
+      ],
+      "airoasting_lab": true
     }
   ]
 }

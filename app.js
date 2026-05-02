@@ -77,11 +77,12 @@ async function load() {
 
 // ========= Nav =========
 function renderCats() {
-  const counts = { all: state.data.skills.length, pick: 0 };
+  const counts = { all: state.data.skills.length, pick: 0, lab: 0 };
   for (const c of state.data.categories) counts[c.id] = 0;
   for (const s of state.data.skills) {
     counts[s.category] = (counts[s.category] || 0) + 1;
     if (s.editors_pick) counts.pick++;
+    if (s.airoasting_lab) counts.lab++;
   }
   const metas = state.data.meta_categories || [];
   const renderCatLink = c =>
@@ -134,8 +135,8 @@ function renderCats() {
       });
     });
   });
-  // Feeds (all/pick) in sidebar + drawer
-  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"], .drawer [data-cat="all"], .drawer [data-cat="pick"]').forEach(a => {
+  // Feeds (all/pick/lab) in sidebar + drawer
+  document.querySelectorAll('.sidebar-left [data-cat="all"], .sidebar-left [data-cat="pick"], .sidebar-left [data-cat="lab"], .drawer [data-cat="all"], .drawer [data-cat="pick"], .drawer [data-cat="lab"]').forEach(a => {
     a.addEventListener('click', () => setCat(a.dataset.cat));
   });
 
@@ -146,8 +147,10 @@ function renderCats() {
   };
   setCount('count-all', counts.all);
   setCount('count-pick', counts.pick);
+  setCount('count-lab', counts.lab);
   document.querySelectorAll('[data-count="all"]').forEach(el => el.textContent = counts.all);
   document.querySelectorAll('[data-count="pick"]').forEach(el => el.textContent = counts.pick);
+  document.querySelectorAll('[data-count="lab"]').forEach(el => el.textContent = counts.lab);
   document.getElementById('totalNum').textContent = counts.all;
   highlightActiveCat();
 }
@@ -254,6 +257,8 @@ function filtered() {
   let items = state.data.skills.slice();
   if (state.activeCat === 'pick') {
     items = items.filter(s => s.editors_pick);
+  } else if (state.activeCat === 'lab') {
+    items = items.filter(s => s.airoasting_lab);
   } else if (state.activeCat !== 'all') {
     items = items.filter(s => s.category === state.activeCat);
   }
@@ -287,6 +292,7 @@ function updateTotalNum() {
   const skills = state.data.skills;
   const n = id === 'all' ? skills.length
     : id === 'pick' ? skills.filter(s => s.editors_pick).length
+    : id === 'lab' ? skills.filter(s => s.airoasting_lab).length
     : skills.filter(s => s.category === id).length;
   el.textContent = n;
 }
@@ -297,10 +303,12 @@ function renderCatIntro() {
   const id = state.activeCat;
   const introByBuiltin = {
     all:  { emoji: '✨', name: '전체 스킬', desc: '지금까지 등록된 모든 스킬을 한자리에서 둘러볼 수 있어요.' },
-    pick: { emoji: '✦', name: "Editor's Pick", desc: '' }
+    pick: { emoji: '✦', name: "Editor's Pick", desc: '' },
+    lab:  { emoji: '☕', name: 'AI Roasting Lab', desc: 'AI Roasting이 직접 만들어 공개한 자체 스킬 모음이에요. 비즈니스 현장에서 검증한 흐름을 그대로 옮겨 담았어요.' }
   };
   const cat = introByBuiltin[id] || state.catMap[id];
   host.classList.toggle('cat-intro-long', id === 'pick');
+  host.classList.toggle('cat-intro-lab', id === 'lab');
   if (id === 'pick') {
     host.hidden = false;
     host.innerHTML = `
@@ -324,7 +332,7 @@ function renderFeatured(s) {
     <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
       <div class="avatar">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
+        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''}${s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
         <div class="author">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -352,7 +360,8 @@ function renderFeed(items) {
 function card(s, rank) {
   const cat = state.catMap[s.category];
   const tags = (s.tags || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
-  const badge = s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '';
+  const badge = (s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '')
+    + (s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : '');
   const repoUrl = s.repo ? `https://github.com/${s.repo}` : '#';
   return `
     <a class="card${s.editors_pick ? ' card-pick' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
