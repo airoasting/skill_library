@@ -2278,6 +2278,86 @@
         "#ai-agent-team"
       ],
       "airoasting_lab": true
+    },
+    {
+      "category": "design",
+      "name": "Huashu Design",
+      "repo": "alchaincyf/huashu-design",
+      "author": "alchaincyf",
+      "stars": 11261,
+      "forks": 1623,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 한 줄 프롬프트로 PPT, 클릭 가능한 프로토타입, MP4 애니메이션을 뽑아주는 HTML 네이티브 디자인 스킬입니다. 20가지 디자인 철학과 5차원 평가가 내장돼 있어 디자이너 없이 발표 자료나 제품 데모를 빠르게 만들고 싶을 때 적합합니다.",
+      "tags": [
+        "#html-design",
+        "#prototype",
+        "#presentation"
+      ],
+      "lang": "HTML",
+      "editors_pick": true
+    },
+    {
+      "category": "automation",
+      "name": "Insane Search",
+      "repo": "fivetaku/insane-search",
+      "author": "fivetaku",
+      "stars": 600,
+      "forks": 90,
+      "added_at": "2026-05-02",
+      "desc": "이 플러그인은 WAF·CAPTCHA·로그인 월에 막힌 사이트를 5단계 적응형 스케줄러로 우회해 콘텐츠를 가져오는 차단 우회 검색 도구입니다. 네이버·쿠팡·LinkedIn처럼 일반 스크래퍼가 포기하는 사이트도 자연어 요청만으로 자동 처리해주기 때문에 리서치 효율을 높이고 싶을 때 적합합니다.",
+      "tags": [
+        "#scraping-bypass",
+        "#web-fetch",
+        "#search"
+      ],
+      "lang": "Python"
+    },
+    {
+      "category": "automation",
+      "name": "Codex Insane Search",
+      "repo": "sinmb79/codex-insane-search",
+      "author": "sinmb79",
+      "stars": 33,
+      "forks": 7,
+      "added_at": "2026-05-02",
+      "desc": "이 플러그인은 insane-search를 Codex와 Windows/PowerShell 환경에 맞춰 재구성한 차단 사이트 우회 검색 도구입니다. 공개 엔드포인트, Jina Reader 폴백, 브라우저 에스컬레이션을 4단계로 묶어두어 Codex 사용자도 막힌 콘텐츠를 자연어로 가져올 수 있어 적합합니다.",
+      "tags": [
+        "#codex",
+        "#scraping-bypass",
+        "#windows"
+      ],
+      "lang": "PowerShell"
+    },
+    {
+      "category": "legal",
+      "name": "K-HR Legal Review",
+      "repo": "zenajo/hr-legal-review",
+      "author": "zenajo",
+      "stars": 8,
+      "forks": 1,
+      "added_at": "2026-05-02",
+      "desc": "이 스킬은 채용·계약·성과평가·징계 같은 인사 기획안과 문서를 한국 노동법 기준으로 사전 점검해주는 인사노무 리스크 검토 도구입니다. korean-law MCP와 함께 동작하므로 인사 담당자가 제도 초안의 법적 리스크를 빠르게 1차 스크리닝하고 싶을 때 적합합니다.",
+      "tags": [
+        "#korean-labor-law",
+        "#hr",
+        "#risk-review"
+      ]
+    },
+    {
+      "category": "finance",
+      "name": "Vibe Investing",
+      "repo": "monarchjuno/vibe-investing",
+      "author": "monarchjuno",
+      "stars": 221,
+      "forks": 46,
+      "added_at": "2026-05-02",
+      "desc": "이 컬렉션은 펀더멘털 분석, 정량 리서치, 재무 리포트 포맷에 더해 워런 버핏·찰리 멍거·마이클 버리 등 13명의 투자자 페르소나를 묶은 투자 스킬 라이브러리입니다. 종목 리서치나 시장 분석을 거장의 의사결정 프레임으로 돌려보고 싶을 때 적합합니다.",
+      "tags": [
+        "#investing",
+        "#investor-personas",
+        "#financial-research"
+      ],
+      "lang": "Python"
     }
   ]
 }
