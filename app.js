@@ -304,7 +304,7 @@ function renderCatIntro() {
   const introByBuiltin = {
     all:  { emoji: '✨', name: '전체 스킬', desc: '지금까지 등록된 모든 스킬을 한자리에서 둘러볼 수 있어요.' },
     pick: { emoji: '✦', name: "Editor's Pick", desc: '' },
-    lab:  { emoji: '☕', name: 'AI Roasting Lab', desc: 'AI Roasting이 직접 만들어 공개한 자체 스킬 모음이에요. 비즈니스 현장에서 검증한 흐름을 그대로 옮겨 담았어요.' }
+    lab:  { emoji: '☕', name: 'AI Roasting', desc: 'AI Roasting이 직접 만들어 공개한 자체 스킬 모음이에요. 비즈니스 현장에서 검증한 흐름을 그대로 옮겨 담았어요.' }
   };
   const cat = introByBuiltin[id] || state.catMap[id];
   host.classList.toggle('cat-intro-long', id === 'pick');
