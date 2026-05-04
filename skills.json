@@ -2249,12 +2249,12 @@
     },
     {
       "category": "workflow",
-      "name": "Multi-Persona Generator",
-      "repo": "airoasting/multi-persona-generator",
+      "name": "5Color Harness",
+      "repo": "airoasting/5color-harness",
       "author": "airoasting",
-      "stars": 0,
-      "forks": 0,
-      "added_at": "2026-05-02",
+      "stars": 4,
+      "forks": 1,
+      "added_at": "2026-05-04",
       "desc": "이 스킬은 이메일·보고서·PPT 같은 화이트칼라 영역을 한 단어 언급하면 5인 페르소나 system instruction을 즉시 만들어 주는 Claude Code 스킬입니다. Claude·ChatGPT 프로젝트에 그대로 붙여 쓸 수 있어 비즈니스 글쓰기 품질을 빠르게 끌어올리고 싶을 때 적합합니다.",
       "tags": [
         "#harness",
