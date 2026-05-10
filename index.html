@@ -216,9 +216,11 @@
     font-weight: 600;
     border-bottom: 1px solid transparent;
     transition: border-color .15s, color .15s;
+    display: inline-flex; align-items: center; gap: 4px;
   }
   .hero-about:hover { border-bottom-color: var(--accent); color: var(--accent); }
   :root[data-theme="dark"] .hero-about { color: var(--accent); }
+  .hero-about svg { width: 12px; height: 12px; display: block; }
 
   .hero-repo {
     margin-left: 14px;
@@ -1131,7 +1133,7 @@
     <section class="hero">
       <div>
         <h1>비즈니스 리더를 위해<br/>엄선한 AI 스킬</h1>
-        <p class="meta"><a class="hero-about" id="aboutLink" href="#about" role="button"><span class="about-desktop">스킬 라이브러리란?</span><span class="about-mobile">프로젝트 소개</span> →</a><a class="hero-repo" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)"><span>Github</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+        <p class="meta"><a class="hero-about" id="aboutLink" href="#about" role="button"><span class="about-desktop">스킬 라이브러리란?</span><span class="about-mobile">프로젝트 소개</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><a class="hero-repo" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)"><span>Github</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
       </div>
       <div class="big-num"><span id="totalNum">0</span><small>SKILLS</small></div>
     </section>
