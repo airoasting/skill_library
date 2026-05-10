@@ -84,7 +84,7 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 
 평균 4.5+면 ✦✦✦ 강력 추천, 4.0~4.4 ✦✦ 추천, 3.5~3.9 ✦ 검토. 점수와 근거가 같이 출력되니 큐레이터의 판단을 신뢰하지 않아도 직접 검증 가능합니다.
 
-**무엇을 안 하나.** 라이브러리에 **이미 있는 카드는 절대 다시 추천하지 않습니다** (그건 `/find-skill`). 라이브러리에 카드를 직접 추가하지도 않습니다 — 좋은 후보를 찾으면 [Issue](https://github.com/airoasting/skill_library/issues/new)로 알려주시면 큐레이터가 `/add-skill` 게이트로 검증 후 반영합니다.
+**무엇을 안 하나.** 라이브러리에 **이미 있는 카드는 절대 다시 추천하지 않습니다** (그건 `/find-skill`). 라이브러리에 카드를 직접 추가하지도 않습니다 — 좋은 후보를 찾으면 [Issue](https://github.com/airoasting/skill_library/issues/new)로 알려주시면 큐레이터가 직접 검토 후 라이브러리에 반영합니다.
 
 자세한 동작 규칙: [.claude/commands/discovery-skill.md](.claude/commands/discovery-skill.md)
 
@@ -134,7 +134,6 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 │   ├── sync-stars.py   # GitHub 별·포크 수 동기화
 │   └── sync-inline.py  # skills.json → index.html 인라인 블록
 └── .claude/commands/
-    ├── add-skill.md       # 카드 추가 커맨드 (운영자용)
     ├── find-skill.md      # 라이브러리 안에서 카드 추천
     └── discovery-skill.md # 라이브러리 밖에서 후보 발굴 + 점수 평가
 ```
@@ -156,12 +155,7 @@ python3 -m http.server 8000
 
 추천 후보가 있으면 [Issue](https://github.com/airoasting/skill_library/issues/new)를 열어 GitHub 주소·카테고리 후보·한 줄 추천 사유를 남겨주세요. 큐레이터가 직접 검토 후 라이브러리에 반영합니다.
 
-<details>
-<summary>운영자용 메모</summary>
-
-카드 추가는 큐레이터가 `/add-skill` 슬래시 커맨드로 진행합니다. 중복 검사·카테고리 검증·비즈니스 리더 적합성·에디터픽 평가·인라인 블록 동기화까지 게이트로 묶여 있어 큐레이션 일관성을 유지하기 위한 도구입니다. 절차·게이트 정의는 [.claude/commands/add-skill.md](.claude/commands/add-skill.md) 참고. 별·포크 수 갱신은 `python3 scripts/sync-stars.py`로 동기화합니다.
-
-</details>
+`/discovery-skill`로 외부에서 점수와 함께 평가받아 본 후보면 더 좋습니다.
 
 ## 라이선스
 
