@@ -2052,7 +2052,8 @@
         "#humanize",
         "#korean",
         "#editing"
-      ]
+      ],
+      "editors_pick": true
     },
     {
       "category": "korea",
