@@ -56,6 +56,38 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 
 자세한 동작 규칙: [.claude/commands/find-skill.md](.claude/commands/find-skill.md)
 
+## `/discovery-skill` — 라이브러리에 없는 스킬 찾기
+
+`/find-skill`이 "여긴 없네요"라고 답했거나 처음부터 라이브러리 밖까지 보고 싶을 때 쓰는 커맨드입니다. GitHub에서 후보를 찾아 **에디터픽 평가 기준 그대로** 점수를 매겨주기 때문에, 점수와 근거를 보고 도입 여부를 직접 판단할 수 있어요.
+
+```
+/discovery-skill 영업 이메일 자동 분류·답변 초안
+/discovery-skill --cat legal 한국 NDA 자동 검토
+/discovery-skill --min 4.0 메일 마감 추적 도구 강력 추천만 보여줘
+```
+
+**옵션**
+
+| 옵션 | 설명 |
+|---|---|
+| `--n <int>` | 추천 개수 (기본 3, 최대 6) |
+| `--cat <category-id>` | 라이브러리 카테고리로 한정 |
+| `--min <float>` | 평균 점수 컷오프 (기본 3.5) |
+
+**평가 방식.** 모든 후보는 라이브러리 큐레이션이 사용하는 동일한 3축 5점 척도로 채점됩니다.
+
+| 축 | 묻는 질문 |
+|---|---|
+| **효용성** | 비즈니스 리더가 얼마나 빨리·얼마나 큰 효용을 뽑는가 |
+| **대표성** | 그 카테고리에서 라이브러리 기존 카드 대비 어떤 위상인가 |
+| **신뢰성** | ★수, 저자 검증, 유지보수 활성도 |
+
+평균 4.5+면 ✦✦✦ 강력 추천, 4.0~4.4 ✦✦ 추천, 3.5~3.9 ✦ 검토. 점수와 근거가 같이 출력되니 큐레이터의 판단을 신뢰하지 않아도 직접 검증 가능합니다.
+
+**무엇을 안 하나.** 라이브러리에 **이미 있는 카드는 절대 다시 추천하지 않습니다** (그건 `/find-skill`). 라이브러리에 카드를 직접 추가하지도 않습니다 — 좋은 후보를 찾으면 [Issue](https://github.com/airoasting/skill_library/issues/new)로 알려주시면 큐레이터가 `/add-skill` 게이트로 검증 후 반영합니다.
+
+자세한 동작 규칙: [.claude/commands/discovery-skill.md](.claude/commands/discovery-skill.md)
+
 ## 데이터 구조
 
 ```jsonc
@@ -102,8 +134,9 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 │   ├── sync-stars.py   # GitHub 별·포크 수 동기화
 │   └── sync-inline.py  # skills.json → index.html 인라인 블록
 └── .claude/commands/
-    ├── add-skill.md    # 카드 추가 커맨드
-    └── find-skill.md   # 카드 추천 커맨드
+    ├── add-skill.md       # 카드 추가 커맨드 (운영자용)
+    ├── find-skill.md      # 라이브러리 안에서 카드 추천
+    └── discovery-skill.md # 라이브러리 밖에서 후보 발굴 + 점수 평가
 ```
 
 ## 로컬에서 보기
