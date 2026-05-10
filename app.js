@@ -68,11 +68,57 @@ async function load() {
   }
   state.catMap = Object.fromEntries(state.data.categories.map(c => [c.id, c]));
   state.authors = state.data.authors || {};
+  applyCatFromUrl({ replace: true });
   renderCats();
   renderAll();
   wireTabs();
   wireDrawer();
   wireAbout();
+  window.addEventListener('popstate', () => {
+    applyCatFromUrl({ replace: false });
+    highlightActiveCat();
+    renderAll();
+  });
+}
+
+// ========= URL routing =========
+function isValidCat(id) {
+  if (!id) return false;
+  if (id === 'all' || id === 'pick' || id === 'lab') return true;
+  return !!state.catMap[id];
+}
+function readCatFromUrl() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('cat');
+  } catch (e) { return null; }
+}
+function applyCatFromUrl({ replace }) {
+  const raw = readCatFromUrl();
+  const id = isValidCat(raw) ? raw : 'all';
+  state.activeCat = id;
+  // Normalize URL: drop ?cat=all so the bare URL stays clean
+  if (replace) {
+    const params = new URLSearchParams(window.location.search);
+    const current = params.get('cat');
+    if (id === 'all' && current !== null) {
+      params.delete('cat');
+      const qs = params.toString();
+      const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+      history.replaceState(null, '', url);
+    } else if (current !== id && id !== 'all') {
+      params.set('cat', id);
+      history.replaceState(null, '', window.location.pathname + '?' + params.toString() + window.location.hash);
+    }
+  }
+}
+function pushCatToUrl(id) {
+  const params = new URLSearchParams(window.location.search);
+  if (id === 'all') params.delete('cat'); else params.set('cat', id);
+  const qs = params.toString();
+  const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+  if (url === window.location.pathname + window.location.search + window.location.hash) return;
+  history.pushState(null, '', url);
 }
 
 // ========= Nav =========
@@ -157,6 +203,7 @@ function renderCats() {
 
 function setCat(id) {
   state.activeCat = id;
+  pushCatToUrl(id);
   highlightActiveCat();
   renderAll();
   closeDrawer();
@@ -278,11 +325,33 @@ function filtered() {
 // ========= Render =========
 function renderAll() {
   const items = filtered();
+  renderHeroTitle();
   renderCatIntro();
   renderFeatured(items[0]);
   renderFeed(items.slice(1));
   renderRank();
   updateTotalNum();
+}
+
+function renderHeroTitle() {
+  const h1 = document.querySelector('.hero h1');
+  if (!h1) return;
+  const id = state.activeCat;
+  if (id === 'all') {
+    h1.innerHTML = '비즈니스 리더를 위해<br/>엄선한 AI 스킬';
+    return;
+  }
+  const builtin = {
+    pick: "Editor's Pick",
+    lab: 'AI Roasting'
+  };
+  const cat = state.catMap[id];
+  const text = builtin[id] || (cat ? cat.name : '');
+  if (!text) {
+    h1.innerHTML = '비즈니스 리더를 위해<br/>엄선한 AI 스킬';
+    return;
+  }
+  h1.textContent = text;
 }
 
 function updateTotalNum() {
