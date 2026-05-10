@@ -33,18 +33,20 @@ function classify(meta) {
 const THEME_KEY = 'airoasting.theme';
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('iconSun').style.display  = theme === 'light' ? '' : 'none';
-  document.getElementById('iconMoon').style.display = theme === 'dark'  ? '' : 'none';
+  document.querySelectorAll('.icon-sun').forEach(el => { el.style.display = theme === 'light' ? '' : 'none'; });
+  document.querySelectorAll('.icon-moon').forEach(el => { el.style.display = theme === 'dark'  ? '' : 'none'; });
   try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
 }
 function initTheme() {
   let saved = null;
   try { saved = localStorage.getItem(THEME_KEY); } catch(e) {}
   applyTheme(saved === 'dark' ? 'dark' : 'light');
-  document.getElementById('themeBtn').addEventListener('click', () => {
+  const toggle = () => {
     const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     applyTheme(next);
-  });
+  };
+  document.getElementById('themeBtn')?.addEventListener('click', toggle);
+  document.getElementById('themeBtnDrawer')?.addEventListener('click', toggle);
 }
 
 // ========= Load =========
@@ -271,6 +273,8 @@ function wireAbout() {
   const b = document.getElementById('aboutBackdrop');
   document.getElementById('aboutBtn')?.addEventListener('click', openAbout);
   document.getElementById('aboutLink')?.addEventListener('click', e => { e.preventDefault(); openAbout(); });
+  document.getElementById('aboutBtnDrawer')?.addEventListener('click', () => { closeDrawer(); openAbout(); });
+  document.getElementById('repoBtnDrawer')?.addEventListener('click', () => { closeDrawer(); });
   document.getElementById('aboutClose')?.addEventListener('click', closeAbout);
   b?.addEventListener('click', e => { if (e.target === b) closeAbout(); });
   document.addEventListener('keydown', e => {
