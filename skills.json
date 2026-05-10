@@ -2488,6 +2488,23 @@
       ],
       "airoasting_lab": true,
       "editors_pick": true
+    },
+    {
+      "category": "finance",
+      "name": "DART Analyst Report",
+      "repo": "airoasting/dart",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-05-10",
+      "desc": "이 스킬은 DART Open API의 공시 재무 데이터로 상장사의 인터랙티브 애널리스트 HTML 리포트를 자동 생성합니다. /dart 카카오 한 줄로 13인 투자자 페르소나 평가까지 담은 리포트가 나오기 때문에, 기업 분석을 빠르게 정리해야 하는 투자자·임원에게 잘 맞습니다.",
+      "tags": [
+        "#dart",
+        "#financial-report",
+        "#investor-persona"
+      ],
+      "airoasting_lab": true,
+      "editors_pick": true
     }
   ]
 }
