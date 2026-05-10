@@ -221,15 +221,16 @@
   :root[data-theme="dark"] .hero-about { color: var(--accent); }
 
   .hero-repo {
-    display: inline-grid; place-items: center;
-    width: 28px; height: 28px; border-radius: 8px;
-    margin-left: 8px; vertical-align: middle;
-    background: transparent; border: 1px solid var(--line);
-    color: var(--text-sub);
-    transition: background .15s, border-color .15s, color .15s;
+    margin-left: 14px;
+    color: var(--accent-strong);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s, color .15s;
+    display: inline-flex; align-items: center; gap: 4px;
   }
-  .hero-repo:hover { background: var(--panel); color: var(--text); border-color: var(--line-2); }
-  .hero-repo svg { width: 14px; height: 14px; display: block; }
+  .hero-repo:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  :root[data-theme="dark"] .hero-repo { color: var(--accent); }
+  .hero-repo svg { width: 12px; height: 12px; display: block; }
 
   /* ===== About modal ===== */
   .about-backdrop {
@@ -969,8 +970,9 @@
   </label>
   <div class="right">
     <button class="text-btn" id="aboutBtn" aria-label="프로젝트 소개" title="프로젝트 소개"><span class="full">프로젝트 </span>소개</button>
-    <a class="icon-btn" id="repoBtn" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)" style="text-decoration:none">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+    <a class="text-btn" id="repoBtn" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)" style="text-decoration:none;gap:6px">
+      <span>Github</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
     </a>
     <button class="icon-btn" id="themeBtn" aria-label="테마 전환" title="테마 전환">
       <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -1084,9 +1086,7 @@
     <section class="hero">
       <div>
         <h1>비즈니스 리더를 위해<br/>엄선한 AI 스킬</h1>
-        <p class="meta"><a class="hero-about" id="aboutLink" href="#about" role="button"><span class="about-desktop">스킬 라이브러리란?</span><span class="about-mobile">프로젝트 소개</span> →</a><a class="hero-repo" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-        </a></p>
+        <p class="meta"><a class="hero-about" id="aboutLink" href="#about" role="button"><span class="about-desktop">스킬 라이브러리란?</span><span class="about-mobile">프로젝트 소개</span> →</a><a class="hero-repo" href="https://github.com/airoasting/skill_library" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (새 창)" title="GitHub 저장소 (새 창)"><span>Github</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
       </div>
       <div class="big-num"><span id="totalNum">0</span><small>SKILLS</small></div>
     </section>
@@ -1558,7 +1558,7 @@
       "added_at": "2026-02-26"
     },
     {
-      "category": "business",
+      "category": "workflow",
       "name": "GStack",
       "repo": "garrytan/gstack",
       "author": "Garry Tan",
@@ -3641,7 +3641,7 @@
       "editors_pick": true
     },
     {
-      "category": "harness",
+      "category": "workflow",
       "name": "GBrain",
       "repo": "garrytan/gbrain",
       "author": "garrytan",

@@ -1,5 +1,7 @@
 # Skill Library
 
+<a href="https://airoasting.github.io/skill_library/"><img src="asset/og-image.png" alt="AI Roasting · Skill Library — 비즈니스 리더를 위해 엄선한 AI 스킬" width="100%"></a>
+
 비개발자 비즈니스 리더를 위해 큐레이션한 Claude 스킬·플러그인·MCP 카탈로그입니다. 현재 **149개 카드 · 13개 카테고리 · 27개 에디터픽**이 등록되어 있고, 모든 데이터는 단일 파일 `skills.json`에서 관리합니다.
 
 🌐 라이브 사이트: <https://airoasting.github.io/skill_library/>
