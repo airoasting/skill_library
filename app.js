@@ -318,7 +318,7 @@ function filtered() {
     forks: (a,b) => (b.forks||0) - (a.forks||0),
     name:  (a,b) => a.name.localeCompare(b.name, 'ko')
   }[state.sort] || ((a,b) => (b.stars||0) - (a.stars||0));
-  items.sort(sorter);
+  items.sort((a,b) => (b.pinned?1:0) - (a.pinned?1:0) || sorter(a,b));
   return items;
 }
 
@@ -397,8 +397,9 @@ function renderFeatured(s) {
   const host = document.getElementById('featured');
   if (!s) { host.innerHTML = ''; return; }
   const cat = state.catMap[s.category];
+  const linkUrl = s.url || (s.repo ? `https://github.com/${s.repo}` : '#');
   host.innerHTML = `
-    <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}${s.author === 'airoasting' ? ' featured-airoasting' : ''}" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
+    <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}${s.author === 'airoasting' ? ' featured-airoasting' : ''}" href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="avatar${s.author === 'airoasting' ? ' avatar-airoasting' : ''}">${avatarImg(s)}</div>
       <div>
         <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''}${s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
@@ -431,7 +432,7 @@ function card(s, rank) {
   const tags = (s.tags || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
   const badge = (s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '')
     + (s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : '');
-  const repoUrl = s.repo ? `https://github.com/${s.repo}` : '#';
+  const repoUrl = s.url || (s.repo ? `https://github.com/${s.repo}` : '#');
   return `
     <a class="card${s.editors_pick ? ' card-pick' : ''}${s.author === 'airoasting' ? ' card-airoasting' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="rank">${String(rank).padStart(2,'0')}</div>
@@ -453,8 +454,10 @@ function renderRank() {
   const host = document.getElementById('topRank');
   const key = state.rankSort === 'forks' ? 'forks' : 'stars';
   const top = state.data.skills.slice().sort((a,b) => (b[key]||0) - (a[key]||0)).slice(0, 5);
-  host.innerHTML = top.map((s, i) => `
-    <a class="rank-row" href="https://github.com/${escapeHtml(s.repo || '')}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)} GitHub">
+  host.innerHTML = top.map((s, i) => {
+    const url = s.url || (s.repo ? `https://github.com/${s.repo}` : '#');
+    return `
+    <a class="rank-row" href="${escapeHtml(url)}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="r-num">${String(i+1).padStart(2,'0')}</div>
       <div class="r-av">${avatarImg(s)}</div>
       <div class="r-info">
@@ -462,7 +465,8 @@ function renderRank() {
         <div class="author">${escapeHtml(s.author || '')}</div>
       </div>
       <div class="star">${key === 'forks' ? `⑂${fmt(s.forks)}<span class="fork-mini"> · ★${fmt(s.stars)}</span>` : `★${fmt(s.stars)}<span class="fork-mini"> · ⑂${fmt(s.forks)}</span>`}</div>
-    </a>`).join('');
+    </a>`;
+  }).join('');
   document.querySelectorAll('.rank-pill').forEach(p => {
     p.classList.toggle('active', p.dataset.rank === key);
   });
@@ -516,7 +520,7 @@ function authorBadges(author) {
   return fbBadge(a.facebook) + liBadge(a.linkedin) + xBadge(a.x || a.twitter);
 }
 function avatarImg(s) {
-  const owner = (s.repo || '').split('/')[0];
+  const owner = s.avatar_owner || (s.repo || '').split('/')[0];
   if (!owner) return '';
   if (owner === 'airoasting') {
     return `<img src="asset/logo1-transparent.png" alt="" loading="lazy" onerror="this.style.display='none'" />`;

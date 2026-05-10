@@ -2422,6 +2422,54 @@
       ],
       "lang": "Jupyter Notebook",
       "added_at": "2026-05-10"
+    },
+    {
+      "category": "design",
+      "name": "getdesign.md",
+      "url": "https://getdesign.md/",
+      "author": "VoltAgent",
+      "avatar_owner": "VoltAgent",
+      "desc": "이 사이트는 Stripe·Vercel·Linear·Notion 같은 인기 서비스의 디자인 시스템을 DESIGN.md 카드로 정리해놓은 큐레이션 웹입니다. AI 코딩 에이전트가 이 파일을 읽으면 그 브랜드 톤에 맞는 UI를 즉시 만들어주기 때문에, 'Linear처럼 만들어줘' 한 줄로 일관된 디자인을 뽑아내려는 비즈니스 리더에게 잘 맞습니다.",
+      "tags": [
+        "#design-system",
+        "#design-md",
+        "#ai-ui"
+      ],
+      "editors_pick": true,
+      "added_at": "2026-05-10",
+      "pinned": true
+    },
+    {
+      "category": "writing",
+      "name": "Fabric",
+      "repo": "danielmiessler/Fabric",
+      "author": "danielmiessler",
+      "stars": 41617,
+      "forks": 4133,
+      "desc": "이 프레임워크는 'extract_wisdom', 'improve_writing', 'summarize', 'write_essay' 같은 글쓰기·요약·정제 패턴을 한 묶음으로 모아 어디서든 호출할 수 있게 해줍니다. 한 줄 명령으로 검증된 프롬프트 결과물을 얻기 때문에, 글의 톤을 다듬거나 긴 자료를 빠르게 요약해야 하는 비즈니스 작가·리서처에게 잘 맞습니다.",
+      "tags": [
+        "#prompt-patterns",
+        "#writing",
+        "#summarize"
+      ],
+      "lang": "Go",
+      "added_at": "2026-05-10"
+    },
+    {
+      "category": "writing",
+      "name": "Writing Helper",
+      "repo": "GeekyWizKid/writing-helper",
+      "author": "GeekyWizKid",
+      "stars": 628,
+      "forks": 114,
+      "desc": "이 어시스턴트는 OpenAI·Claude·Gemini 등 여러 LLM을 한 화면에서 골라 쓰면서 톤·스타일·길이·말투까지 세세하게 조정해 글을 뽑아주는 Next.js 기반 도구입니다. 같은 내용도 매체에 맞게 스타일을 바꿔 여러 버전을 빠르게 만들 수 있어, 콘텐츠 크리에이터·마케터의 반복 글쓰기에 잘 맞습니다.",
+      "tags": [
+        "#writing-assistant",
+        "#multi-llm",
+        "#style"
+      ],
+      "lang": "TypeScript",
+      "added_at": "2026-05-10"
     }
   ]
 }
