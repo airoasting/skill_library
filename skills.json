@@ -424,7 +424,7 @@
       "added_at": "2026-02-26"
     },
     {
-      "category": "business",
+      "category": "workflow",
       "name": "GStack",
       "repo": "garrytan/gstack",
       "author": "Garry Tan",
@@ -2425,22 +2425,6 @@
       "added_at": "2026-05-10"
     },
     {
-      "category": "design",
-      "name": "getdesign.md",
-      "url": "https://getdesign.md/",
-      "author": "VoltAgent",
-      "avatar_owner": "VoltAgent",
-      "desc": "이 사이트는 Stripe·Vercel·Linear·Notion 같은 인기 서비스의 디자인 시스템을 DESIGN.md 카드로 정리해놓은 큐레이션 웹입니다. AI 코딩 에이전트가 이 파일을 읽으면 그 브랜드 톤에 맞는 UI를 즉시 만들어주기 때문에, 'Linear처럼 만들어줘' 한 줄로 일관된 디자인을 뽑아내려는 비즈니스 리더에게 잘 맞습니다.",
-      "tags": [
-        "#design-system",
-        "#design-md",
-        "#ai-ui"
-      ],
-      "editors_pick": true,
-      "added_at": "2026-05-10",
-      "pinned": true
-    },
-    {
       "category": "writing",
       "name": "Fabric",
       "repo": "danielmiessler/Fabric",
@@ -2507,7 +2491,7 @@
       "editors_pick": true
     },
     {
-      "category": "harness",
+      "category": "workflow",
       "name": "GBrain",
       "repo": "garrytan/gbrain",
       "author": "garrytan",
