@@ -1,10 +1,10 @@
 # Skill Library
 
-<a href="https://airoasting.github.io/skill_library/"><img src="asset/og-image.png" alt="AI Roasting · Skill Library — 비즈니스 리더를 위해 엄선한 AI 스킬" width="100%"></a>
+<a href="https://airoasting-skill.vercel.app/"><img src="asset/og-image.png" alt="AI Roasting · Skill Library — 비즈니스 리더를 위해 엄선한 AI 스킬" width="100%"></a>
 
 비개발자 비즈니스 리더를 위해 큐레이션한 Claude 스킬·플러그인·MCP 카탈로그입니다. 현재 **155개 카드 · 3개 메타 카테고리 · 13개 세부 카테고리 · 31개 에디터픽**이 등록되어 있고, 모든 데이터는 단일 파일 `skills.json`에서 관리합니다.
 
-🌐 라이브 사이트: <https://airoasting.github.io/skill_library/>
+🌐 라이브 사이트: <https://airoasting-skill.vercel.app/>
 
 ## 무엇이 들어 있나
 
@@ -48,7 +48,7 @@
 
 가장 빠른 방법은 라이브 사이트입니다. 카테고리 칩 → 카드 → 원 저장소로 바로 이동할 수 있어요.
 
-🌐 <https://airoasting.github.io/skill_library/>
+🌐 <https://airoasting-skill.vercel.app/>
 
 URL 파라미터로 바로 들어갈 수도 있습니다.
 

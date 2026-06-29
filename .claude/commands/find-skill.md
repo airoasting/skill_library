@@ -59,7 +59,7 @@ allowed-tools: Read, Bash(python3:*), Grep
 - 왜 이걸 골랐나: <사용자 질의와 어떻게 닿는지 1~2문장. 카테고리 정의·태그·desc 중 어디서 신호를 받았는지 구체적으로>
 - 한계/주의: <명확히 알면 1줄, 아니면 생략>
 - 링크: https://github.com/<owner>/<repo>  ·  ★<stars>
-- 라이브러리에서 보기: https://airoasting.github.io/skill_library/?cat=<category-id>
+- 라이브러리에서 보기: https://airoasting-skill.vercel.app/?cat=<category-id>
 ```
 
 마지막에 한 줄로 다음 행동을 제안:
