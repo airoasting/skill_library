@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 JSON_PATH = ROOT / "skills.json"
+INDEX_PATH = ROOT / "index.html"
 SYNC_INLINE = ROOT / "scripts" / "sync-inline.py"
 
 GREEN = "\033[32m"
@@ -96,6 +97,40 @@ def get_rate_limit(token: str | None) -> tuple[int, int, int] | None:
         return d["remaining"], d["limit"], d["reset"]
     except Exception:
         return None
+
+
+def git_commit_push(updated: int) -> int:
+    """skills.json + index.html 만 커밋하고 origin 현재 브랜치로 push.
+    git 이 없거나 원격 push 가 실패해도 sync 자체는 성공으로 본다."""
+    if not shutil.which("git"):
+        print(f"{YEL}⚠ git 이 없어 커밋·푸시를 건너뜁니다.{END}")
+        return 0
+
+    def run(args: list[str]) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True)
+
+    # 두 데이터 파일만 스테이징 (다른 변경은 건드리지 않음)
+    run(["add", str(JSON_PATH), str(INDEX_PATH)])
+
+    # 스테이징된 변경이 없으면 조용히 종료
+    if run(["diff", "--cached", "--quiet"]).returncode == 0:
+        print(f"{DIM}커밋할 변경 없음 — push 생략.{END}")
+        return 0
+
+    msg = f"star/fork 동기화: {updated}개 카드 갱신"
+    c = run(["commit", "-m", msg])
+    if c.returncode != 0:
+        print(f"{RED}✗ git commit 실패{END}\n{c.stderr.strip()}")
+        return 1
+    print(f"{GREEN}✓{END} 커밋 완료: {msg}")
+
+    branch = run(["rev-parse", "--abbrev-ref", "HEAD"]).stdout.strip() or "main"
+    p = run(["push", "origin", branch])
+    if p.returncode != 0:
+        print(f"{RED}✗ git push 실패{END} (커밋은 로컬에 남아 있습니다)\n{p.stderr.strip()}")
+        return 1
+    print(f"{GREEN}✓{END} origin/{branch} 에 push 완료")
+    return 0
 
 
 def main() -> int:
@@ -213,8 +248,12 @@ def main() -> int:
     r = subprocess.run([sys.executable, str(SYNC_INLINE)])
     if r.returncode == 0:
         print(f"{GREEN}✓{END} index.html 인라인 데이터 동기화 완료")
+    else:
+        print(f"{RED}✗ index.html 동기화 실패 — 커밋·푸시를 건너뜁니다.{END}")
+        return r.returncode
 
-    return r.returncode
+    print()
+    return git_commit_push(updated)
 
 
 if __name__ == "__main__":
