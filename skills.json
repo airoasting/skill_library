@@ -1150,22 +1150,6 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "korea",
-      "name": "카카오페이 하네스",
-      "repo": "revfactory/kakaopay",
-      "author": "revfactory",
-      "stars": 4,
-      "forks": 3,
-      "desc": "이 하네스는 카카오페이의 단건 결제, 정기결제, 결제 취소·조회를 Claude Code 에이전트가 설계·구현·자동화해주는 패키지입니다. 카카오페이 공식 문서를 바탕으로 정확한 API 호출 코드를 만들어주기 때문에, 카카오페이를 결제 수단으로 추가하려는 서비스가 구현 시간을 크게 줄일 수 있습니다.",
-      "tags": [
-        "#payment",
-        "#kakaopay",
-        "#korea"
-      ],
-      "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-04-19"
-    },
-    {
       "category": "automation",
       "name": "MCP Servers (공식)",
       "repo": "modelcontextprotocol/servers",
@@ -2601,6 +2585,20 @@
         "#mcp"
       ],
       "forks": 6
+    },
+    {
+      "category": "harness",
+      "name": "Casting",
+      "repo": "airoasting/casting",
+      "author": "airoasting",
+      "stars": 0,
+      "added_at": "2026-07-04",
+      "desc": "이 스킬은 목적 한 줄을 받아 검증된 50명 에이전트와 28개 팀 레시피에서 팀을 설계하고 실제로 돌려 9.5 검토 게이트를 통과한 결과물까지 만듭니다. 누가 어떤 순서로 일할지 몰라도 보고서·분석·발표자료 같은 산출물을 팀으로 완성하려는 비즈니스 리더에게 잘 어울립니다.",
+      "tags": [
+        "#agent-team",
+        "#orchestration",
+        "#claude-code"
+      ]
     }
   ]
 }
