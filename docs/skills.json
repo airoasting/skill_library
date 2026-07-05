@@ -2043,7 +2043,6 @@
         "#korean",
         "#consulting-style"
       ],
-      "editors_pick": true,
       "airoasting_lab": true,
       "forks": 2
     },
@@ -2225,8 +2224,7 @@
         "#frameworks",
         "#consulting"
       ],
-      "airoasting_lab": true,
-      "editors_pick": true
+      "airoasting_lab": true
     },
     {
       "category": "finance",
@@ -2242,8 +2240,7 @@
         "#financial-report",
         "#investor-persona"
       ],
-      "airoasting_lab": true,
-      "editors_pick": true
+      "airoasting_lab": true
     },
     {
       "category": "workflow",
