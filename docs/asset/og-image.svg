@@ -41,9 +41,6 @@
   <rect width="1200" height="630" fill="url(#paperHighlight)" clip-path="url(#cardClip)"/>
   <rect width="1200" height="630" fill="url(#paperVignette)" clip-path="url(#cardClip)"/>
 
-  <!-- AX watermark, bottom-right -->
-  <text x="1206" y="552" font-family="'Helvetica Neue', Arial, sans-serif" font-size="172" font-weight="900" font-style="italic" fill="#8a6a3a" opacity="0.08" text-anchor="end" letter-spacing="-10" clip-path="url(#cardClip)">AX</text>
-
   <!-- Top accent line -->
   <rect x="72" y="60" width="1056" height="3" rx="2" fill="url(#goldLine)"/>
 
@@ -66,10 +63,9 @@
   <rect x="500" y="446" width="200" height="2" rx="1" fill="#8a6a3a" opacity="0.38"/>
 
   <!-- Subtitle -->
-  <text x="600" y="490" font-family="'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif" font-size="23" font-weight="400" fill="#5a5248" text-anchor="middle">검증된 실무 스킬만 선별합니다  ·  매주 토요일 업데이트</text>
+  <text x="600" y="490" font-family="'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif" font-size="23" font-weight="400" fill="#5a5248" text-anchor="middle">검증된 실무 스킬만 선별합니다</text>
 
   <!-- 150 SKILLS badge -->
-  <rect x="120" y="104" width="168" height="46" rx="23" fill="url(#goldPill)"/>
-  <rect x="120" y="104" width="168" height="46" rx="23" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
-  <text x="204" y="134" font-family="'Helvetica Neue', Arial, sans-serif" fill="#fffaf0" text-anchor="middle"><tspan font-size="21" font-weight="800" letter-spacing="0.5">150</tspan><tspan font-size="13.5" font-weight="700" letter-spacing="2" dx="14">SKILLS</tspan></text>
+  <rect x="120" y="104" width="158" height="46" rx="23" fill="url(#goldPill)"/>
+  <text x="199" y="134" font-family="'Helvetica Neue', Arial, sans-serif" fill="#fffaf0" text-anchor="middle"><tspan font-size="21" font-weight="800" letter-spacing="0.5">150</tspan><tspan font-size="13" font-weight="700" letter-spacing="1.5" dx="11">SKILLS</tspan></text>
 </svg>

@@ -1,7 +1,0 @@
-# macOS
-.DS_Store
-**/.DS_Store
-
-# 로컬 개발 도구 (GitHub에는 올리지 않음, 로컬 보존)
-.claude/
-.githooks/
