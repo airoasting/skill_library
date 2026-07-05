@@ -1119,38 +1119,6 @@
     },
     {
       "category": "automation",
-      "name": "Video Transcription",
-      "repo": "treesoop/video_transcription",
-      "author": "treesoop",
-      "stars": 11,
-      "forks": 0,
-      "desc": "이 스킬은 영상의 오디오를 텍스트로 전사하면서 화면 캡처 이미지를 타임스탬프와 함께 묶어 정리해줍니다. 음성과 화면 정보를 한 문서에 합쳐주기 때문에 검색·요약·번역이 쉬운 통합 전사본이 만들어지고, 강의·인터뷰·회의 영상을 자막이나 자료로 재활용할 때 적합합니다.",
-      "tags": [
-        "#video",
-        "#transcription",
-        "#screenshot"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-19"
-    },
-    {
-      "category": "korea",
-      "name": "토스페이먼츠 하네스",
-      "repo": "revfactory/toss-payment",
-      "author": "revfactory",
-      "stars": 6,
-      "forks": 2,
-      "desc": "이 하네스는 토스페이먼츠 결제 API 전체(일반 결제, 정기결제, 취소, 조회, 웹훅)를 Claude 에이전트가 설계·구현·테스트까지 담당하게 해줍니다. API 문서를 뒤지고 코드를 쓰는 과정을 대화로 대체할 수 있기 때문에, 토스페이먼츠 도입을 고민 중인 스타트업이 프로토타입을 하루 안에 만들어 검증할 수 있습니다.",
-      "tags": [
-        "#payment",
-        "#toss",
-        "#korea"
-      ],
-      "facebook": "https://www.facebook.com/rev.minho",
-      "added_at": "2026-04-19"
-    },
-    {
-      "category": "automation",
       "name": "MCP Servers (공식)",
       "repo": "modelcontextprotocol/servers",
       "author": "Anthropic",
@@ -1568,36 +1536,6 @@
         "#public-data",
         "#mcp",
         "#data-go-kr"
-      ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "korea",
-      "name": "Korea Stock Analyzer MCP",
-      "repo": "Mrbaeksang/korea-stock-analyzer-mcp",
-      "author": "Mrbaeksang",
-      "stars": 20,
-      "forks": 9,
-      "desc": "이 MCP 서버는 버핏·린치 등 6대 투자 대가의 전략 프레임으로 KOSPI·KOSDAQ 종목을 분석해 실시간 시세, 기술 지표, DCF 밸류에이션, 동종 비교까지 한 번에 내놓습니다. 한국 주식에 맞춘 관점으로 결과를 정리해주기 때문에, 국내 투자 아이디어를 빠르게 검증하려는 개인 투자자나 리서치 팀에게 잘 어울립니다.",
-      "tags": [
-        "#korean-stocks",
-        "#investing",
-        "#valuation"
-      ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "korea",
-      "name": "Naver Finance Crawl MCP",
-      "repo": "greatSumini/naver-finance-crawl-mcp",
-      "author": "greatSumini",
-      "stars": 5,
-      "forks": 4,
-      "desc": "이 MCP 서버는 네이버 금융 페이지를 크롤링해 인기 검색 종목과 6자리 코드 기반 종목 상세 정보를 끌어와 줍니다. 별도 유료 데이터 없이도 국내 증시 스냅샷을 확보할 수 있기 때문에, 간단한 종목 스크리닝이나 시장 모니터링이 필요한 팀에게 쓸만합니다.",
-      "tags": [
-        "#naver-finance",
-        "#korean-stocks",
-        "#mcp"
       ],
       "added_at": "2026-04-21"
     },
@@ -2105,21 +2043,6 @@
         "#windows"
       ],
       "lang": "PowerShell"
-    },
-    {
-      "category": "legal",
-      "name": "K-HR Legal Review",
-      "repo": "zenajo/hr-legal-review",
-      "author": "zenajo",
-      "stars": 8,
-      "forks": 1,
-      "added_at": "2026-05-02",
-      "desc": "이 스킬은 채용·계약·성과평가·징계 같은 인사 기획안과 문서를 한국 노동법 기준으로 사전 점검해주는 인사노무 리스크 검토 도구입니다. korean-law MCP와 함께 동작하므로 인사 담당자가 제도 초안의 법적 리스크를 빠르게 1차 스크리닝하고 싶을 때 적합합니다.",
-      "tags": [
-        "#korean-labor-law",
-        "#hr",
-        "#risk-review"
-      ]
     },
     {
       "category": "finance",
