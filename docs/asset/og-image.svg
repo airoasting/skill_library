@@ -95,7 +95,7 @@
     text-anchor="middle"
   >검증된 실무 스킬만 선별합니다  ·  매주 토요일 업데이트</text>
 
-  <!-- 100+ SKILLS badge -->
+  <!-- 150 SKILLS badge -->
   <rect x="120" y="108" width="138" height="38" rx="19" fill="#1a1a1a" opacity="0.06"/>
   <rect x="120" y="108" width="138" height="38" rx="19" fill="none" stroke="#1a1a1a" stroke-width="1" opacity="0.18"/>
   <text
@@ -107,7 +107,7 @@
     opacity="0.78"
     text-anchor="middle"
     letter-spacing="1.5"
-  >100+ SKILLS</text>
+  >150 SKILLS</text>
 
   <!-- AX watermark bottom-right -->
   <text

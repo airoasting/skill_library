@@ -11,8 +11,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-HTML = ROOT / "index.html"
-JSON = ROOT / "skills.json"
+HTML = ROOT / "docs" / "index.html"
+JSON = ROOT / "docs" / "skills.json"
 
 
 def main() -> int:

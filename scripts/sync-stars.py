@@ -21,8 +21,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-JSON_PATH = ROOT / "skills.json"
-INDEX_PATH = ROOT / "index.html"
+JSON_PATH = ROOT / "docs" / "skills.json"
+INDEX_PATH = ROOT / "docs" / "index.html"
 SYNC_INLINE = ROOT / "scripts" / "sync-inline.py"
 
 GREEN = "\033[32m"

@@ -2480,22 +2480,6 @@
       "lang": "JavaScript"
     },
     {
-      "category": "harness",
-      "name": "Agent Wiki",
-      "repo": "lazymac2x/agent-wiki",
-      "author": "lazymac2x",
-      "stars": 38,
-      "forks": 13,
-      "added_at": "2026-07-05",
-      "desc": "이 스킬은 산업별 전문 지식을 LLM 위키와 비즈니스 로직 코어 에이전트로 묶어 AI 에이전트의 지식을 자산화하는 OS입니다. 제조·품질 공학 같은 도메인 지식을 에이전트 하네스에 태워 반복 가능한 자산으로 남기고 싶을 때 참고할 만합니다.",
-      "tags": [
-        "#agent-harness",
-        "#knowledge-os",
-        "#dogfooded"
-      ],
-      "lang": "Shell"
-    },
-    {
       "category": "finance",
       "name": "TradingCodex",
       "repo": "monarchjuno/tradingcodex",
@@ -2526,6 +2510,21 @@
         "#starter-template"
       ],
       "lang": "TypeScript"
+    },
+    {
+      "category": "workflow",
+      "name": "Loopy",
+      "repo": "Forward-Future/loopy",
+      "author": "Forward-Future",
+      "stars": 2433,
+      "forks": 209,
+      "added_at": "2026-07-05",
+      "desc": "반복 가능한 AI 에이전트 루프를 찾고, 다듬고, 새로 설계하도록 돕는 스킬과 공개 루프 카탈로그입니다. 한 번 쓰고 끝나는 프롬프트 대신 점검과 중단 기준을 갖춘 반복 워크플로우를 만들고 싶은 사람에게 잘 어울립니다.",
+      "tags": [
+        "#agent-loops",
+        "#workflow",
+        "#automation"
+      ]
     }
   ]
 }

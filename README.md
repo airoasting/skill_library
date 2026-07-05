@@ -1,6 +1,6 @@
 # Skill Library
 
-<a href="https://airoasting-skill.vercel.app/"><img src="asset/og-image.png" alt="AI Roasting · Skill Library — 비즈니스 리더를 위해 엄선한 AI 스킬" width="100%"></a>
+<a href="https://airoasting-skill.vercel.app/"><img src="docs/asset/og-image.png" alt="AI Roasting · Skill Library — 비즈니스 리더를 위해 엄선한 AI 스킬" width="100%"></a>
 
 비개발자 비즈니스 리더를 위해 큐레이션한 Claude 스킬·플러그인·MCP 카탈로그입니다. 현재 **150개 카드 · 3개 메타 카테고리 · 13개 세부 카테고리 · 31개 에디터픽**이 등록되어 있고, 모든 데이터는 단일 파일 `skills.json`에서 관리합니다.
 
@@ -149,22 +149,23 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 }
 ```
 
-`skills.json`이 단일 진실 공급원이지만, 정적 호스팅(`file://` 직접 열기) 환경을 위해 `index.html` 안에 동일 JSON이 인라인으로 박혀 있습니다. 두 곳을 같이 갱신해야 합니다 ([app.js:50](app.js:50) 폴백 로직 참고).
+`docs/skills.json`이 단일 진실 공급원이지만, 정적 호스팅(`file://` 직접 열기) 환경을 위해 `docs/index.html` 안에 동일 JSON이 인라인으로 박혀 있습니다. 두 곳을 같이 갱신해야 합니다 ([docs/app.js:50](docs/app.js:50) 폴백 로직 참고).
 
 ## 프로젝트 레이아웃
 
+웹 번들은 GitHub Pages `/docs` 서빙을 위해 `docs/`에 있습니다.
+
 ```
 .
-├── index.html          # 카탈로그 페이지 (인라인 skills-data 포함)
-├── app.js              # 검색·필터·URL 라우팅
-├── skills.json         # 데이터 단일 소스
-├── asset/              # OG 이미지·로고·Pretendard 폰트
-├── scripts/
-│   ├── sync-stars.py   # GitHub 별·포크 수 동기화
-│   └── sync-inline.py  # skills.json → index.html 인라인 블록
-└── .claude/commands/
-    ├── find-skill.md      # 라이브러리 안에서 카드 추천
-    └── discovery-skill.md # 라이브러리 밖에서 후보 발굴 + 점수 평가
+├── docs/                   # GitHub Pages 서빙 루트
+│   ├── index.html          # 카탈로그 페이지 (인라인 skills-data 포함)
+│   ├── app.js              # 검색·필터·URL 라우팅
+│   ├── skills.json         # 데이터 단일 소스
+│   ├── asset/              # OG 이미지·로고·Pretendard 폰트
+│   └── .nojekyll           # GitHub Pages Jekyll 처리 비활성화
+└── scripts/
+    ├── sync-stars.py       # GitHub 별·포크 수 동기화
+    └── sync-inline.py      # docs/skills.json → docs/index.html 인라인 블록
 ```
 
 ## 로컬에서 보기
@@ -173,10 +174,10 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 
 ```bash
 # 가장 간단: file://로 직접 열기 (인라인 폴백 사용)
-open index.html
+open docs/index.html
 
-# 또는 정적 서버
-python3 -m http.server 8000
+# 또는 정적 서버 (docs/ 를 루트로)
+python3 -m http.server 8000 --directory docs
 # → http://localhost:8000
 ```
 
