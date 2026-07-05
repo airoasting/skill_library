@@ -1022,22 +1022,6 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "design",
-      "name": "Design with Claude Code",
-      "repo": "Sota-Mikami/design-with-claude-code",
-      "author": "Sota-Mikami",
-      "stars": 31,
-      "forks": 3,
-      "desc": "이 패키지는 Claude Code로 UI를 프로토타이핑할 때 쓸 템플릿과 재사용 가능한 디자인 스킬을 모아놓았습니다. 버튼, 카드, 폼, 모달 같은 공통 컴포넌트를 바로 만들어낼 수 있는 레퍼런스를 제공하기 때문에, 새 프로젝트에서 디자인 시스템 없이 빠르게 프로토타입을 만들어야 할 때 출발점이 됩니다.",
-      "tags": [
-        "#ui",
-        "#prototype",
-        "#templates"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-04-19"
-    },
-    {
       "category": "writing",
       "name": "AI Co-Writing System",
       "repo": "az9713/ai-co-writing-claude-skills",
@@ -1324,21 +1308,6 @@
         "#seo",
         "#geo",
         "#audit"
-      ]
-    },
-    {
-      "category": "geo",
-      "name": "claude-seo-skill",
-      "repo": "mangollc/claude-seo-skill",
-      "author": "mangollc",
-      "stars": 36,
-      "forks": 10,
-      "added_at": "2026-04-20",
-      "desc": "이 플러그인은 키워드 리서치, 기술 감사, 콘텐츠 최적화, 로컬 SEO, AEO까지 에이전시 수준 SEO 업무를 Claude Code 안에 담아놓았습니다. 여러 SEO 도구를 오가지 않고 한 워크플로우에서 진행할 수 있기 때문에, SEO 업무를 자동화하려는 소규모 에이전시·프리랜서에 적합합니다.",
-      "tags": [
-        "#seo",
-        "#aeo",
-        "#agency"
       ]
     },
     {
@@ -1647,22 +1616,6 @@
         "#nda",
         "#legal-tech"
       ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "career",
-      "name": "JobPilot",
-      "repo": "suxrobGM/jobpilot",
-      "author": "suxrobGM",
-      "stars": 30,
-      "forks": 11,
-      "desc": "이 플러그인은 잡보드 탐색부터 지원서 자동제출·커버레터 생성·Upwork 제안·면접 준비까지 이력서 한 개로 구직 전 과정을 자동화해줍니다. Playwright로 실제 브라우저 지원 단계까지 대신 눌러주기 때문에, 동시에 수십 개 포지션을 돌리는 적극 구직자에게 효율적입니다.",
-      "tags": [
-        "#job-search",
-        "#automation",
-        "#playwright"
-      ],
-      "lang": "Shell",
       "added_at": "2026-04-21"
     },
     {
@@ -2370,21 +2323,6 @@
       "forks": 3048
     },
     {
-      "category": "workflow",
-      "name": "LLM Ledger",
-      "repo": "verbio-labs/llm-ledger",
-      "author": "verbio-labs",
-      "stars": 25,
-      "added_at": "2026-06-27",
-      "desc": "이 스킬은 LLM이 출처와 신뢰도, 유효 기간까지 붙인 원자 단위 주장으로 지식을 쌓고 검증해주는 시간 인식 마크다운 지식 원장입니다. 별도 설치 없이 Claude Code에서 바로 돌아가, 검증 가능한 개인 지식베이스를 키우고 싶은 사람에게 잘 맞습니다.",
-      "tags": [
-        "#knowledge-base",
-        "#memory",
-        "#pkm"
-      ],
-      "forks": 6
-    },
-    {
       "category": "business",
       "name": "Awesome Ad Video Prompts",
       "repo": "LichAmnesia/awesome-ad-video-prompts",
@@ -2479,37 +2417,6 @@
       "forks": 7
     },
     {
-      "category": "korea",
-      "name": "Korean Patent MCP",
-      "repo": "chrisryugj/korean-patent-mcp",
-      "author": "chrisryugj",
-      "stars": 32,
-      "added_at": "2026-06-29",
-      "desc": "이 MCP 서버는 특허정보넷 KIPRIS의 특허·실용신안·상표·디자인을 자유검색부터 출원인·권리자·서지상세까지 7개 도구로 검색합니다. 출원 전 선행조사나 경쟁사 IP 동향을 빠르게 확인하려는 기획·법무 담당자에게 적합합니다.",
-      "tags": [
-        "#kipris",
-        "#patent",
-        "#trademark",
-        "#mcp"
-      ],
-      "forks": 9
-    },
-    {
-      "category": "korea",
-      "name": "SchoolInfo MCP",
-      "repo": "chrisryugj/schoolinfo-mcp",
-      "author": "chrisryugj",
-      "stars": 30,
-      "added_at": "2026-06-29",
-      "desc": "이 MCP 서버는 학교알리미 공시정보를 묶어 특정 학교의 급식·학생수·수행평가 계획을 자연어로 조회합니다. OpenAPI에 kordoc HWP 파싱을 더해, 학교 데이터를 다루는 교육 분야 담당자나 학부모가 쉽게 확인하기 좋습니다.",
-      "tags": [
-        "#schoolinfo",
-        "#education",
-        "#mcp"
-      ],
-      "forks": 9
-    },
-    {
       "category": "harness",
       "name": "Casting",
       "repo": "airoasting/casting",
@@ -2523,6 +2430,102 @@
         "#claude-code"
       ],
       "forks": 0
+    },
+    {
+      "category": "harness",
+      "name": "AI Roasting Council",
+      "repo": "airoasting/council",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-07-05",
+      "desc": "이 스킬은 소크라테스·손자·드러커·버핏 같은 25인 사상가 페르소나를 불러 어려운 결정을 여러 관점에서 토론하고 로스팅하는 Claude Code 스킬입니다. 한 갈래의 매끈한 답 대신 서로 반대편에 선 관점의 충돌로 검증받고 싶은 중요한 의사결정 앞에서 잘 맞습니다.",
+      "tags": [
+        "#multi-persona",
+        "#decision-making",
+        "#debate"
+      ],
+      "airoasting_lab": true
+    },
+    {
+      "category": "writing",
+      "name": "Korean Editing",
+      "repo": "airoasting/korean",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-07-05",
+      "desc": "이 스킬은 ChatGPT·Claude·Gemini가 쓴 한국어 글에서 번역투·피동 남용·과장 어휘 같은 AI 티 패턴을 잘라내 사람이 쓴 문장으로 다듬는 Claude Code 스킬입니다. BLACK 편집자가 고치고 4인 페르소나가 채점하는 구조라, 의미·숫자·고유명사를 지키면서 AI 냄새만 걷어내고 싶을 때 잘 맞습니다.",
+      "tags": [
+        "#korean-editing",
+        "#ai-detection",
+        "#multi-persona"
+      ],
+      "airoasting_lab": true
+    },
+    {
+      "category": "automation",
+      "name": "Codex Plugin for Claude Code",
+      "repo": "openai/codex-plugin-cc",
+      "author": "OpenAI",
+      "stars": 24923,
+      "forks": 1506,
+      "added_at": "2026-07-05",
+      "desc": "이 플러그인은 Claude Code 안에서 OpenAI Codex를 불러 코드 리뷰를 맡기거나 작업을 위임할 수 있게 해 줍니다. 두 코딩 에이전트를 한 흐름에서 번갈아 쓰며 서로 다른 모델에 교차 검증을 받고 싶을 때 유용합니다.",
+      "tags": [
+        "#codex",
+        "#plugin",
+        "#code-review"
+      ],
+      "lang": "JavaScript"
+    },
+    {
+      "category": "harness",
+      "name": "Agent Wiki",
+      "repo": "lazymac2x/agent-wiki",
+      "author": "lazymac2x",
+      "stars": 38,
+      "forks": 13,
+      "added_at": "2026-07-05",
+      "desc": "이 스킬은 산업별 전문 지식을 LLM 위키와 비즈니스 로직 코어 에이전트로 묶어 AI 에이전트의 지식을 자산화하는 OS입니다. 제조·품질 공학 같은 도메인 지식을 에이전트 하네스에 태워 반복 가능한 자산으로 남기고 싶을 때 참고할 만합니다.",
+      "tags": [
+        "#agent-harness",
+        "#knowledge-os",
+        "#dogfooded"
+      ],
+      "lang": "Shell"
+    },
+    {
+      "category": "finance",
+      "name": "TradingCodex",
+      "repo": "monarchjuno/tradingcodex",
+      "author": "monarchjuno",
+      "stars": 271,
+      "forks": 45,
+      "added_at": "2026-07-05",
+      "desc": "이 스킬은 OpenAI Codex를 투자 워크플로우 팀으로 바꿔 리서치·분석·의사결정 과정을 에이전트가 나눠 처리하게 합니다. 코딩 에이전트를 활용해 투자 조사 파이프라인을 자동화하고 싶은 개인 투자자에게 잘 맞습니다.",
+      "tags": [
+        "#codex",
+        "#investment",
+        "#workflow"
+      ],
+      "lang": "Python"
+    },
+    {
+      "category": "design",
+      "name": "AI Website Cloner",
+      "repo": "JCodesMore/ai-website-cloner-template",
+      "author": "JCodesMore",
+      "stars": 25655,
+      "forks": 3614,
+      "added_at": "2026-07-05",
+      "desc": "이 템플릿은 명령 한 줄로 AI 코딩 에이전트가 원하는 웹사이트의 구조와 스타일을 복제해 주는 스타터입니다. 참고 사이트의 UI를 빠르게 본떠 프로토타입이나 디자인 출발점을 만들고 싶을 때 유용합니다.",
+      "tags": [
+        "#website-cloner",
+        "#frontend",
+        "#starter-template"
+      ],
+      "lang": "TypeScript"
     }
   ]
 }
