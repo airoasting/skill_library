@@ -2426,7 +2426,8 @@
         "#orchestration",
         "#claude-code"
       ],
-      "forks": 0
+      "forks": 0,
+      "airoasting_lab": true
     },
     {
       "category": "harness",

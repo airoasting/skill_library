@@ -57,7 +57,7 @@ URL 파라미터로 바로 들어갈 수도 있습니다.
 | `?cat=workflow` | "AI와 일 잘하는 법" 카테고리만 |
 | `?cat=korea` | "한국 특화 스킬·MCP"만 |
 | `?cat=pick` | 에디터픽 28개만 |
-| `?cat=lab` | AI Roasting이 직접 만든 자체 스킬 7개만 |
+| `?cat=lab` | AI Roasting이 직접 만든 자체 스킬 8개만 |
 
 ## 데이터 구조
 
