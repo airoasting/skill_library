@@ -1557,21 +1557,6 @@
     },
     {
       "category": "business",
-      "name": "Entrepreneur Claude Skills",
-      "repo": "mfwarren/entrepreneur-claude-skills",
-      "author": "mfwarren",
-      "stars": 41,
-      "forks": 13,
-      "desc": "이 컬렉션은 한 창업자가 실제 업무에 쓰며 만든 24개 스킬을 마케팅·세일즈·운영·재무·리더십 영역으로 묶어 제공합니다. PAS·AIDA·BAB 같은 카피 프레임워크와 Meta·Google Ads 크리에이티브까지 실전 포맷 그대로 담겨 있어, 마케팅팀 없이 회사를 키우는 1인 창업자에게 쓸모 있습니다.",
-      "tags": [
-        "#founder",
-        "#startup",
-        "#sales"
-      ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "business",
       "name": "Claude Ads",
       "repo": "AgriciDaniel/claude-ads",
       "author": "AgriciDaniel",
@@ -2522,6 +2507,21 @@
         "#agent-loops",
         "#workflow",
         "#automation"
+      ]
+    },
+    {
+      "category": "research",
+      "name": "Hound",
+      "repo": "airoasting/hound",
+      "author": "airoasting",
+      "stars": 0,
+      "forks": 0,
+      "added_at": "2026-07-12",
+      "desc": "이 스킬은 한 번에 안 나오는 정보를 네이버·유튜브·X·레딧 등 16개 채널로 끝까지 추적하는 검색 스킬입니다. 결과 0건에서 멈추지 않고 검색어와 채널을 바꿔 근거와 함께 답을 찾아 주기 때문에 깊이 있는 조사가 필요한 리더에게 잘 어울립니다.",
+      "tags": [
+        "#search",
+        "#korean",
+        "#multi-channel"
       ]
     }
   ]

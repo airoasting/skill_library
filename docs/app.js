@@ -406,7 +406,7 @@ function renderFeatured(s) {
     <a class="featured${s.editors_pick ? ' featured-pick' : ' featured-plain'}${s.author === 'airoasting' ? ' featured-airoasting' : ''}" href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
       <div class="avatar${s.author === 'airoasting' ? ' avatar-airoasting' : ''}">${avatarImg(s)}</div>
       <div>
-        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''}${s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
+        <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
         <div class="author">
           ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
         </div>
@@ -434,8 +434,7 @@ function renderFeed(items) {
 function card(s, rank) {
   const cat = state.catMap[s.category];
   const tags = (s.tags || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
-  const badge = (s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '')
-    + (s.airoasting_lab ? `<span class="badge-lab">✦ Pick</span>` : '');
+  const badge = (s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : '');
   const repoUrl = s.url || (s.repo ? `https://github.com/${s.repo}` : '#');
   return `
     <a class="card${s.editors_pick ? ' card-pick' : ''}${s.author === 'airoasting' ? ' card-airoasting' : ''}" href="${repoUrl}" target="_blank" rel="noopener" aria-label="${escapeHtml(s.name)}">
