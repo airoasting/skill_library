@@ -640,7 +640,7 @@
   .nav a {
     position: relative;
     display:flex; align-items:center; justify-content:space-between;
-    padding: 5px 14px; border-radius: 10px; color: var(--text-sub);
+    padding: 3px 14px; border-radius: 10px; color: var(--text-sub);
     font-weight:500; cursor:pointer; user-select:none;
     font-size: 13.5px;
     transition: background .15s, color .15s;
@@ -794,9 +794,9 @@
     align-items: start;
     position: relative; overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .28s cubic-bezier(.34,1.4,.5,1), box-shadow .28s ease;
   }
-  .featured:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .featured:hover { transform: translateY(-5px) scale(1.006); box-shadow: var(--shadow-lg); }
   .featured-pick { background: linear-gradient(135deg, #fffbef 0%, #fff8e1 100%) !important; border-color: #d4a017 !important; }
   .featured-plain { background: var(--bg) !important; border-color: var(--line) !important; }
   .featured .avatar {
@@ -847,9 +847,9 @@
     padding: 20px 24px;
     display: grid; grid-template-columns: 32px 44px 1fr auto auto; gap: 18px;
     align-items: flex-start;
-    transition: border-color .15s, background .15s, transform .15s, box-shadow .15s;
+    transition: border-color .2s, background .2s, transform .26s cubic-bezier(.34,1.4,.5,1), box-shadow .26s ease;
   }
-  .card:hover { border-color: var(--line-2); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+  .card:hover { border-color: var(--line-2); box-shadow: var(--shadow-md); transform: translateY(-4px) scale(1.008); }
   .card .rank { color: var(--text-dim); font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; padding-top: 10px; font-variant-numeric: tabular-nums; }
   .card .avatar {
     width: 44px; height: 44px; border-radius: 12px; background: var(--panel-3); overflow: hidden;
