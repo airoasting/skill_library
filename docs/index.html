@@ -172,6 +172,24 @@
     font-size: 10.5px; color: var(--text-dim); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-top: 2px;
   }
 
+  /* Brand hover: logo spins 360°, wordmark ripples letter by letter */
+  .brand .mark { transition: transform .7s cubic-bezier(.45,.05,.25,1); }
+  .brand:hover .mark { transform: rotate(360deg); }
+  .brand .wave-char { display: inline-block; will-change: transform; }
+  .brand:hover .wave-char {
+    animation: brandWave .6s ease-in-out;
+    animation-delay: calc(var(--i) * 0.045s);
+  }
+  @keyframes brandWave {
+    0%, 100% { transform: translateY(0); }
+    35% { transform: translateY(-0.34em); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand .mark { transition: none; }
+    .brand:hover .mark { transform: none; }
+    .brand:hover .wave-char { animation: none; }
+  }
+
   .search {
     flex: 1; min-width: 0;
     display:flex; align-items:center; gap:10px;
@@ -3698,6 +3716,42 @@
     }
   ]
 }
+</script>
+<script>
+/* Split brand wordmark into per-letter spans so :hover can ripple them (--i = stagger index) */
+(function () {
+  function splitWave(el) {
+    if (!el) return;
+    var i = 0;
+    function wrap(textNode, parent) {
+      var frag = document.createDocumentFragment();
+      var text = textNode.textContent;
+      for (var c = 0; c < text.length; c++) {
+        var ch = text[c];
+        if (ch === ' ') { frag.appendChild(document.createTextNode(' ')); continue; }
+        var s = document.createElement('span');
+        s.className = 'wave-char';
+        s.style.setProperty('--i', i++);
+        s.textContent = ch;
+        frag.appendChild(s);
+      }
+      parent.replaceChild(frag, textNode);
+    }
+    Array.prototype.slice.call(el.childNodes).forEach(function (node) {
+      if (node.nodeType === 3) { wrap(node, el); }
+      else if (node.nodeType === 1) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (t) {
+          if (t.nodeType === 3) wrap(t, node);
+        });
+      }
+    });
+  }
+  var brand = document.getElementById('brandHome');
+  if (brand) {
+    splitWave(brand.querySelector('.wordmark .n'));
+    splitWave(brand.querySelector('.wordmark .sub'));
+  }
+})();
 </script>
 </body>
 </html>
