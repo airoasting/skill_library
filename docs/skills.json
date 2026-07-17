@@ -2121,7 +2121,8 @@
         "#search",
         "#korean",
         "#multi-channel"
-      ]
+      ],
+      "airoasting_lab": true
     },
     {
       "category": "automation",
