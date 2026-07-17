@@ -673,6 +673,12 @@
     background: var(--panel); padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); font-weight: 600;
   }
   .nav a.active .count { color: var(--accent-strong); background: var(--panel); border-color: var(--accent-soft); }
+  /* Category / filter icons (replaces emoji) */
+  .cat-label { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+  .cat-ico { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-dim); transition: color .15s; }
+  .nav a:hover .cat-ico { color: var(--text-sub); }
+  .nav a.active .cat-ico { color: var(--accent-strong); }
+  :root[data-theme="dark"] .nav a.active .cat-ico { color: var(--text); }
 
   /* Meta group collapse */
   .meta-group {
@@ -762,6 +768,7 @@
     gap: 10px;
   }
   .cat-intro .emoji { font-size: 16px; }
+  .cat-intro .cat-intro-ico { width: 20px; height: 20px; flex-shrink: 0; color: var(--text); }
   .cat-intro strong { color: var(--text); font-weight: 700; margin-right: 4px; }
 
   .cat-intro.cat-intro-long {
@@ -776,6 +783,7 @@
     color: var(--text);
   }
   .cat-intro.cat-intro-long .cat-intro-head .emoji { font-size: 18px; }
+  .cat-intro.cat-intro-long .cat-intro-head .cat-intro-ico { width: 20px; height: 20px; }
   .cat-intro.cat-intro-long .cat-intro-head strong { margin: 0; font-weight: 800; }
   .cat-intro.cat-intro-long p.pick-lede {
     margin: 0;
@@ -897,9 +905,11 @@
   }
   .card .meta-row { color: var(--text-sub); font-size: 12.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .cat-pill {
+    display: inline-flex; align-items: center; gap: 4px;
     background: var(--beige-soft); color: var(--beige); font-size: 11px; padding: 2px 9px; border-radius: 999px; font-weight: 600; letter-spacing: 0.01em;
     white-space: nowrap; flex-shrink: 0;
   }
+  .cat-pill .cat-pill-ico { width: 12px; height: 12px; flex-shrink: 0; }
   .fb-link {
     display: inline-flex; align-items: center; justify-content: center;
     width: 22px; height: 22px; border-radius: 999px;
@@ -1033,9 +1043,9 @@
   </div>
   <div class="drawer-body">
     <nav class="nav-section nav" aria-label="피드">
-      <a data-cat="all" tabindex="0" role="button"><span>전체</span><span class="count" data-count="all">0</span></a>
-      <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" data-count="pick">0</span></a>
-      <a data-cat="lab" tabindex="0" role="button"><span>☕ AI Roasting</span><span class="count" data-count="lab">0</span></a>
+      <a data-cat="all" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>전체</span><span class="count" data-count="all">0</span></a>
+      <a data-cat="pick" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Editor's Pick</span><span class="count" data-count="pick">0</span></a>
+      <a data-cat="lab" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>AI Roasting</span><span class="count" data-count="lab">0</span></a>
     </nav>
     <nav class="nav-section nav" aria-label="카테고리">
       <div class="nav-label">Categories</div>
@@ -1120,9 +1130,9 @@
   <!-- LEFT -->
   <aside class="sidebar-left">
     <nav class="nav-section nav" aria-label="피드">
-      <a data-cat="all" class="active" tabindex="0" role="button"><span>전체</span><span class="count" id="count-all">0</span></a>
-      <a data-cat="pick" tabindex="0" role="button"><span>✦ Editor's Pick</span><span class="count" id="count-pick">0</span></a>
-      <a data-cat="lab" tabindex="0" role="button"><span>☕ AI Roasting</span><span class="count" id="count-lab">0</span></a>
+      <a data-cat="all" class="active" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>전체</span><span class="count" id="count-all">0</span></a>
+      <a data-cat="pick" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Editor's Pick</span><span class="count" id="count-pick">0</span></a>
+      <a data-cat="lab" tabindex="0" role="button"><span class="cat-label"><svg class="cat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>AI Roasting</span><span class="count" id="count-lab">0</span></a>
     </nav>
     <nav class="nav-section nav" id="nav-cats-wrap" aria-label="카테고리">
       <div class="nav-label">Categories</div>

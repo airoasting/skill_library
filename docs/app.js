@@ -29,6 +29,36 @@ function classify(meta) {
   return 'workflow';
 }
 
+// ========= Category icons (SVG, line style to match chevrons) =========
+// 카테고리·필터 id → 라인 아이콘. 이모지 대신 currentColor 기반 SVG를 쓴다.
+const CAT_ICON_PATHS = {
+  // 메타: AI 에이전트팀 구축
+  harness:    '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  workflow:   '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  token:      '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  automation: '<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>',
+  korea:      '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  // 메타: 비즈니스 성장
+  business:   '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+  finance:    '<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/>',
+  geo:        '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  // 메타: 실행력 제고
+  research:   '<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7" rx="0.5"/><rect x="12" y="7" width="3" height="11" rx="0.5"/><rect x="17" y="4" width="3" height="14" rx="0.5"/>',
+  design:     '<circle cx="13.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".9" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".9" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/>',
+  writing:    '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  legal:      '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  career:     '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+  // 상단 필터
+  all:  '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+  pick: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+  lab:  '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/>'
+};
+function catIcon(id, cls) {
+  const p = CAT_ICON_PATHS[id];
+  if (!p) return '';
+  return `<svg class="cat-ico${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+}
+
 // ========= Theme =========
 const THEME_KEY = 'airoasting.theme';
 function applyTheme(theme) {
@@ -135,7 +165,7 @@ function renderCats() {
   const metas = state.data.meta_categories || [];
   const renderCatLink = c =>
     `<a data-cat="${c.id}" tabindex="0" role="button">
-       <span>${c.emoji} ${escapeHtml(c.name)}</span>
+       <span class="cat-label">${catIcon(c.id)}${escapeHtml(c.name)}</span>
        <span class="count">${counts[c.id] || 0}</span>
      </a>`;
   state.collapsed = state.collapsed || {};
@@ -386,7 +416,7 @@ function renderCatIntro() {
     host.hidden = false;
     host.innerHTML = `
       <div class="cat-intro-head">
-        <span class="emoji">✦</span>
+        ${catIcon('pick', 'cat-intro-ico')}
         <strong>Editor's Pick 선정 기준</strong>
       </div>
       <p class="pick-lede">이 라이브러리는 비개발자 비즈니스 리더를 위해 만들어졌습니다. 그래서 에디터 픽도 <strong>효용성·대표성·신뢰성</strong> 세 축을 각 5점 만점으로 평가해 <strong>평균 4점을 넘는 스킬</strong>에만 배지를 답니다. 효용성은 비개발자가 당일 업무에 바로 쓸 수 있는지, 대표성은 같은 카테고리에서 가장 먼저 추천할 만한지, 신뢰성은 별 수와 저자 이력, 유지보수 활동이 믿을 만한지를 봅니다.</p>`;
@@ -394,7 +424,7 @@ function renderCatIntro() {
   }
   if (!cat || !cat.desc) { host.hidden = true; host.innerHTML = ''; return; }
   host.hidden = false;
-  host.innerHTML = `<span class="emoji">${cat.emoji || ''}</span><span><strong>${escapeHtml(cat.name)}</strong>${escapeHtml(cat.desc)}</span>`;
+  host.innerHTML = `${catIcon(id, 'cat-intro-ico')}<span><strong>${escapeHtml(cat.name)}</strong>${escapeHtml(cat.desc)}</span>`;
 }
 
 function renderFeatured(s) {
@@ -408,7 +438,7 @@ function renderFeatured(s) {
       <div>
         <h2>${escapeHtml(s.name)} ${s.editors_pick ? `<span class="badge-pick">✦ PICK</span>` : ''} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h2>
         <div class="author">
-          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
+          ${cat ? `<span class="cat-pill">${catIcon(cat.id, 'cat-pill-ico')}${escapeHtml(cat.name)}</span>` : ''}
         </div>
         <p>${escapeHtml(s.desc || '')}</p>
         <div class="tags" style="display:flex; flex-wrap:wrap; gap:6px;">${(s.tags||[]).slice(0,3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
@@ -443,7 +473,7 @@ function card(s, rank) {
       <div class="body">
         <h3>${escapeHtml(s.name)} ${badge} <span class="author-pill"><span>${escapeHtml(s.author || '—')}</span>${authorBadges(s.author)}</span></h3>
         <div class="meta-row">
-          ${cat ? `<span class="cat-pill">${cat.emoji} ${escapeHtml(cat.name)}</span>` : ''}
+          ${cat ? `<span class="cat-pill">${catIcon(cat.id, 'cat-pill-ico')}${escapeHtml(cat.name)}</span>` : ''}
         </div>
         <p class="desc">${escapeHtml(s.desc || '')}</p>
         <div class="tags">${tags}</div>
