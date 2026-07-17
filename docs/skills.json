@@ -1,10 +1,5 @@
 {
-  "authors": {
-    "hollobit": {
-      "facebook": "https://www.facebook.com/1biit",
-      "linkedin": "https://www.linkedin.com/in/hollobit/"
-    }
-  },
+  "authors": {},
   "meta_categories": [
     {
       "id": "build",
@@ -56,18 +51,18 @@
     {
       "id": "automation",
       "meta": "build",
-      "name": "외부 연동 · MCP",
+      "name": "외부 연동 · 자동화",
       "emoji": "🤖",
       "en": "External Integration & MCP",
-      "desc": "브라우저·메신저·이슈 트래커 같은 외부 시스템 자동화부터 MCP 서버·컨텍스트 연결까지, Claude가 바깥 세계와 닿게 해주는 스킬이에요."
+      "desc": "브라우저·메신저·이슈 트래커 같은 외부 시스템과 Claude를 이어, 바깥 세계와 닿게 해주는 스킬이에요."
     },
     {
       "id": "korea",
       "meta": "build",
-      "name": "한국 특화 스킬 · MCP",
+      "name": "한국 특화 스킬",
       "emoji": "🇰🇷",
       "en": "Korea Skills · MCP",
-      "desc": "한글 문서부터 카카오, 토스, 네이버 같은 국내 서비스까지, 한국 환경에 딱 맞춘 스킬과 MCP 모음이에요."
+      "desc": "한글 문서부터 카카오, 토스, 네이버 같은 국내 서비스까지, 한국 환경에 딱 맞춘 스킬 모음이에요."
     },
     {
       "id": "business",
@@ -297,86 +292,6 @@
       ],
       "lang": "Rust",
       "added_at": "2026-01-22"
-    },
-    {
-      "category": "automation",
-      "name": "Context Mode",
-      "repo": "mksglu/context-mode",
-      "author": "mksglu",
-      "stars": 18982,
-      "forks": 1336,
-      "desc": "이 MCP는 Playwright나 GitHub API, 로그 출력을 Claude에 그대로 붓지 않고 SQLite 샌드박스에 격리해 저장합니다. Claude가 SQL 쿼리로 필요한 부분만 읽어가기 때문에 컨텍스트가 98%까지 압축되고, 대용량 자동화 출력을 다루는 CI/CD 파이프라인에 잘 어울립니다.",
-      "tags": [
-        "#mcp",
-        "#sandbox",
-        "#sqlite"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-02-23"
-    },
-    {
-      "category": "automation",
-      "name": "code-review-graph",
-      "repo": "tirth8205/code-review-graph",
-      "author": "tirth8205",
-      "stars": 19522,
-      "forks": 2087,
-      "desc": "이 MCP는 Tree-sitter로 코드베이스를 분석해 함수·클래스 간 의존성 그래프를 만들어줍니다. '이 함수를 호출하는 모든 곳'을 쿼리 한 번으로 가져올 수 있어서 대형 모노레포에서도 관련 심볼만 읽어가며 정확하게 코드 리뷰를 돌릴 수 있습니다.",
-      "tags": [
-        "#mcp",
-        "#knowledge-graph",
-        "#tree-sitter"
-      ],
-      "lang": "Python",
-      "added_at": "2026-02-26"
-    },
-    {
-      "category": "automation",
-      "name": "Token Savior",
-      "repo": "Mibayy/token-savior",
-      "author": "Mibayy",
-      "stars": 1069,
-      "forks": 89,
-      "desc": "이 MCP는 파일 전체를 컨텍스트에 올리는 대신 함수·클래스 단위 심볼로 탐색하게 해줍니다. 컨텍스트를 97%까지 줄여주면서 세션 간 탐색 히스토리도 기억하기 때문에, 수십만 줄 규모의 레거시 코드를 분석할 때 사실상 필수 도구가 됩니다.",
-      "tags": [
-        "#mcp",
-        "#symbol-navigation",
-        "#token-save"
-      ],
-      "lang": "Python",
-      "added_at": "2026-03-30"
-    },
-    {
-      "category": "automation",
-      "name": "claude-context",
-      "repo": "zilliztech/claude-context",
-      "author": "Zilliz",
-      "stars": 12144,
-      "forks": 900,
-      "desc": "이 MCP는 BM25 키워드와 벡터 임베딩을 섞은 하이브리드 검색으로 전체 코드베이스를 인덱싱합니다. '이 기능과 관련된 파일'을 자동으로 찾아 올려주어 불필요한 파일 로딩이 사라지고, Milvus를 만든 Zilliz의 공식 오픈소스라 검색 품질도 안정적입니다.",
-      "tags": [
-        "#mcp",
-        "#search",
-        "#bm25"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2025-06-06"
-    },
-    {
-      "category": "token",
-      "name": "token-optimizer-mcp",
-      "repo": "ooples/token-optimizer-mcp",
-      "author": "ooples",
-      "stars": 439,
-      "forks": 43,
-      "desc": "이 MCP는 캐싱, 응답 압축, 불필요한 도구 호출 제거를 조합해 토큰을 95% 넘게 아껴줍니다. 같은 쿼리는 캐시에서 바로 돌려주기 때문에 속도와 비용이 함께 좋아지고, 반복 작업이 많은 자동화 환경에서 사용량 폭발을 막아줍니다.",
-      "tags": [
-        "#mcp",
-        "#caching",
-        "#token-save"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2025-10-11"
     },
     {
       "category": "token",
@@ -1102,55 +1017,6 @@
       "added_at": "2026-04-19"
     },
     {
-      "category": "automation",
-      "name": "MCP Servers (공식)",
-      "repo": "modelcontextprotocol/servers",
-      "author": "Anthropic",
-      "stars": 88518,
-      "forks": 11230,
-      "desc": "이 컬렉션은 Anthropic이 직접 관리하는 MCP 공식 서버 모음으로, 파일시스템·웹 검색·데이터베이스·Git·Slack 등 20여 개 레퍼런스 구현체를 제공합니다. 설치 한 줄이면 Claude Desktop이나 Claude Code에 바로 붙일 수 있기 때문에, 새 MCP 서버를 만들 때 이 레포의 코드 패턴이 가장 빠른 학습 자료가 됩니다.",
-      "tags": [
-        "#mcp",
-        "#official",
-        "#anthropic"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-04-19",
-      "editors_pick": true
-    },
-    {
-      "category": "automation",
-      "name": "GitHub MCP Server",
-      "repo": "github/github-mcp-server",
-      "author": "GitHub",
-      "stars": 31476,
-      "forks": 4588,
-      "desc": "이 MCP는 GitHub 공식 서버로, 저장소 생성·파일 편집·이슈 등록·PR 생성·리뷰를 Claude가 자연어 명령으로 바로 실행합니다. 'main 브랜치에 버그 수정 커밋하고 PR 열어줘'처럼 말하면 Claude Code 안에서 GitHub 작업이 끝까지 이어지기 때문에, 코드 작성부터 PR 제출까지 컨텍스트 전환 없이 처리하고 싶은 개발자에게 잘 맞습니다.",
-      "tags": [
-        "#mcp",
-        "#github",
-        "#official"
-      ],
-      "lang": "Go",
-      "added_at": "2026-04-19"
-    },
-    {
-      "category": "automation",
-      "name": "Awesome MCP Servers",
-      "repo": "wong2/awesome-mcp-servers",
-      "author": "wong2",
-      "stars": 4207,
-      "forks": 1643,
-      "desc": "이 디렉터리는 MCP 서버 1,000개 이상을 카테고리·언어·용도별로 정리해둔 큐레이션 저장소입니다. 데이터베이스, 결제, 메신저, 클라우드, 개발 도구 등으로 분류돼 있어서 필요한 서버를 바로 찾을 수 있고, PR로 참여할 수 있는 커뮤니티 허브 역할도 함께 합니다.",
-      "tags": [
-        "#mcp",
-        "#directory",
-        "#curated"
-      ],
-      "lang": "Markdown",
-      "added_at": "2026-04-19"
-    },
-    {
       "category": "korea",
       "name": "Claude Code Mastering",
       "repo": "revfactory/claude-code-mastering",
@@ -1311,37 +1177,6 @@
       ]
     },
     {
-      "category": "korea",
-      "name": "Korean Law MCP",
-      "repo": "chrisryugj/korean-law-mcp",
-      "author": "chrisryugj",
-      "stars": 2217,
-      "forks": 429,
-      "added_at": "2026-04-20",
-      "desc": "이 MCP 서버는 법제처 41개 API를 16개 도구로 통합해 법령·판례·행정규칙을 검색하고 분석할 수 있게 해줍니다. LLM 환각을 공식 DB와 대조 검증하는 기능이 있어, 법률 리서치 정확도를 높이려는 개발자·법률 실무자에게 적합합니다.",
-      "tags": [
-        "#mcp",
-        "#korean-law",
-        "#legal-research"
-      ],
-      "editors_pick": true
-    },
-    {
-      "category": "korea",
-      "name": "Assembly API MCP",
-      "repo": "hollobit/assembly-api-mcp",
-      "author": "hollobit",
-      "stars": 81,
-      "forks": 30,
-      "added_at": "2026-04-20",
-      "desc": "이 MCP 서버는 국회 API 287개를 통합해 의원·의안·회의록·투표 기록을 AI로 조회할 수 있게 해줍니다. Claude, Gemini, ChatGPT를 모두 지원하기 때문에 정책 분석가나 시빅테크 개발자가 입법 데이터를 활용할 때 적합합니다.",
-      "tags": [
-        "#mcp",
-        "#national-assembly",
-        "#legislative-data"
-      ]
-    },
-    {
       "category": "workflow",
       "name": "Agent Skills",
       "repo": "addyosmani/agent-skills",
@@ -1480,51 +1315,6 @@
     },
     {
       "category": "korea",
-      "name": "Naver Search MCP",
-      "repo": "isnow890/naver-search-mcp",
-      "author": "isnow890",
-      "stars": 79,
-      "forks": 26,
-      "added_at": "2026-04-21",
-      "desc": "이 MCP 서버는 네이버의 웹·뉴스·블로그·쇼핑 검색과 DataLab 트렌드 분석을 Claude에서 바로 쓸 수 있게 해줍니다. 국내 검색 결과와 소비 트렌드를 한국어 그대로 가져오기 때문에, 국내 시장을 다루는 마케팅·리서치 담당자에게 잘 어울립니다.",
-      "tags": [
-        "#naver",
-        "#search",
-        "#datalab"
-      ]
-    },
-    {
-      "category": "korea",
-      "name": "Data.go.kr MCP Servers",
-      "repo": "Koomook/data-go-mcp-servers",
-      "author": "Koomook",
-      "stars": 288,
-      "forks": 51,
-      "desc": "이 모음은 공공데이터포털(data.go.kr) API를 도구별 MCP 서버로 쪼개 제공해 기업 조회, 조달, 연금, 안전 정보 등을 표준 인터페이스로 끌어옵니다. 필요한 데이터 소스만 골라 붙일 수 있기 때문에, 국내 공공데이터로 리서치·정책 보고서를 만드는 팀이 빠르게 실험할 수 있습니다.",
-      "tags": [
-        "#public-data",
-        "#mcp",
-        "#data-go-kr"
-      ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "korea",
-      "name": "Awesome MCP Korea",
-      "repo": "darjeeling/awesome-mcp-korea",
-      "author": "darjeeling",
-      "stars": 212,
-      "forks": 32,
-      "desc": "이 큐레이션은 한국 시장에 특화된 MCP 서버 50여 종을 법률·커머스·공공데이터·부동산·지도·한국어 NLP 카테고리로 정리한 목록입니다. 국내에 어떤 MCP가 있는지 한 번에 훑을 수 있기 때문에, 한국용 AI 도구 스택을 설계하는 팀의 출발점으로 잘 어울립니다.",
-      "tags": [
-        "#awesome-list",
-        "#mcp",
-        "#korea"
-      ],
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "korea",
       "name": "Public APIs 4 Kr",
       "repo": "yybmion/public-apis-4Kr",
       "author": "yybmion",
@@ -1620,102 +1410,6 @@
       "added_at": "2026-04-21"
     },
     {
-      "category": "finance",
-      "name": "Financial Datasets MCP",
-      "repo": "financial-datasets/mcp-server",
-      "author": "financial-datasets",
-      "stars": 2240,
-      "forks": 343,
-      "desc": "이 MCP 서버는 Financial Datasets API를 Claude에 붙여 상장사 재무제표, 실시간·과거 주가, 암호화폐 시세, 시장 뉴스를 한 번에 끌어오는 도구입니다. 애널리스트급 금융 데이터를 자연어로 조회할 수 있어, 종목 리서치나 투자 브리핑 자료가 필요한 개인 투자자와 리서치 팀에 잘 맞습니다.",
-      "tags": [
-        "#finance-data",
-        "#stocks",
-        "#research"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "finance",
-      "name": "Alpaca MCP",
-      "repo": "alpacahq/alpaca-mcp-server",
-      "author": "alpacahq",
-      "stars": 874,
-      "forks": 257,
-      "desc": "이 MCP 서버는 Alpaca 공식 연동으로 주식, ETF, 옵션, 암호화폐 거래와 데이터 분석을 자연어로 지시할 수 있게 해줍니다. 주문 실행부터 포트폴리오 조회·전략 시뮬레이션까지 LLM 안에서 처리되기 때문에, 자동매매를 실전에 붙이려는 개인 퀀트 투자자에게 적합합니다.",
-      "tags": [
-        "#trading",
-        "#alpaca",
-        "#options"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "finance",
-      "name": "SEC EDGAR MCP",
-      "repo": "stefanoamorelli/sec-edgar-mcp",
-      "author": "stefanoamorelli",
-      "stars": 333,
-      "forks": 91,
-      "desc": "이 MCP 서버는 SEC EDGAR 공시 데이터를 Claude에 붙여 10-K·10-Q·8-K 원문, XBRL 재무제표, 내부자 거래 내역을 정확한 숫자로 조회합니다. 원문에서 바로 근거를 뽑아 리포트로 정리할 수 있기 때문에, 미국 주식 딥리서치나 밸류에이션 분석이 필요한 애널리스트에게 잘 맞습니다.",
-      "tags": [
-        "#sec-edgar",
-        "#filings",
-        "#research"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "finance",
-      "name": "Maverick MCP",
-      "repo": "wshobson/maverick-mcp",
-      "author": "wshobson",
-      "stars": 628,
-      "forks": 151,
-      "desc": "이 MCP 서버는 S&P500 520종목을 미리 적재해두고 기술 지표, 스크리너, VectorBT 백테스트, 리서치 에이전트까지 39개 이상의 툴을 Claude Desktop에 붙여주는 개인 투자자용 분석 스위트입니다. 별도 인증 없이 로컬에서 돌아가기 때문에, 직접 종목을 파고드는 개인 트레이더에게 적합합니다.",
-      "tags": [
-        "#stocks",
-        "#backtesting",
-        "#technical-analysis"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "finance",
-      "name": "Octagon Market Intelligence MCP",
-      "repo": "OctagonAI/octagon-mcp-server",
-      "author": "OctagonAI",
-      "stars": 143,
-      "forks": 24,
-      "desc": "이 MCP 서버는 SEC 공시, 실적 콜 스크립트, 주가, 비상장 시장, 예측시장 데이터까지 마켓 인텔리전스 소스를 하나로 묶어 Claude에 붙여줍니다. 공개·비공개 시장을 한 번에 훑을 수 있기 때문에, 상장 전 기업과 상장사를 동시에 커버해야 하는 리서치 팀이나 VC에게 잘 맞습니다.",
-      "tags": [
-        "#market-intel",
-        "#sec",
-        "#private-markets"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "design",
-      "name": "Figma Context MCP",
-      "repo": "GLips/Figma-Context-MCP",
-      "author": "GLips",
-      "stars": 15405,
-      "forks": 1214,
-      "desc": "이 MCP 서버는 Figma 파일 링크만 붙여넣으면 Claude가 레이아웃, 컴포넌트, 스타일을 그대로 읽어 코드로 옮겨주는 디자인-투-코드 도구입니다. 디자인 시안을 실제 UI 구현으로 연결해주기 때문에, 디자이너와 협업하는 기획자·프론트엔드 실무자에게 잘 맞습니다.",
-      "tags": [
-        "#figma",
-        "#design-to-code",
-        "#mcp"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-04-21"
-    },
-    {
       "category": "writing",
       "name": "Claude Office Skills",
       "repo": "tfriedel/claude-office-skills",
@@ -1729,54 +1423,6 @@
         "#docx"
       ],
       "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "research",
-      "name": "arXiv MCP Server",
-      "repo": "blazickjp/arxiv-mcp-server",
-      "author": "blazickjp",
-      "stars": 2961,
-      "forks": 237,
-      "desc": "이 MCP 서버는 arXiv에서 논문 검색·다운로드·전문 읽기·키워드 분석을 Claude에 붙여주는 학술 리서치 도구입니다. 최신 논문 PDF까지 바로 파싱해주기 때문에, 문헌 조사와 선행 연구 정리가 필요한 연구자와 R&D 팀에게 잘 맞습니다.",
-      "tags": [
-        "#arxiv",
-        "#papers",
-        "#academic"
-      ],
-      "lang": "Python",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "research",
-      "name": "Notion MCP",
-      "repo": "makenotion/notion-mcp-server",
-      "author": "makenotion",
-      "stars": 4530,
-      "forks": 600,
-      "desc": "이 MCP 서버는 Notion 공식 연동으로 페이지 검색·생성·갱신과 데이터베이스 쿼리를 자연어로 다룰 수 있게 해줍니다. 리서치 노트와 회의록이 Notion에 쌓인 팀이 AI로 지식 베이스를 검색·보강할 수 있기 때문에, Notion 중심으로 지식 관리를 운영하는 비즈니스 팀에 잘 맞습니다.",
-      "tags": [
-        "#notion",
-        "#knowledge-base",
-        "#notes"
-      ],
-      "lang": "TypeScript",
-      "added_at": "2026-04-21"
-    },
-    {
-      "category": "research",
-      "name": "Exa MCP",
-      "repo": "exa-labs/exa-mcp-server",
-      "author": "exa-labs",
-      "stars": 4726,
-      "forks": 358,
-      "desc": "이 MCP 서버는 AI용 시맨틱 검색 엔진 Exa를 Claude에 연결해 웹 검색, 출처가 붙은 답변, 비동기 딥 리서치 에이전트를 함께 제공합니다. 단순 키워드가 아닌 의미 기반으로 자료를 끌어오기 때문에, 근거 있는 리서치 리포트가 필요한 애널리스트와 기획자에게 유용합니다.",
-      "tags": [
-        "#web-search",
-        "#semantic",
-        "#research"
-      ],
-      "lang": "TypeScript",
       "added_at": "2026-04-21"
     },
     {
@@ -2352,53 +1998,6 @@
       "forks": 275
     },
     {
-      "category": "korea",
-      "name": "Korean DART MCP",
-      "repo": "chrisryugj/korean-dart-mcp",
-      "author": "chrisryugj",
-      "stars": 83,
-      "added_at": "2026-06-29",
-      "desc": "이 MCP 서버는 OpenDART 전자공시 API를 묶어 공시·재무·지분·XBRL 데이터를 자연어로 조회하고 내부자 시그널과 회계 리스크까지 분석합니다. 상장사 재무를 직접 들여다보는 투자·전략 담당자에게 적합합니다.",
-      "tags": [
-        "#dart",
-        "#disclosure",
-        "#finance",
-        "#mcp"
-      ],
-      "forks": 14
-    },
-    {
-      "category": "korea",
-      "name": "Korean Stats MCP",
-      "repo": "chrisryugj/korean-stats-mcp",
-      "author": "chrisryugj",
-      "stars": 76,
-      "added_at": "2026-06-29",
-      "desc": "이 MCP 서버는 국가통계포털 KOSIS의 시도·자치구 단위 통계와 시계열 추세를 자연어로 조회하고 통계표 ID 출처까지 자동으로 인용합니다. 정책보고서나 시정연설, 민원 응대에 근거 있는 숫자가 필요한 기획·행정 담당자에게 적합합니다.",
-      "tags": [
-        "#kosis",
-        "#statistics",
-        "#mcp"
-      ],
-      "forks": 9
-    },
-    {
-      "category": "korea",
-      "name": "ArchHub MCP",
-      "repo": "chrisryugj/archhub-mcp",
-      "author": "chrisryugj",
-      "stars": 52,
-      "added_at": "2026-06-29",
-      "desc": "이 MCP 서버는 국토교통부 건축HUB의 건축물대장·건축인허가 데이터를 한 필지 종합카드나 동 단위 통계, 노후건축물 분석으로 조회합니다. URL만 등록하면 되는 원격 커넥터라 부동산·도시 데이터를 다루는 실무자가 바로 쓰기 좋습니다.",
-      "tags": [
-        "#building",
-        "#real-estate",
-        "#public-data",
-        "#mcp"
-      ],
-      "forks": 7
-    },
-    {
       "category": "harness",
       "name": "Casting",
       "repo": "airoasting/casting",
@@ -2522,6 +2121,356 @@
         "#search",
         "#korean",
         "#multi-channel"
+      ]
+    },
+    {
+      "category": "automation",
+      "name": "Agent Reach",
+      "repo": "Panniantong/Agent-Reach",
+      "author": "Panniantong",
+      "stars": 57304,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 AI 에이전트에게 인터넷을 읽는 눈을 달아줍니다. 트위터·레딧·유튜브·깃허브·RSS·일반 웹을 유료 API나 IP 차단 없이 한 줄 설치로 붙여, 소셜·영상·커뮤니티 내용을 직접 조회하고 요약하게 해줍니다.",
+      "tags": [
+        "#social-reader",
+        "#web-scraping",
+        "#multi-platform"
+      ]
+    },
+    {
+      "category": "automation",
+      "name": "BrowserAct Skills",
+      "repo": "browser-act/skills",
+      "author": "browser-act",
+      "stars": 4476,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 표준 도구가 막히는 사이트까지 에이전트가 브라우저로 도달하게 합니다. 스텔스 지문과 프록시로 봇 차단을 우회하고, 막히면 사용자가 실시간으로 넘겨받으며, 계정별 격리 브라우저로 여러 작업을 동시에 돌립니다.",
+      "tags": [
+        "#browser-automation",
+        "#anti-bot",
+        "#multi-account"
+      ]
+    },
+    {
+      "category": "automation",
+      "name": "Social Post",
+      "repo": "Hao0321/claude-skill-social-post",
+      "author": "Hao0321",
+      "stars": 552,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 사용자의 소셜 말투를 학습해 콘텐츠를 기획하고 페이스북·인스타그램·스레드·X에 자동으로 게시합니다. 14일 콘텐츠 캘린더와 실전 바이럴 사례 역설계를 담아 소셜 발행을 반복 가능한 루틴으로 만들어 줍니다.",
+      "tags": [
+        "#social-publishing",
+        "#content-calendar",
+        "#multi-platform"
+      ]
+    },
+    {
+      "category": "design",
+      "name": "Guizang PPT Skill",
+      "repo": "op7418/guizang-ppt-skill",
+      "author": "op7418",
+      "stars": 21597,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 글이나 마크다운을 단일 HTML 가로 넘김 프레젠테이션으로 만들어 줍니다. 전자잡지풍과 스위스 국제주의풍 두 비주얼 시스템에 슬라이드 썸네일과 SNS 커버 생성까지 한 번에 처리합니다.",
+      "tags": [
+        "#html-slides",
+        "#presentation",
+        "#visual-system"
+      ]
+    },
+    {
+      "category": "design",
+      "name": "Dashi PPT Skill",
+      "repo": "chuspeeism/dashi-ppt-skill",
+      "author": "chuspeeism",
+      "stars": 3700,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 문서를 12개 테마의 프레젠테이션으로 만들고 각 페이지를 브라우저에서 직접 고친 뒤 편집 가능한 PPTX와 PDF로 내보냅니다. 생성 후 수정이 어려운 HTML 덱 스킬의 한계를 편집 콘솔로 풀어낸 직장인용 도구입니다.",
+      "tags": [
+        "#presentation",
+        "#pptx-export",
+        "#editable"
+      ]
+    },
+    {
+      "category": "design",
+      "name": "Designer Skills Pack",
+      "repo": "Owl-Listener/designer-skills",
+      "author": "Owl-Listener",
+      "stars": 1846,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인 모음은 사용자 리서치부터 디자인 시스템, UI, 인터랙션, 비주얼 비평까지 디자인 실무 전 과정을 여러 스킬로 제공합니다. 여러 스킬을 묶어 한 번에 돌리는 커맨드가 함께 들어 있어 비개발자도 골라 쓰기 좋습니다.",
+      "tags": [
+        "#design-system",
+        "#ui-design",
+        "#plugin-pack"
+      ]
+    },
+    {
+      "category": "design",
+      "name": "Taste Skill",
+      "repo": "Leonxlnx/taste-skill",
+      "author": "Leonxlnx",
+      "stars": 64280,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 AI가 만드는 웹페이지의 전형적인 템플릿 느낌을 걷어내고 레이아웃, 타이포그래피, 모션, 여백의 완성도를 끌어올립니다. 웹·모바일·브랜드 키트용 레퍼런스 보드 이미지 생성 스킬도 함께 제공해 기획에서 구현까지 이어 줍니다.",
+      "tags": [
+        "#anti-slop",
+        "#ui-design",
+        "#typography"
+      ]
+    },
+    {
+      "category": "token",
+      "name": "ccusage",
+      "repo": "ccusage/ccusage",
+      "author": "ccusage",
+      "stars": 17216,
+      "added_at": "2026-07-17",
+      "desc": "이 도구는 Claude Code가 로컬에 남긴 기록을 분석해 오늘, 이번 주, 세션별로 토큰과 비용을 얼마나 썼는지 표로 보여줍니다. 명령 한 줄이면 어느 작업이 토큰을 태우는지 바로 드러나 사용량 관리의 출발점이 됩니다.",
+      "tags": [
+        "#token-usage",
+        "#cost-report",
+        "#cli"
+      ]
+    },
+    {
+      "category": "token",
+      "name": "Claude Code Usage Monitor",
+      "repo": "Maciek-roboblog/Claude-Code-Usage-Monitor",
+      "author": "Maciek-roboblog",
+      "stars": 8455,
+      "added_at": "2026-07-17",
+      "desc": "이 도구는 Claude Code 사용량을 실시간으로 지켜보다가 세션 한도가 언제 바닥날지 예측해 미리 경고합니다. 공식 한도 값과 자체 추정치를 구분해 표기하고, 지워지는 사용 이력을 로컬에 보존해 줍니다.",
+      "tags": [
+        "#usage-monitor",
+        "#real-time",
+        "#rate-limit"
+      ]
+    },
+    {
+      "category": "token",
+      "name": "Claude HUD",
+      "repo": "jarrodwatts/claude-hud",
+      "author": "jarrodwatts",
+      "stars": 26476,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인은 Claude Code 입력창 아래에 컨텍스트 사용량, 실행 중인 도구와 에이전트, 투두 진행 상황을 상시 표시하는 계기판입니다. 지금 무슨 일이 벌어지는지 보이지 않아 생기는 불안과 토큰 낭비를 설치 두 명령으로 해결합니다.",
+      "tags": [
+        "#context-hud",
+        "#status-line",
+        "#monitoring"
+      ]
+    },
+    {
+      "category": "korea",
+      "name": "Docufinder",
+      "repo": "chrisryugj/Docufinder",
+      "author": "chrisryugj",
+      "stars": 518,
+      "added_at": "2026-07-17",
+      "desc": "이 도구는 파일명을 몰라도 HWP·HWPX·PDF·오피스 문서의 본문 내용으로 순식간에 찾아주는 로컬 검색 엔진입니다. 오프라인에서 동작하며 문서 미리보기와 비교, 선택형 AI 질의응답까지 지원합니다.",
+      "tags": [
+        "#local-search",
+        "#hwp",
+        "#document"
+      ]
+    },
+    {
+      "category": "finance",
+      "name": "Finance Skills",
+      "repo": "himself65/finance-skills",
+      "author": "himself65",
+      "stars": 3021,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 컬렉션은 DCF·상대가치 밸류에이션, 어닝 프리뷰와 리캡, 애널리스트 추정치 분석, 옵션 페이오프 차트까지 종목 분석 전 과정을 표준 스킬로 묶었습니다. 무료 데이터 기반이라 API 키 없이 설치 당일부터 밸류에이션 리포트를 뽑을 수 있습니다.",
+      "tags": [
+        "#valuation",
+        "#equity-analysis",
+        "#dcf"
+      ]
+    },
+    {
+      "category": "finance",
+      "name": "Claude Trading Skills",
+      "repo": "tradermonty/claude-trading-skills",
+      "author": "tradermonty",
+      "stars": 2419,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 툴킷은 시간이 부족한 개인 투자자를 위해 데일리 시장 점검, 주간 포트폴리오 리뷰, 스윙 후보 스크리닝, 트레이드 저널링을 워크플로우 단위로 제공합니다. 매매 판단을 AI에 맡기기보다 리스크 관리와 기록·복기 습관을 구조화하는 데 초점을 둡니다.",
+      "tags": [
+        "#trading-journal",
+        "#risk-management",
+        "#portfolio"
+      ]
+    },
+    {
+      "category": "finance",
+      "name": "Binance Skills Hub",
+      "repo": "binance/binance-skills-hub",
+      "author": "binance",
+      "stars": 932,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 허브는 바이낸스가 직접 만든 오픈 스킬 모음으로, 토큰 검색·시세 조회·지갑 추적·스마트머니 시그널·DeFi 프로토콜 조회를 자연어로 처리합니다. 여러 에이전트에서 한 줄 설치로 크립토 시장 데이터에 접근할 수 있습니다.",
+      "tags": [
+        "#crypto",
+        "#on-chain",
+        "#market-data"
+      ]
+    },
+    {
+      "category": "finance",
+      "name": "Claude Equity Research",
+      "repo": "quant-sentiment-ai/claude-equity-research",
+      "author": "quant-sentiment-ai",
+      "stars": 641,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인은 티커 하나를 넣으면 투자 논지, 목표주가, 강세·기본·약세 시나리오와 옵션 플로우, 내부자 거래 동향까지 담은 기관 스타일 종목 리서치 리포트를 생성합니다. 실시간 웹 검색으로 데이터를 모으므로 별도 구독 없이 바로 쓸 수 있습니다.",
+      "tags": [
+        "#equity-research",
+        "#stock-report",
+        "#web-search"
+      ]
+    },
+    {
+      "category": "research",
+      "name": "Academic Research Skills",
+      "repo": "Imbad0202/academic-research-skills",
+      "author": "Imbad0202",
+      "stars": 38120,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 모음은 문헌 조사부터 집필, 리뷰, 수정, 최종화까지 학술 연구 전 과정을 사람이 주도하는 파이프라인으로 지원합니다. 인용 출처를 실제로 검증하는 감사 기능과 AI 연구 실패를 막는 무결성 게이트가 핵심 차별점입니다.",
+      "tags": [
+        "#academic-research",
+        "#citation-audit",
+        "#writing"
+      ]
+    },
+    {
+      "category": "research",
+      "name": "Claude Obsidian Second Brain",
+      "repo": "AgriciDaniel/claude-obsidian",
+      "author": "AgriciDaniel",
+      "stars": 9500,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인은 옵시디언 볼트를 스스로 정리하는 AI 세컨드 브레인으로 바꿔 줍니다. 자료를 넣으면 개체와 개념을 추출해 서로 연결하고, 모순을 표시하며 세션 사이에도 지식이 복리처럼 쌓이게 합니다.",
+      "tags": [
+        "#second-brain",
+        "#obsidian",
+        "#knowledge-graph"
+      ]
+    },
+    {
+      "category": "research",
+      "name": "LLM Wiki Agent",
+      "repo": "SamurAIGPT/llm-wiki-agent",
+      "author": "SamurAIGPT",
+      "stars": 3216,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 폴더에 문서를 넣고 지시하면 지식을 추출해 서로 연결된 위키를 만들어 줍니다. 소스가 쌓일수록 개체와 개념 페이지가 자동 생성되고 브라우저용 지식 그래프 시각화까지 함께 갱신됩니다.",
+      "tags": [
+        "#knowledge-wiki",
+        "#knowledge-graph",
+        "#ingest"
+      ]
+    },
+    {
+      "category": "research",
+      "name": "Claude Scholar",
+      "repo": "Galaxy-Dawn/claude-scholar",
+      "author": "Galaxy-Dawn",
+      "stars": 4649,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 모음은 논문 아이디어 발굴부터 문헌 관리, 실험, 저널 수준의 집필과 리뷰 대응까지 학술 연구 전주기를 지원합니다. 모든 주장을 증거 레코드로 관리하는 연구 계약 방식이 품질을 지키는 축입니다.",
+      "tags": [
+        "#academic-research",
+        "#zotero",
+        "#evidence"
+      ]
+    },
+    {
+      "category": "business",
+      "name": "Knowledge Work Plugins",
+      "repo": "anthropics/knowledge-work-plugins",
+      "author": "Anthropic",
+      "stars": 22788,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인 모음은 Anthropic이 자사 업무에서 쓰던 직무별 플러그인을 오픈소스로 공개한 것으로, 영업·법무·재무·마케팅·PM 등을 아우릅니다. 각 직무의 스킬과 슬래시 명령, 커넥터를 한 묶음으로 제공해 Claude를 그 직무 전문가처럼 움직이게 합니다.",
+      "tags": [
+        "#knowledge-work",
+        "#job-plugins",
+        "#official"
+      ]
+    },
+    {
+      "category": "business",
+      "name": "Product Manager Skills",
+      "repo": "deanpeters/Product-Manager-Skills",
+      "author": "deanpeters",
+      "stars": 5799,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 모음은 검증된 제품관리 프레임워크들을 담아 Claude가 PRD, 스테이크홀더 맵, 로드맵, 우선순위 결정을 전문가 수준으로 만들게 합니다. 각 프레임워크의 이유와 실패 패턴까지 설명해 실행과 학습을 함께 겨냥합니다.",
+      "tags": [
+        "#product-management",
+        "#prd",
+        "#framework"
+      ]
+    },
+    {
+      "category": "writing",
+      "name": "Baoyu Skills",
+      "repo": "JimLiu/baoyu-skills",
+      "author": "JimLiu",
+      "stars": 23724,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬 모음은 AI 콘텐츠 크리에이터 Baoyu가 실무에서 쓰는 콘텐츠 제작 스킬을 묶은 것입니다. 글 초안을 구조화된 아티클로 다듬고 커버 이미지와 본문 삽화, 카드 이미지 시리즈를 만들어 발행까지 이어 줍니다.",
+      "tags": [
+        "#content-creation",
+        "#illustration",
+        "#publishing"
+      ]
+    },
+    {
+      "category": "workflow",
+      "name": "Claudian",
+      "repo": "YishenTu/claudian",
+      "author": "YishenTu",
+      "stars": 14115,
+      "added_at": "2026-07-17",
+      "desc": "이 플러그인은 옵시디언 볼트 안에 Claude Code를 심어 노트 저장소를 에이전트의 작업 폴더로 만듭니다. 사이드바 채팅으로 노트를 검색하고 정리시키며, 선택한 문장을 단어 단위 diff 미리보기로 바로 고치는 인라인 편집이 핵심입니다.",
+      "tags": [
+        "#obsidian",
+        "#note-taking",
+        "#inline-edit"
+      ]
+    },
+    {
+      "category": "workflow",
+      "name": "Prompt Master",
+      "repo": "nidhinjs/prompt-master",
+      "author": "nidhinjs",
+      "stars": 10531,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 모호한 요청을 어떤 AI 도구에든 통하는 정밀한 프롬프트로 바꿔 재시도에 낭비되는 시간과 토큰을 줄입니다. 텍스트 모델부터 이미지·영상 생성기, 자동화 도구까지 대상에 맞춰 프롬프트를 설계해 줍니다.",
+      "tags": [
+        "#prompt-engineering",
+        "#prompt-optimization",
+        "#productivity"
+      ]
+    },
+    {
+      "category": "korea",
+      "name": "HWPX Skill",
+      "repo": "Canine89/hwpxskill",
+      "author": "Canine89",
+      "stars": 273,
+      "added_at": "2026-07-17",
+      "desc": "이 스킬은 한컴오피스 없이 HWPX 문서의 XML을 직접 다뤄 스타일과 표 구조를 유지한 채 내용을 편집하고, 공문서·보고서 템플릿으로 새 문서를 만듭니다. 페이지 수 변화나 구조 손상을 잡아내는 자동 검증까지 갖췄습니다.",
+      "tags": [
+        "#hwpx",
+        "#document-edit",
+        "#korea"
       ]
     }
   ]
